@@ -1,0 +1,38 @@
+project:
+  type: website
+  output-dir: _site
+  render:
+    - index.qmd
+    - sesiones/*.qmd
+    - fichas/*.qmd
+    - slides/*.qmd
+
+website:
+  title: "Modelos Supervisados"
+  favicon: assets/brand/logo-externado.png
+  navbar:
+    logo: assets/brand/logo-externado.png
+    left:
+      - href: index.qmd
+        text: Inicio
+      - text: Sesiones
+        menu:
+          - href: sesiones/sesion-03.qmd
+            text: "Sesión 3 · Regresión simple"
+          - href: sesiones/sesion-04.qmd
+            text: "Sesión 4 · Regresión múltiple"
+      - href: fichas/ficha-estudiante.qmd
+        text: Ficha del estudiante
+  page-footer:
+    left: "Universidad Externado de Colombia · Certificación en Ciencia de Datos"
+    right: "Evidencia → interpretación → decisión"
+
+format:
+  html:
+    theme: cosmo
+    css: assets/styles/course.css
+    toc: true
+    lang: es
+
+execute:
+  freeze: auto

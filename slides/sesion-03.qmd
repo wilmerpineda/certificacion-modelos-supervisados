@@ -1,0 +1,154 @@
+---
+title: "¿Una diferencia real ayuda a decidir?"
+subtitle: "P-value y regresión lineal simple"
+author: "Certificación en Ciencia de Datos"
+format:
+  revealjs:
+    theme: dark
+    css: ../assets/styles/course.css
+    slide-number: true
+    transition: fade
+    incremental: false
+    footer: "Universidad Externado de Colombia"
+---
+
+## La pregunta de hoy no termina en el cálculo
+
+::: {.r-fit-text}
+¿Qué decisión cambia después de mirar la evidencia?
+:::
+
+## Dos frases que parecen iguales
+
+> En la muestra, el estrato 4 obtuvo doce puntos más.
+
+> En la población, los promedios de los estratos son diferentes.
+
+La primera **describe**. La segunda necesita **inferencia**.
+
+## El p-value comienza suponiendo que no hay diferencia
+
+$$H_0:\mu_1=\mu_2$$
+
+Preguntamos qué tan compatibles son nuestros datos con ese punto de partida.
+
+## Un p-value no es un veredicto sobre la hipótesis
+
+No es:
+
+- la probabilidad de que $H_0$ sea verdadera;
+- el tamaño de la diferencia;
+- la importancia para el negocio;
+- evidencia de causalidad.
+
+## Primero la magnitud, después la sorpresa
+
+| Pregunta | Evidencia |
+|---|---|
+| ¿Cuánto difieren? | Diferencia de medias e intervalo |
+| ¿Podría ser azar muestral? | p-value |
+| ¿Importa? | Contexto y umbral de decisión |
+
+## La regla evita afirmar demasiado
+
+::: {.callout-note}
+Si `p < α`, los datos aportan evidencia contra $H_0$.
+
+Si `p ≥ α`, no tenemos evidencia suficiente para rechazarla.
+:::
+
+## No rechazar no significa demostrar igualdad
+
+Puede faltar evidencia porque:
+
+- la diferencia es pequeña;
+- la muestra es limitada;
+- existe mucha variación;
+- el diseño no permite verla con precisión.
+
+## Pausa de decisión
+
+Escriba dos frases:
+
+1. **Concluyo…**
+2. **No puedo concluir…**
+
+## Correlación y regresión responden preguntas distintas
+
+| Correlación | Regresión |
+|---|---|
+| ¿Qué tan alineadas están? | ¿Cuánto cambia el valor esperado? |
+| No tiene unidades | La pendiente conserva unidades |
+| Es simétrica | Distingue respuesta y predictor |
+
+## Una recta resume una relación promedio
+
+$$\widehat{Y}=\beta_0+\beta_1X$$
+
+La recta no promete que cada observación caiga sobre ella.
+
+## La pendiente es la frase de negocio
+
+::: {.callout-tip}
+Por cada unidad adicional de **X**, el valor esperado de **Y** cambia en $\beta_1$ unidades.
+:::
+
+## El intercepto puede vivir fuera del caso
+
+$\beta_0$ responde qué estima el modelo cuando $X=0$.
+
+Antes de interpretarlo, pregunte si cero es posible y relevante.
+
+## R² habla de variación descrita
+
+Un R² de 0,30 significa que la recta describe 30 % de la variación observada en $Y$.
+
+No significa 30 % de exactitud, causalidad ni probabilidad de acierto.
+
+## El p-value del coeficiente prueba otra hipótesis
+
+$$H_0:\beta_1=0$$
+
+Pregunta si los datos aportan evidencia de una asociación lineal poblacional distinta de cero.
+
+## Una relación significativa puede ser poco útil
+
+Con muestras grandes, efectos diminutos pueden producir p-values pequeños.
+
+La decisión necesita **signo + magnitud + incertidumbre + contexto**.
+
+## Antes de pulsar “calcular”
+
+Escriba:
+
+- el signo esperado;
+- una explicación posible;
+- una explicación alternativa;
+- qué decisión cambiaría.
+
+## Lea la salida en este orden
+
+1. Variables y filas utilizadas.
+2. Gráfico y posibles datos atípicos.
+3. Signo y magnitud de la pendiente.
+4. Intervalo de confianza y p-value.
+5. R² y limitaciones.
+
+## Su turno
+
+1. Use `puntaje_global` como respuesta.
+2. Elija un predictor numérico.
+3. Escriba una frase sin jerga.
+4. Estime un valor nuevo.
+5. Descargue la evidencia.
+
+## La recomendación completa tiene un freno
+
+> Observo → interpreto → recomendaría → vigilaría → no puedo concluir.
+
+## Cierre
+
+::: {.r-fit-text}
+El p-value ayuda a valorar evidencia. La pendiente ayuda a estimar. El contexto decide.
+:::
+

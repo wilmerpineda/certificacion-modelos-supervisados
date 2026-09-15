@@ -1,0 +1,61 @@
+---
+title: "Sesión 3 · Regresión lineal simple"
+subtitle: "Del p-value a una estimación útil"
+---
+
+## Resultado de aprendizaje
+
+Al finalizar, podrá interpretar una prueba t y una regresión simple para formular una recomendación en lenguaje de negocio, distinguiendo evidencia estadística, magnitud y causalidad.
+
+## Pregunta de apertura
+
+En la muestra ICFES, dos grupos obtienen promedios diferentes. Antes de decidir:
+
+1. ¿La diferencia podría ser variación de la muestra?
+2. ¿Cuántos puntos los separan?
+3. ¿La diferencia es importante para la decisión?
+4. ¿Qué información faltaría para hablar de causas?
+
+## El p-value en una frase
+
+El p-value responde: **si la hipótesis nula fuera cierta, qué tan compatibles serían estos datos —o unos más extremos— con esa hipótesis**.
+
+| Lectura | Formulación responsable |
+|---|---|
+| `p < α` | Los datos aportan evidencia contra la hipótesis nula. |
+| `p ≥ α` | Los datos no aportan evidencia suficiente para rechazarla. |
+| Cualquier p-value | No entrega la probabilidad de que la hipótesis sea verdadera. |
+
+::: {.warning-box}
+Un p-value pequeño no dice que la diferencia sea grande, importante ni causada por la variable de agrupación.
+:::
+
+## De correlación a regresión
+
+La correlación resume fuerza y dirección. La regresión agrega una unidad de interpretación:
+
+$$\widehat{Y}=\beta_0+\beta_1X$$
+
+- $\beta_0$: valor esperado de $Y$ cuando $X=0$; puede no tener sentido práctico.
+- $\beta_1$: cambio esperado en $Y$ por una unidad adicional de $X$.
+- $R^2$: proporción de variación observada descrita por el modelo lineal.
+- p-value de $\beta_1$: evidencia contra la hipótesis $H_0:\beta_1=0$.
+
+## Plantilla de interpretación
+
+::: {.decision-box}
+Por cada **[unidad]** adicional de **X**, el valor esperado de **Y** aumenta/disminuye en **[coeficiente] [unidades de Y]**. La evidencia estadística es **[suficiente/no suficiente]** al nivel elegido. Esto describe una asociación y no demuestra causalidad.
+:::
+
+## Actividad
+
+1. Abra el laboratorio y use la muestra ICFES.
+2. Compare dos grupos mediante prueba t.
+3. Ajuste una regresión simple con `puntaje_global` como respuesta.
+4. Escriba una frase sin jerga técnica.
+5. Descargue su evidencia HTML.
+
+## Cierre
+
+Una decisión defendible necesita tres cosas diferentes: **evidencia**, **magnitud** y **contexto**. Ninguna reemplaza a las demás.
+

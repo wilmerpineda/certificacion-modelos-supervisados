@@ -1,0 +1,146 @@
+---
+title: "Una variable rara vez cuenta toda la historia"
+subtitle: "Regresión múltiple y variables categóricas"
+author: "Certificación en Ciencia de Datos"
+format:
+  revealjs:
+    theme: dark
+    css: ../assets/styles/course.css
+    slide-number: true
+    transition: fade
+    incremental: false
+    footer: "Universidad Externado de Colombia"
+---
+
+## La relación simple puede mezclar explicaciones
+
+Si estrato e internet están relacionados, una regresión simple puede atribuir a una variable parte de la historia de la otra.
+
+## La regresión múltiple cambia la comparación
+
+$$\widehat{Y}=\beta_0+\beta_1X_1+\beta_2X_2+\cdots+\beta_pX_p$$
+
+Cada coeficiente se interpreta **manteniendo constantes las demás variables incluidas**.
+
+## “Manteniendo constante” no significa controlar el mundo
+
+El modelo solo considera las variables observadas e incluidas.
+
+No controla automáticamente calidad de medición, selección, variables omitidas ni causalidad.
+
+## Dos modelos pueden cambiar la historia de un coeficiente
+
+Compare el signo, magnitud e incertidumbre de `estrato_num`:
+
+- solo;
+- junto con tamaño del hogar;
+- junto con acceso a internet y tipo de colegio.
+
+## Más R² no garantiza mejor decisión
+
+R² nunca disminuye al agregar variables.
+
+R² ajustado penaliza, parcialmente, agregar variables que aportan poco.
+
+## Las categorías necesitan una comparación explícita
+
+Una palabra como `Sí` no entra directamente en la ecuación.
+
+Se representa mediante una variable indicadora con valores 0 y 1.
+
+## Una categoría queda como referencia
+
+| internet_casa | Indicador `Sí` |
+|---|---:|
+| No | 0 |
+| Sí | 1 |
+
+El coeficiente de `Sí` se lee frente a `No`.
+
+## Con k niveles usamos k − 1 indicadores
+
+Incluir todos los niveles y un intercepto repite información y hace imposible identificar coeficientes únicos.
+
+## Cambiar la referencia cambia la frase, no el modelo
+
+Comparar `Mañana` frente a `Tarde` o `Tarde` frente a `Mañana` invierte la perspectiva.
+
+Las predicciones permanecen iguales.
+
+## Plantilla para una variable numérica
+
+> Por cada unidad adicional de **X**, el valor esperado de **Y** cambia en **β** unidades, manteniendo constantes las demás variables.
+
+## Plantilla para una categoría
+
+> La categoría **A** presenta un valor esperado de **Y** que difiere en **β** unidades frente a **B**, manteniendo constantes las demás variables.
+
+## La prueba F mira el modelo como conjunto
+
+Contrasta si todos los coeficientes explicativos son cero simultáneamente.
+
+No sustituye la lectura de cada coeficiente ni la evaluación de utilidad.
+
+## Multicolinealidad: varias columnas cuentan casi lo mismo
+
+Consecuencias posibles:
+
+- errores estándar mayores;
+- coeficientes inestables;
+- signos que cambian;
+- dificultad para separar contribuciones.
+
+## El VIF es una alerta, no una orden
+
+| VIF | Lectura didáctica |
+|---:|---|
+| < 5 | Sin alerta importante |
+| 5–10 | Revisar redundancia y propósito |
+| ≥ 10 | Señal fuerte para investigar |
+
+## No elimine variables solo para “mejorar” el VIF
+
+Pregunte primero:
+
+- ¿la variable es necesaria para la pregunta?;
+- ¿representa otra dimensión conceptual?;
+- ¿la decisión cambia sin ella?;
+
+## Antes de ajustar
+
+Elija una variable y anticipe:
+
+- signo;
+- magnitud;
+- categoría de referencia;
+- explicación alternativa.
+
+## Lea la salida en este orden
+
+1. Codificación y referencia.
+2. R² ajustado y prueba global.
+3. Coeficientes con unidades.
+4. Intervalos y p-values.
+5. VIF y estabilidad.
+
+## Su turno
+
+Incluya:
+
+- dos predictores numéricos;
+- una variable categórica;
+- una referencia elegida conscientemente;
+- una predicción de perfil.
+
+## Una recomendación educativa responsable
+
+Use la estructura:
+
+> La evidencia sugiere… Esto podría justificar estudiar… Antes de intervenir verificaría… No puedo afirmar que…
+
+## Cierre
+
+::: {.r-fit-text}
+Un modelo múltiple vale por la calidad de sus comparaciones, no por la cantidad de variables.
+:::
+

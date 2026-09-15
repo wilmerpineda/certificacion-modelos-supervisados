@@ -1,0 +1,93 @@
+---
+title: "Guía docente · Sesiones 3 y 4"
+subtitle: "P-value y modelos lineales orientados a decisiones"
+format:
+  html:
+    toc: true
+    css: ../assets/styles/course.css
+---
+
+## Propósito
+
+Al terminar las dos sesiones, los participantes deben poder leer una salida estadística, convertir coeficientes en lenguaje organizacional y reconocer qué afirmaciones exceden la evidencia.
+
+## Sesión 3 · 240 minutos
+
+| Minutos | Actividad | Evidencia observable |
+|---:|---|---|
+| 0–15 | Diagnóstico de cuatro frases sobre p-value | Distinguen evidencia, probabilidad e importancia |
+| 15–40 | Repaso dialogado | Formulan $H_0$ y aplican `p < α` correctamente |
+| 40–70 | Demostración con ICFES | Leen diferencia, intervalo y p-value |
+| 70–95 | Trabajo en parejas | Escriben “concluyo / no puedo concluir” |
+| 95–110 | Discusión | Corrigen causalidad y dicotomización |
+| 110–125 | Pausa | — |
+| 125–145 | Correlación frente a regresión | Identifican la nueva pregunta |
+| 145–175 | Anatomía de la salida | Interpretan pendiente, intercepto, R² y p-value |
+| 175–200 | Demostración Streamlit | Siguen hipótesis → evidencia → lectura |
+| 200–225 | Análisis autónomo | Entregan frase de negocio |
+| 225–240 | Defensa breve | Vinculan métrica, decisión y límite |
+
+### Preguntas diagnósticas
+
+1. “p = 0,03 significa que hay 3 % de probabilidad de que $H_0$ sea cierta”. **Incorrecto.**
+2. “p = 0,20 demuestra que los grupos son iguales”. **Incorrecto.**
+3. “Un efecto puede ser significativo y poco importante”. **Correcto.**
+4. “Una diferencia significativa demuestra causalidad”. **Incorrecto.**
+
+### Caso sugerido
+
+Compare `puntaje_global` según `internet_casa`. Antes de ejecutar, solicite al menos dos mecanismos alternativos: recursos del hogar, localización, características institucionales o selección. La discusión no debe intentar decidir cuál es verdadero con estos datos.
+
+### Respuesta esperada de regresión simple
+
+La frase debe contener predictor, respuesta, cambio esperado y unidades. Debe decir “se asocia” o “el modelo estima”, no “produce”, “genera” ni “causa”. Un p-value pequeño se comenta junto con la magnitud y el R².
+
+## Sesión 4 · 240 minutos
+
+| Minutos | Actividad | Evidencia observable |
+|---:|---|---|
+| 0–20 | Recuperación de regresión simple | Interpretan una pendiente sin fórmula |
+| 20–45 | Variables omitidas | Proponen explicaciones alternativas |
+| 45–75 | Coeficientes condicionados | Usan “manteniendo constantes…” |
+| 75–105 | Modelo múltiple ICFES | Comparan coeficientes entre modelos |
+| 105–120 | Decisión intermedia | Distinguen R² de R² ajustado |
+| 120–135 | Pausa | — |
+| 135–165 | Indicadores construidos a mano | Codifican $k-1$ columnas |
+| 165–190 | Referencias | Interpretan una categoría correctamente |
+| 190–215 | VIF | Investigan redundancia sin regla automática |
+| 215–235 | Perfil y recomendación | Predicen y formulan política educativa |
+| 235–240 | Salida | Declaran una limitación causal |
+
+### Secuencia recomendada en ICFES
+
+1. Modelo simple: `puntaje_global ~ estrato_num`.
+2. Agregar `personas_hogar_num`.
+3. Agregar `internet_casa`, con `No` como referencia.
+4. Agregar `tipo_colegio`, con `Público` como referencia.
+5. Comparar el coeficiente de estrato, R² ajustado y VIF.
+
+### Errores que requieren intervención
+
+- Interpretar el intercepto sin comprobar si el perfil cero existe.
+- Decir que R² es porcentaje de exactitud.
+- Omitir la referencia de una categoría.
+- Interpretar un coeficiente múltiple como relación sin condicionar.
+- Eliminar variables solo porque VIF supera un umbral.
+- Recomendar intervención causal a partir de asociación transversal.
+
+## Criterio de logro
+
+Una respuesta satisfactoria contiene:
+
+1. evidencia numérica pertinente;
+2. magnitud con unidades;
+3. comparación o condición correcta;
+4. decisión coherente;
+5. límite explícito.
+
+La calidad del código no forma parte del criterio principal. El panel de Python funciona como ampliación voluntaria.
+
+## Plan de contingencia
+
+Si falla internet, ejecute Streamlit en el equipo docente y comparta la pantalla. Las fichas permiten completar la interpretación con capturas de Excel. Si un archivo falla, use `Muestra_ICFES_5000.xlsx` precargado.
+

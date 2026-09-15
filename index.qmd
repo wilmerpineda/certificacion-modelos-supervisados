@@ -1,0 +1,45 @@
+---
+title: "Modelos Supervisados"
+subtitle: "Evidencia, interpretación y decisiones"
+page-layout: full
+---
+
+::: {.hero-course}
+<p class="eyebrow">Certificación en Ciencia de Datos</p>
+
+# Los números no toman la decisión por usted
+
+Este espacio conecta una pregunta organizacional con una salida estadística y termina en una recomendación que reconoce sus límites.
+
+[Abrir el laboratorio interactivo](http://localhost:8501){.button-link target="_blank"}
+:::
+
+## El recorrido
+
+| Momento | Pregunta que guía | Evidencia principal | Entregable |
+|---|---|---|---|
+| Repaso | ¿La diferencia podría explicarse por azar? | Prueba t y p-value | Concluyo / no puedo concluir |
+| Sesión 3 | ¿Cuánto cambia el resultado esperado? | Pendiente, R² y significancia | Frase de negocio |
+| Sesión 4 | ¿Qué cambia al considerar varias explicaciones? | Coeficientes, referencias y VIF | Recomendación educativa |
+
+::: {.decision-box}
+**Regla transversal:** observe → interprete → recomiende → declare lo que no puede concluir.
+:::
+
+## Materiales
+
+- [Sesión 3 · Regresión simple](sesiones/sesion-03.qmd)
+- [Sesión 4 · Regresión múltiple y variables categóricas](sesiones/sesion-04.qmd)
+- [Ficha de trabajo del estudiante](fichas/ficha-estudiante.qmd)
+- [Diapositivas de la sesión 3](slides/sesion-03.qmd)
+- [Diapositivas de la sesión 4](slides/sesion-04.qmd)
+
+## Antes de cargar datos
+
+::: {.warning-box}
+La aplicación pública procesa archivos durante la sesión, pero no debe recibir nombres, documentos de identidad ni información confidencial. Use únicamente datos anonimizados.
+:::
+
+## Para profundizar
+
+Cada resultado de la aplicación incluye un panel con el código Python que lo reproduce. Consultar el código es opcional: la actividad se evalúa por la calidad de la interpretación y la decisión, no por programar el modelo.

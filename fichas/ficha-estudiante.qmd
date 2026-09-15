@@ -1,0 +1,81 @@
+---
+title: "Ficha de trabajo · Evidencia a decisión"
+subtitle: "Sesiones 3 y 4"
+format:
+  html:
+    toc: true
+    css: ../assets/styles/course.css
+---
+
+## Identificación de la pregunta
+
+- Pregunta organizacional:
+- Variable respuesta:
+- Decisión que se quiere apoyar:
+- Fuente de datos:
+
+## Ronda 1 · Prueba t
+
+| Campo | Respuesta |
+|---|---|
+| Variable numérica | |
+| Grupos comparados | |
+| Hipótesis nula | |
+| Diferencia esperada | |
+| Diferencia observada | |
+| p-value | |
+| Concluyo | |
+| No puedo concluir | |
+
+### Autoverificación
+
+- [ ] Nombré ambos grupos.
+- [ ] Informé dirección y magnitud.
+- [ ] No dije que el p-value es la probabilidad de que la hipótesis sea cierta.
+- [ ] Separé significancia de importancia práctica.
+- [ ] Evité afirmar causalidad.
+
+## Ronda 2 · Regresión simple
+
+| Campo | Respuesta |
+|---|---|
+| Respuesta Y | |
+| Predictor X | |
+| Signo esperado | |
+| Pendiente | |
+| Unidades de la pendiente | |
+| p-value | |
+| R² | |
+| Frase de negocio | |
+| Limitación | |
+
+## Ronda 3 · Regresión múltiple
+
+| Campo | Respuesta |
+|---|---|
+| Predictores numéricos | |
+| Predictores categóricos | |
+| Categorías de referencia | |
+| R² ajustado | |
+| p-value global | |
+| Mayor VIF observado | |
+
+### Interprete dos coeficientes
+
+1. Variable numérica:
+2. Categoría frente a su referencia:
+
+### Perfil y decisión
+
+- Perfil para predecir:
+- Valor esperado:
+- Recomendación:
+- Evidencia adicional que solicitaría:
+- Algo que no puede concluir:
+
+## Entrega
+
+Adjunte el HTML descargado desde la aplicación y responda:
+
+> ¿Qué decisión mantendría después de ver el modelo y cuál cambiaría? Justifique con una magnitud y una limitación.
+

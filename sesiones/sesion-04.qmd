@@ -1,0 +1,64 @@
+---
+title: "Sesión 4 · Regresión múltiple y variables categóricas"
+subtitle: "Comparaciones condicionadas y categorías de referencia"
+---
+
+## Resultado de aprendizaje
+
+Construirá un modelo con varias explicaciones, hará visible la codificación de categorías e interpretará coeficientes condicionados para formular una recomendación educativa responsable.
+
+## ¿Por qué varias variables?
+
+Una relación simple puede mezclar historias distintas. La regresión múltiple pregunta por la asociación de una variable con la respuesta **manteniendo constantes las demás variables incluidas**.
+
+$$\widehat{Y}=\beta_0+\beta_1X_1+\cdots+\beta_pX_p$$
+
+Esto no convierte automáticamente el modelo en causal: solo modifica la comparación estadística.
+
+## Variables categóricas
+
+Si `internet_casa` tiene niveles `No` y `Sí`, y `No` es la referencia:
+
+| internet_casa | Indicador `internet_casa = Sí` |
+|---|---:|
+| No | 0 |
+| Sí | 1 |
+
+El coeficiente compara `Sí` con `No`, manteniendo constantes las demás variables. Con $k$ categorías se crean $k-1$ indicadores cuando el modelo contiene intercepto.
+
+::: {.warning-box}
+Cambiar la referencia cambia la redacción de la comparación, pero no las predicciones del modelo.
+:::
+
+## Leer la salida
+
+| Elemento | Pregunta |
+|---|---|
+| Coeficiente numérico | ¿Cuánto cambia el resultado por una unidad adicional? |
+| Coeficiente categórico | ¿Cuánto difiere esta categoría frente a la referencia? |
+| p-value | ¿Hay evidencia contra un coeficiente poblacional igual a cero? |
+| R² ajustado | ¿Cuánta variación describe, penalizando variables adicionales? |
+| Prueba F | ¿El conjunto de predictores aporta evidencia global? |
+
+## Multicolinealidad
+
+Cuando dos predictores cuentan casi la misma historia, sus coeficientes pueden volverse inestables. El VIF es una señal para investigar:
+
+- menor que 5: sin alerta importante bajo la regla práctica del laboratorio;
+- entre 5 y 10: revisar redundancia y propósito;
+- 10 o más: señal fuerte, sin convertirla en eliminación automática.
+
+## Actividad
+
+1. Use `puntaje_global` como respuesta.
+2. Incluya al menos dos variables numéricas.
+3. Incluya una variable categórica y elija su referencia.
+4. Interprete un coeficiente numérico y uno categórico.
+5. Revise R² ajustado y VIF.
+6. Prediga un perfil y formule una recomendación de política educativa.
+7. Declare una limitación causal y descargue la evidencia.
+
+## Cierre
+
+Un modelo múltiple no es mejor porque tenga más variables. Es mejor si responde mejor la pregunta, usa comparaciones comprensibles y sostiene una decisión que reconoce sus límites.
+

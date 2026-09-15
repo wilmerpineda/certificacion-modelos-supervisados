@@ -1,0 +1,16 @@
+.quarto/
+.quarto-cache/
+_site/
+material-docente/
+__pycache__/
+.pytest_cache/
+.venv/
+.streamlit/secrets.toml
+data/private/
+*.pyc
+*.log
+
+
+
+/.quarto/
+**/*.quarto_ipynb
