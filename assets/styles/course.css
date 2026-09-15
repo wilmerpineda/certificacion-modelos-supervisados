@@ -1,0 +1,100 @@
+:root {
+  --navy: #0b1220;
+  --navy-2: #111c31;
+  --ink: #172029;
+  --muted: #53616d;
+  --paper: #f4efe6;
+  --surface: #fffaf2;
+  --teal: #0f766e;
+  --teal-bright: #2dd4bf;
+  --amber: #fbbf24;
+  --ochre: #b45309;
+  --coral: #fb7185;
+  --line: #d8c7a4;
+}
+
+body {
+  color: var(--ink);
+  background: var(--paper);
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  line-height: 1.55;
+}
+
+.navbar {
+  background: var(--navy) !important;
+  border-bottom: 3px solid var(--amber);
+}
+
+.navbar-logo {
+  max-height: 42px;
+  background: #fffaf2;
+  border-radius: 7px;
+  padding: 3px 8px;
+}
+
+h1, h2, h3 { letter-spacing: -.02em; line-height: 1.16; }
+h1 { color: var(--navy); font-weight: 800; }
+h2 { color: var(--teal); border-bottom: 2px solid var(--line); padding-bottom: .35rem; }
+h3 { color: var(--ochre); }
+
+.hero-course {
+  background: radial-gradient(circle at 92% 10%, rgba(45, 212, 191, .18), transparent 26%), var(--navy);
+  color: #f8fafc;
+  border: 1px solid rgba(251, 191, 36, .35);
+  border-radius: 20px;
+  padding: clamp(1.6rem, 4vw, 3.2rem);
+  margin: 1.2rem 0 2rem;
+  box-shadow: 0 20px 50px rgba(11, 18, 32, .18);
+}
+
+.hero-course h1, .hero-course h2 { color: #fff7e8; border: 0; }
+.hero-course p { color: #cbd5e1; max-width: 68ch; font-size: 1.08rem; }
+
+.eyebrow { color: var(--amber) !important; font-size: .82rem !important; font-weight: 800; text-transform: uppercase; }
+
+.decision-box, .evidence-box {
+  border-radius: 14px;
+  padding: 1rem 1.2rem;
+  margin: 1rem 0;
+}
+.decision-box { background: #eef8f6; border-left: 5px solid var(--teal); }
+.evidence-box { background: var(--surface); border: 1px solid var(--line); }
+.warning-box { background: #fff1f2; border-left: 5px solid var(--coral); padding: 1rem 1.2rem; }
+
+table { background: white; border: 1px solid var(--line); }
+thead { background: #e9ded0; }
+th { color: var(--navy); }
+
+.btn-primary, .button-link {
+  background: var(--teal);
+  color: white !important;
+  border-radius: 10px;
+  padding: .7rem 1rem;
+  text-decoration: none;
+  font-weight: 750;
+  display: inline-block;
+}
+
+.page-footer { background: var(--navy); color: #cbd5e1; }
+
+/* RevealJS: continuidad oscura con acentos institucionales */
+.reveal {
+  background: radial-gradient(circle at 90% 8%, rgba(45, 212, 191, .13), transparent 25%), var(--navy);
+  color: #f1f5f9;
+  font-family: "Segoe UI", system-ui, sans-serif;
+}
+.reveal .slides { text-align: left; }
+.reveal h1, .reveal h2, .reveal h3 { color: #fff7e8; text-transform: none; }
+.reveal h2 { border-bottom: 3px solid var(--amber); display: inline-block; padding-bottom: .25em; }
+.reveal strong { color: var(--teal-bright); }
+.reveal .slides section { padding: 36px 54px; }
+.reveal .slide-number { color: #94a3b8; }
+.reveal table { background: #fffaf2; color: var(--ink); border-radius: 10px; overflow: hidden; }
+.reveal th { background: #e9ded0; }
+.reveal code { color: #a3e635; }
+.reveal .callout { color: var(--ink); }
+
+@media (max-width: 700px) {
+  .hero-course { border-radius: 14px; }
+  table { font-size: .86rem; }
+}

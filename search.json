@@ -1,0 +1,471 @@
+[
+  {
+    "objectID": "slides/sesion-04.html#la-relación-simple-puede-mezclar-explicaciones",
+    "href": "slides/sesion-04.html#la-relación-simple-puede-mezclar-explicaciones",
+    "title": "Una variable rara vez cuenta toda la historia",
+    "section": "La relación simple puede mezclar explicaciones",
+    "text": "La relación simple puede mezclar explicaciones\nSi estrato e internet están relacionados, una regresión simple puede atribuir a una variable parte de la historia de la otra."
+  },
+  {
+    "objectID": "slides/sesion-04.html#la-regresión-múltiple-cambia-la-comparación",
+    "href": "slides/sesion-04.html#la-regresión-múltiple-cambia-la-comparación",
+    "title": "Una variable rara vez cuenta toda la historia",
+    "section": "La regresión múltiple cambia la comparación",
+    "text": "La regresión múltiple cambia la comparación\n\\[\\widehat{Y}=\\beta_0+\\beta_1X_1+\\beta_2X_2+\\cdots+\\beta_pX_p\\]\nCada coeficiente se interpreta manteniendo constantes las demás variables incluidas."
+  },
+  {
+    "objectID": "slides/sesion-04.html#manteniendo-constante-no-significa-controlar-el-mundo",
+    "href": "slides/sesion-04.html#manteniendo-constante-no-significa-controlar-el-mundo",
+    "title": "Una variable rara vez cuenta toda la historia",
+    "section": "“Manteniendo constante” no significa controlar el mundo",
+    "text": "“Manteniendo constante” no significa controlar el mundo\nEl modelo solo considera las variables observadas e incluidas.\nNo controla automáticamente calidad de medición, selección, variables omitidas ni causalidad."
+  },
+  {
+    "objectID": "slides/sesion-04.html#dos-modelos-pueden-cambiar-la-historia-de-un-coeficiente",
+    "href": "slides/sesion-04.html#dos-modelos-pueden-cambiar-la-historia-de-un-coeficiente",
+    "title": "Una variable rara vez cuenta toda la historia",
+    "section": "Dos modelos pueden cambiar la historia de un coeficiente",
+    "text": "Dos modelos pueden cambiar la historia de un coeficiente\nCompare el signo, magnitud e incertidumbre de estrato_num:\n\nsolo;\njunto con tamaño del hogar;\njunto con acceso a internet y tipo de colegio."
+  },
+  {
+    "objectID": "slides/sesion-04.html#más-r²-no-garantiza-mejor-decisión",
+    "href": "slides/sesion-04.html#más-r²-no-garantiza-mejor-decisión",
+    "title": "Una variable rara vez cuenta toda la historia",
+    "section": "Más R² no garantiza mejor decisión",
+    "text": "Más R² no garantiza mejor decisión\nR² nunca disminuye al agregar variables.\nR² ajustado penaliza, parcialmente, agregar variables que aportan poco."
+  },
+  {
+    "objectID": "slides/sesion-04.html#las-categorías-necesitan-una-comparación-explícita",
+    "href": "slides/sesion-04.html#las-categorías-necesitan-una-comparación-explícita",
+    "title": "Una variable rara vez cuenta toda la historia",
+    "section": "Las categorías necesitan una comparación explícita",
+    "text": "Las categorías necesitan una comparación explícita\nUna palabra como Sí no entra directamente en la ecuación.\nSe representa mediante una variable indicadora con valores 0 y 1."
+  },
+  {
+    "objectID": "slides/sesion-04.html#una-categoría-queda-como-referencia",
+    "href": "slides/sesion-04.html#una-categoría-queda-como-referencia",
+    "title": "Una variable rara vez cuenta toda la historia",
+    "section": "Una categoría queda como referencia",
+    "text": "Una categoría queda como referencia\n\n\n\ninternet_casa\nIndicador Sí\n\n\n\n\nNo\n0\n\n\nSí\n1\n\n\n\nEl coeficiente de Sí se lee frente a No."
+  },
+  {
+    "objectID": "slides/sesion-04.html#con-k-niveles-usamos-k-1-indicadores",
+    "href": "slides/sesion-04.html#con-k-niveles-usamos-k-1-indicadores",
+    "title": "Una variable rara vez cuenta toda la historia",
+    "section": "Con k niveles usamos k − 1 indicadores",
+    "text": "Con k niveles usamos k − 1 indicadores\nIncluir todos los niveles y un intercepto repite información y hace imposible identificar coeficientes únicos."
+  },
+  {
+    "objectID": "slides/sesion-04.html#cambiar-la-referencia-cambia-la-frase-no-el-modelo",
+    "href": "slides/sesion-04.html#cambiar-la-referencia-cambia-la-frase-no-el-modelo",
+    "title": "Una variable rara vez cuenta toda la historia",
+    "section": "Cambiar la referencia cambia la frase, no el modelo",
+    "text": "Cambiar la referencia cambia la frase, no el modelo\nComparar Mañana frente a Tarde o Tarde frente a Mañana invierte la perspectiva.\nLas predicciones permanecen iguales."
+  },
+  {
+    "objectID": "slides/sesion-04.html#plantilla-para-una-variable-numérica",
+    "href": "slides/sesion-04.html#plantilla-para-una-variable-numérica",
+    "title": "Una variable rara vez cuenta toda la historia",
+    "section": "Plantilla para una variable numérica",
+    "text": "Plantilla para una variable numérica\n\nPor cada unidad adicional de X, el valor esperado de Y cambia en β unidades, manteniendo constantes las demás variables."
+  },
+  {
+    "objectID": "slides/sesion-04.html#plantilla-para-una-categoría",
+    "href": "slides/sesion-04.html#plantilla-para-una-categoría",
+    "title": "Una variable rara vez cuenta toda la historia",
+    "section": "Plantilla para una categoría",
+    "text": "Plantilla para una categoría\n\nLa categoría A presenta un valor esperado de Y que difiere en β unidades frente a B, manteniendo constantes las demás variables."
+  },
+  {
+    "objectID": "slides/sesion-04.html#la-prueba-f-mira-el-modelo-como-conjunto",
+    "href": "slides/sesion-04.html#la-prueba-f-mira-el-modelo-como-conjunto",
+    "title": "Una variable rara vez cuenta toda la historia",
+    "section": "La prueba F mira el modelo como conjunto",
+    "text": "La prueba F mira el modelo como conjunto\nContrasta si todos los coeficientes explicativos son cero simultáneamente.\nNo sustituye la lectura de cada coeficiente ni la evaluación de utilidad."
+  },
+  {
+    "objectID": "slides/sesion-04.html#multicolinealidad-varias-columnas-cuentan-casi-lo-mismo",
+    "href": "slides/sesion-04.html#multicolinealidad-varias-columnas-cuentan-casi-lo-mismo",
+    "title": "Una variable rara vez cuenta toda la historia",
+    "section": "Multicolinealidad: varias columnas cuentan casi lo mismo",
+    "text": "Multicolinealidad: varias columnas cuentan casi lo mismo\nConsecuencias posibles:\n\nerrores estándar mayores;\ncoeficientes inestables;\nsignos que cambian;\ndificultad para separar contribuciones."
+  },
+  {
+    "objectID": "slides/sesion-04.html#el-vif-es-una-alerta-no-una-orden",
+    "href": "slides/sesion-04.html#el-vif-es-una-alerta-no-una-orden",
+    "title": "Una variable rara vez cuenta toda la historia",
+    "section": "El VIF es una alerta, no una orden",
+    "text": "El VIF es una alerta, no una orden\n\n\n\nVIF\nLectura didáctica\n\n\n\n\n&lt; 5\nSin alerta importante\n\n\n5–10\nRevisar redundancia y propósito\n\n\n≥ 10\nSeñal fuerte para investigar"
+  },
+  {
+    "objectID": "slides/sesion-04.html#no-elimine-variables-solo-para-mejorar-el-vif",
+    "href": "slides/sesion-04.html#no-elimine-variables-solo-para-mejorar-el-vif",
+    "title": "Una variable rara vez cuenta toda la historia",
+    "section": "No elimine variables solo para “mejorar” el VIF",
+    "text": "No elimine variables solo para “mejorar” el VIF\nPregunte primero:\n\n¿la variable es necesaria para la pregunta?;\n¿representa otra dimensión conceptual?;\n¿la decisión cambia sin ella?;"
+  },
+  {
+    "objectID": "slides/sesion-04.html#antes-de-ajustar",
+    "href": "slides/sesion-04.html#antes-de-ajustar",
+    "title": "Una variable rara vez cuenta toda la historia",
+    "section": "Antes de ajustar",
+    "text": "Antes de ajustar\nElija una variable y anticipe:\n\nsigno;\nmagnitud;\ncategoría de referencia;\nexplicación alternativa."
+  },
+  {
+    "objectID": "slides/sesion-04.html#lea-la-salida-en-este-orden",
+    "href": "slides/sesion-04.html#lea-la-salida-en-este-orden",
+    "title": "Una variable rara vez cuenta toda la historia",
+    "section": "Lea la salida en este orden",
+    "text": "Lea la salida en este orden\n\nCodificación y referencia.\nR² ajustado y prueba global.\nCoeficientes con unidades.\nIntervalos y p-values.\nVIF y estabilidad."
+  },
+  {
+    "objectID": "slides/sesion-04.html#su-turno",
+    "href": "slides/sesion-04.html#su-turno",
+    "title": "Una variable rara vez cuenta toda la historia",
+    "section": "Su turno",
+    "text": "Su turno\nIncluya:\n\ndos predictores numéricos;\nuna variable categórica;\nuna referencia elegida conscientemente;\nuna predicción de perfil."
+  },
+  {
+    "objectID": "slides/sesion-04.html#una-recomendación-educativa-responsable",
+    "href": "slides/sesion-04.html#una-recomendación-educativa-responsable",
+    "title": "Una variable rara vez cuenta toda la historia",
+    "section": "Una recomendación educativa responsable",
+    "text": "Una recomendación educativa responsable\nUse la estructura:\n\nLa evidencia sugiere… Esto podría justificar estudiar… Antes de intervenir verificaría… No puedo afirmar que…"
+  },
+  {
+    "objectID": "slides/sesion-04.html#cierre",
+    "href": "slides/sesion-04.html#cierre",
+    "title": "Una variable rara vez cuenta toda la historia",
+    "section": "Cierre",
+    "text": "Cierre\n\nUn modelo múltiple vale por la calidad de sus comparaciones, no por la cantidad de variables."
+  },
+  {
+    "objectID": "fichas/ficha-estudiante.html",
+    "href": "fichas/ficha-estudiante.html",
+    "title": "Ficha de trabajo · Evidencia a decisión",
+    "section": "",
+    "text": "Pregunta organizacional:\nVariable respuesta:\nDecisión que se quiere apoyar:\nFuente de datos:"
+  },
+  {
+    "objectID": "fichas/ficha-estudiante.html#identificación-de-la-pregunta",
+    "href": "fichas/ficha-estudiante.html#identificación-de-la-pregunta",
+    "title": "Ficha de trabajo · Evidencia a decisión",
+    "section": "",
+    "text": "Pregunta organizacional:\nVariable respuesta:\nDecisión que se quiere apoyar:\nFuente de datos:"
+  },
+  {
+    "objectID": "fichas/ficha-estudiante.html#ronda-1-prueba-t",
+    "href": "fichas/ficha-estudiante.html#ronda-1-prueba-t",
+    "title": "Ficha de trabajo · Evidencia a decisión",
+    "section": "Ronda 1 · Prueba t",
+    "text": "Ronda 1 · Prueba t\n\n\n\nCampo\nRespuesta\n\n\n\n\nVariable numérica\n\n\n\nGrupos comparados\n\n\n\nHipótesis nula\n\n\n\nDiferencia esperada\n\n\n\nDiferencia observada\n\n\n\np-value\n\n\n\nConcluyo\n\n\n\nNo puedo concluir\n\n\n\n\n\nAutoverificación\n\nNombré ambos grupos.\nInformé dirección y magnitud.\nNo dije que el p-value es la probabilidad de que la hipótesis sea cierta.\nSeparé significancia de importancia práctica.\nEvité afirmar causalidad."
+  },
+  {
+    "objectID": "fichas/ficha-estudiante.html#ronda-2-regresión-simple",
+    "href": "fichas/ficha-estudiante.html#ronda-2-regresión-simple",
+    "title": "Ficha de trabajo · Evidencia a decisión",
+    "section": "Ronda 2 · Regresión simple",
+    "text": "Ronda 2 · Regresión simple\n\n\n\nCampo\nRespuesta\n\n\n\n\nRespuesta Y\n\n\n\nPredictor X\n\n\n\nSigno esperado\n\n\n\nPendiente\n\n\n\nUnidades de la pendiente\n\n\n\np-value\n\n\n\nR²\n\n\n\nFrase de negocio\n\n\n\nLimitación"
+  },
+  {
+    "objectID": "fichas/ficha-estudiante.html#ronda-3-regresión-múltiple",
+    "href": "fichas/ficha-estudiante.html#ronda-3-regresión-múltiple",
+    "title": "Ficha de trabajo · Evidencia a decisión",
+    "section": "Ronda 3 · Regresión múltiple",
+    "text": "Ronda 3 · Regresión múltiple\n\n\n\nCampo\nRespuesta\n\n\n\n\nPredictores numéricos\n\n\n\nPredictores categóricos\n\n\n\nCategorías de referencia\n\n\n\nR² ajustado\n\n\n\np-value global\n\n\n\nMayor VIF observado\n\n\n\n\n\nInterprete dos coeficientes\n\nVariable numérica:\nCategoría frente a su referencia:\n\n\n\nPerfil y decisión\n\nPerfil para predecir:\nValor esperado:\nRecomendación:\nEvidencia adicional que solicitaría:\nAlgo que no puede concluir:"
+  },
+  {
+    "objectID": "fichas/ficha-estudiante.html#entrega",
+    "href": "fichas/ficha-estudiante.html#entrega",
+    "title": "Ficha de trabajo · Evidencia a decisión",
+    "section": "Entrega",
+    "text": "Entrega\nAdjunte el HTML descargado desde la aplicación y responda:\n\n¿Qué decisión mantendría después de ver el modelo y cuál cambiaría? Justifique con una magnitud y una limitación."
+  },
+  {
+    "objectID": "sesiones/sesion-03.html",
+    "href": "sesiones/sesion-03.html",
+    "title": "Sesión 3 · Regresión lineal simple",
+    "section": "",
+    "text": "Al finalizar, podrá interpretar una prueba t y una regresión simple para formular una recomendación en lenguaje de negocio, distinguiendo evidencia estadística, magnitud y causalidad."
+  },
+  {
+    "objectID": "sesiones/sesion-03.html#resultado-de-aprendizaje",
+    "href": "sesiones/sesion-03.html#resultado-de-aprendizaje",
+    "title": "Sesión 3 · Regresión lineal simple",
+    "section": "",
+    "text": "Al finalizar, podrá interpretar una prueba t y una regresión simple para formular una recomendación en lenguaje de negocio, distinguiendo evidencia estadística, magnitud y causalidad."
+  },
+  {
+    "objectID": "sesiones/sesion-03.html#pregunta-de-apertura",
+    "href": "sesiones/sesion-03.html#pregunta-de-apertura",
+    "title": "Sesión 3 · Regresión lineal simple",
+    "section": "Pregunta de apertura",
+    "text": "Pregunta de apertura\nEn la muestra ICFES, dos grupos obtienen promedios diferentes. Antes de decidir:\n\n¿La diferencia podría ser variación de la muestra?\n¿Cuántos puntos los separan?\n¿La diferencia es importante para la decisión?\n¿Qué información faltaría para hablar de causas?"
+  },
+  {
+    "objectID": "sesiones/sesion-03.html#el-p-value-en-una-frase",
+    "href": "sesiones/sesion-03.html#el-p-value-en-una-frase",
+    "title": "Sesión 3 · Regresión lineal simple",
+    "section": "El p-value en una frase",
+    "text": "El p-value en una frase\nEl p-value responde: si la hipótesis nula fuera cierta, qué tan compatibles serían estos datos —o unos más extremos— con esa hipótesis.\n\n\n\n\n\n\n\nLectura\nFormulación responsable\n\n\n\n\np &lt; α\nLos datos aportan evidencia contra la hipótesis nula.\n\n\np ≥ α\nLos datos no aportan evidencia suficiente para rechazarla.\n\n\nCualquier p-value\nNo entrega la probabilidad de que la hipótesis sea verdadera.\n\n\n\n\nUn p-value pequeño no dice que la diferencia sea grande, importante ni causada por la variable de agrupación."
+  },
+  {
+    "objectID": "sesiones/sesion-03.html#de-correlación-a-regresión",
+    "href": "sesiones/sesion-03.html#de-correlación-a-regresión",
+    "title": "Sesión 3 · Regresión lineal simple",
+    "section": "De correlación a regresión",
+    "text": "De correlación a regresión\nLa correlación resume fuerza y dirección. La regresión agrega una unidad de interpretación:\n\\[\\widehat{Y}=\\beta_0+\\beta_1X\\]\n\n\\(\\beta_0\\): valor esperado de \\(Y\\) cuando \\(X=0\\); puede no tener sentido práctico.\n\\(\\beta_1\\): cambio esperado en \\(Y\\) por una unidad adicional de \\(X\\).\n\\(R^2\\): proporción de variación observada descrita por el modelo lineal.\np-value de \\(\\beta_1\\): evidencia contra la hipótesis \\(H_0:\\beta_1=0\\)."
+  },
+  {
+    "objectID": "sesiones/sesion-03.html#plantilla-de-interpretación",
+    "href": "sesiones/sesion-03.html#plantilla-de-interpretación",
+    "title": "Sesión 3 · Regresión lineal simple",
+    "section": "Plantilla de interpretación",
+    "text": "Plantilla de interpretación\n\nPor cada [unidad] adicional de X, el valor esperado de Y aumenta/disminuye en [coeficiente] [unidades de Y]. La evidencia estadística es [suficiente/no suficiente] al nivel elegido. Esto describe una asociación y no demuestra causalidad."
+  },
+  {
+    "objectID": "sesiones/sesion-03.html#actividad",
+    "href": "sesiones/sesion-03.html#actividad",
+    "title": "Sesión 3 · Regresión lineal simple",
+    "section": "Actividad",
+    "text": "Actividad\n\nAbra el laboratorio y use la muestra ICFES.\nCompare dos grupos mediante prueba t.\nAjuste una regresión simple con puntaje_global como respuesta.\nEscriba una frase sin jerga técnica.\nDescargue su evidencia HTML."
+  },
+  {
+    "objectID": "sesiones/sesion-03.html#cierre",
+    "href": "sesiones/sesion-03.html#cierre",
+    "title": "Sesión 3 · Regresión lineal simple",
+    "section": "Cierre",
+    "text": "Cierre\nUna decisión defendible necesita tres cosas diferentes: evidencia, magnitud y contexto. Ninguna reemplaza a las demás."
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Modelos Supervisados",
+    "section": "",
+    "text": "Certificación en Ciencia de Datos\n\n\n\nEste espacio conecta una pregunta organizacional con una salida estadística y termina en una recomendación que reconoce sus límites.\nAbrir el laboratorio interactivo"
+  },
+  {
+    "objectID": "index.html#el-recorrido",
+    "href": "index.html#el-recorrido",
+    "title": "Modelos Supervisados",
+    "section": "El recorrido",
+    "text": "El recorrido\n\n\n\n\n\n\n\n\n\nMomento\nPregunta que guía\nEvidencia principal\nEntregable\n\n\n\n\nRepaso\n¿La diferencia podría explicarse por azar?\nPrueba t y p-value\nConcluyo / no puedo concluir\n\n\nSesión 3\n¿Cuánto cambia el resultado esperado?\nPendiente, R² y significancia\nFrase de negocio\n\n\nSesión 4\n¿Qué cambia al considerar varias explicaciones?\nCoeficientes, referencias y VIF\nRecomendación educativa\n\n\n\n\nRegla transversal: observe → interprete → recomiende → declare lo que no puede concluir."
+  },
+  {
+    "objectID": "index.html#materiales",
+    "href": "index.html#materiales",
+    "title": "Modelos Supervisados",
+    "section": "Materiales",
+    "text": "Materiales\n\nSesión 3 · Regresión simple\nSesión 4 · Regresión múltiple y variables categóricas\nFicha de trabajo del estudiante\nDiapositivas de la sesión 3\nDiapositivas de la sesión 4"
+  },
+  {
+    "objectID": "index.html#antes-de-cargar-datos",
+    "href": "index.html#antes-de-cargar-datos",
+    "title": "Modelos Supervisados",
+    "section": "Antes de cargar datos",
+    "text": "Antes de cargar datos\n\nLa aplicación pública procesa archivos durante la sesión, pero no debe recibir nombres, documentos de identidad ni información confidencial. Use únicamente datos anonimizados."
+  },
+  {
+    "objectID": "index.html#para-profundizar",
+    "href": "index.html#para-profundizar",
+    "title": "Modelos Supervisados",
+    "section": "Para profundizar",
+    "text": "Para profundizar\nCada resultado de la aplicación incluye un panel con el código Python que lo reproduce. Consultar el código es opcional: la actividad se evalúa por la calidad de la interpretación y la decisión, no por programar el modelo."
+  },
+  {
+    "objectID": "sesiones/sesion-04.html",
+    "href": "sesiones/sesion-04.html",
+    "title": "Sesión 4 · Regresión múltiple y variables categóricas",
+    "section": "",
+    "text": "Construirá un modelo con varias explicaciones, hará visible la codificación de categorías e interpretará coeficientes condicionados para formular una recomendación educativa responsable."
+  },
+  {
+    "objectID": "sesiones/sesion-04.html#resultado-de-aprendizaje",
+    "href": "sesiones/sesion-04.html#resultado-de-aprendizaje",
+    "title": "Sesión 4 · Regresión múltiple y variables categóricas",
+    "section": "",
+    "text": "Construirá un modelo con varias explicaciones, hará visible la codificación de categorías e interpretará coeficientes condicionados para formular una recomendación educativa responsable."
+  },
+  {
+    "objectID": "sesiones/sesion-04.html#por-qué-varias-variables",
+    "href": "sesiones/sesion-04.html#por-qué-varias-variables",
+    "title": "Sesión 4 · Regresión múltiple y variables categóricas",
+    "section": "¿Por qué varias variables?",
+    "text": "¿Por qué varias variables?\nUna relación simple puede mezclar historias distintas. La regresión múltiple pregunta por la asociación de una variable con la respuesta manteniendo constantes las demás variables incluidas.\n\\[\\widehat{Y}=\\beta_0+\\beta_1X_1+\\cdots+\\beta_pX_p\\]\nEsto no convierte automáticamente el modelo en causal: solo modifica la comparación estadística."
+  },
+  {
+    "objectID": "sesiones/sesion-04.html#variables-categóricas",
+    "href": "sesiones/sesion-04.html#variables-categóricas",
+    "title": "Sesión 4 · Regresión múltiple y variables categóricas",
+    "section": "Variables categóricas",
+    "text": "Variables categóricas\nSi internet_casa tiene niveles No y Sí, y No es la referencia:\n\n\n\ninternet_casa\nIndicador internet_casa = Sí\n\n\n\n\nNo\n0\n\n\nSí\n1\n\n\n\nEl coeficiente compara Sí con No, manteniendo constantes las demás variables. Con \\(k\\) categorías se crean \\(k-1\\) indicadores cuando el modelo contiene intercepto.\n\nCambiar la referencia cambia la redacción de la comparación, pero no las predicciones del modelo."
+  },
+  {
+    "objectID": "sesiones/sesion-04.html#leer-la-salida",
+    "href": "sesiones/sesion-04.html#leer-la-salida",
+    "title": "Sesión 4 · Regresión múltiple y variables categóricas",
+    "section": "Leer la salida",
+    "text": "Leer la salida\n\n\n\n\n\n\n\nElemento\nPregunta\n\n\n\n\nCoeficiente numérico\n¿Cuánto cambia el resultado por una unidad adicional?\n\n\nCoeficiente categórico\n¿Cuánto difiere esta categoría frente a la referencia?\n\n\np-value\n¿Hay evidencia contra un coeficiente poblacional igual a cero?\n\n\nR² ajustado\n¿Cuánta variación describe, penalizando variables adicionales?\n\n\nPrueba F\n¿El conjunto de predictores aporta evidencia global?"
+  },
+  {
+    "objectID": "sesiones/sesion-04.html#multicolinealidad",
+    "href": "sesiones/sesion-04.html#multicolinealidad",
+    "title": "Sesión 4 · Regresión múltiple y variables categóricas",
+    "section": "Multicolinealidad",
+    "text": "Multicolinealidad\nCuando dos predictores cuentan casi la misma historia, sus coeficientes pueden volverse inestables. El VIF es una señal para investigar:\n\nmenor que 5: sin alerta importante bajo la regla práctica del laboratorio;\nentre 5 y 10: revisar redundancia y propósito;\n10 o más: señal fuerte, sin convertirla en eliminación automática."
+  },
+  {
+    "objectID": "sesiones/sesion-04.html#actividad",
+    "href": "sesiones/sesion-04.html#actividad",
+    "title": "Sesión 4 · Regresión múltiple y variables categóricas",
+    "section": "Actividad",
+    "text": "Actividad\n\nUse puntaje_global como respuesta.\nIncluya al menos dos variables numéricas.\nIncluya una variable categórica y elija su referencia.\nInterprete un coeficiente numérico y uno categórico.\nRevise R² ajustado y VIF.\nPrediga un perfil y formule una recomendación de política educativa.\nDeclare una limitación causal y descargue la evidencia."
+  },
+  {
+    "objectID": "sesiones/sesion-04.html#cierre",
+    "href": "sesiones/sesion-04.html#cierre",
+    "title": "Sesión 4 · Regresión múltiple y variables categóricas",
+    "section": "Cierre",
+    "text": "Cierre\nUn modelo múltiple no es mejor porque tenga más variables. Es mejor si responde mejor la pregunta, usa comparaciones comprensibles y sostiene una decisión que reconoce sus límites."
+  },
+  {
+    "objectID": "slides/sesion-03.html#la-pregunta-de-hoy-no-termina-en-el-cálculo",
+    "href": "slides/sesion-03.html#la-pregunta-de-hoy-no-termina-en-el-cálculo",
+    "title": "¿Una diferencia real ayuda a decidir?",
+    "section": "La pregunta de hoy no termina en el cálculo",
+    "text": "La pregunta de hoy no termina en el cálculo\n\n¿Qué decisión cambia después de mirar la evidencia?"
+  },
+  {
+    "objectID": "slides/sesion-03.html#dos-frases-que-parecen-iguales",
+    "href": "slides/sesion-03.html#dos-frases-que-parecen-iguales",
+    "title": "¿Una diferencia real ayuda a decidir?",
+    "section": "Dos frases que parecen iguales",
+    "text": "Dos frases que parecen iguales\n\nEn la muestra, el estrato 4 obtuvo doce puntos más.\n\n\nEn la población, los promedios de los estratos son diferentes.\n\nLa primera describe. La segunda necesita inferencia."
+  },
+  {
+    "objectID": "slides/sesion-03.html#el-p-value-comienza-suponiendo-que-no-hay-diferencia",
+    "href": "slides/sesion-03.html#el-p-value-comienza-suponiendo-que-no-hay-diferencia",
+    "title": "¿Una diferencia real ayuda a decidir?",
+    "section": "El p-value comienza suponiendo que no hay diferencia",
+    "text": "El p-value comienza suponiendo que no hay diferencia\n\\[H_0:\\mu_1=\\mu_2\\]\nPreguntamos qué tan compatibles son nuestros datos con ese punto de partida."
+  },
+  {
+    "objectID": "slides/sesion-03.html#un-p-value-no-es-un-veredicto-sobre-la-hipótesis",
+    "href": "slides/sesion-03.html#un-p-value-no-es-un-veredicto-sobre-la-hipótesis",
+    "title": "¿Una diferencia real ayuda a decidir?",
+    "section": "Un p-value no es un veredicto sobre la hipótesis",
+    "text": "Un p-value no es un veredicto sobre la hipótesis\nNo es:\n\nla probabilidad de que \\(H_0\\) sea verdadera;\nel tamaño de la diferencia;\nla importancia para el negocio;\nevidencia de causalidad."
+  },
+  {
+    "objectID": "slides/sesion-03.html#primero-la-magnitud-después-la-sorpresa",
+    "href": "slides/sesion-03.html#primero-la-magnitud-después-la-sorpresa",
+    "title": "¿Una diferencia real ayuda a decidir?",
+    "section": "Primero la magnitud, después la sorpresa",
+    "text": "Primero la magnitud, después la sorpresa\n\n\n\nPregunta\nEvidencia\n\n\n\n\n¿Cuánto difieren?\nDiferencia de medias e intervalo\n\n\n¿Podría ser azar muestral?\np-value\n\n\n¿Importa?\nContexto y umbral de decisión"
+  },
+  {
+    "objectID": "slides/sesion-03.html#la-regla-evita-afirmar-demasiado",
+    "href": "slides/sesion-03.html#la-regla-evita-afirmar-demasiado",
+    "title": "¿Una diferencia real ayuda a decidir?",
+    "section": "La regla evita afirmar demasiado",
+    "text": "La regla evita afirmar demasiado\n\n\n\n\n\n\nNote\n\n\nSi p &lt; α, los datos aportan evidencia contra \\(H_0\\).\nSi p ≥ α, no tenemos evidencia suficiente para rechazarla."
+  },
+  {
+    "objectID": "slides/sesion-03.html#no-rechazar-no-significa-demostrar-igualdad",
+    "href": "slides/sesion-03.html#no-rechazar-no-significa-demostrar-igualdad",
+    "title": "¿Una diferencia real ayuda a decidir?",
+    "section": "No rechazar no significa demostrar igualdad",
+    "text": "No rechazar no significa demostrar igualdad\nPuede faltar evidencia porque:\n\nla diferencia es pequeña;\nla muestra es limitada;\nexiste mucha variación;\nel diseño no permite verla con precisión."
+  },
+  {
+    "objectID": "slides/sesion-03.html#pausa-de-decisión",
+    "href": "slides/sesion-03.html#pausa-de-decisión",
+    "title": "¿Una diferencia real ayuda a decidir?",
+    "section": "Pausa de decisión",
+    "text": "Pausa de decisión\nEscriba dos frases:\n\nConcluyo…\nNo puedo concluir…"
+  },
+  {
+    "objectID": "slides/sesion-03.html#correlación-y-regresión-responden-preguntas-distintas",
+    "href": "slides/sesion-03.html#correlación-y-regresión-responden-preguntas-distintas",
+    "title": "¿Una diferencia real ayuda a decidir?",
+    "section": "Correlación y regresión responden preguntas distintas",
+    "text": "Correlación y regresión responden preguntas distintas\n\n\n\nCorrelación\nRegresión\n\n\n\n\n¿Qué tan alineadas están?\n¿Cuánto cambia el valor esperado?\n\n\nNo tiene unidades\nLa pendiente conserva unidades\n\n\nEs simétrica\nDistingue respuesta y predictor"
+  },
+  {
+    "objectID": "slides/sesion-03.html#una-recta-resume-una-relación-promedio",
+    "href": "slides/sesion-03.html#una-recta-resume-una-relación-promedio",
+    "title": "¿Una diferencia real ayuda a decidir?",
+    "section": "Una recta resume una relación promedio",
+    "text": "Una recta resume una relación promedio\n\\[\\widehat{Y}=\\beta_0+\\beta_1X\\]\nLa recta no promete que cada observación caiga sobre ella."
+  },
+  {
+    "objectID": "slides/sesion-03.html#la-pendiente-es-la-frase-de-negocio",
+    "href": "slides/sesion-03.html#la-pendiente-es-la-frase-de-negocio",
+    "title": "¿Una diferencia real ayuda a decidir?",
+    "section": "La pendiente es la frase de negocio",
+    "text": "La pendiente es la frase de negocio\n\n\n\n\n\n\nTip\n\n\nPor cada unidad adicional de X, el valor esperado de Y cambia en \\(\\beta_1\\) unidades."
+  },
+  {
+    "objectID": "slides/sesion-03.html#el-intercepto-puede-vivir-fuera-del-caso",
+    "href": "slides/sesion-03.html#el-intercepto-puede-vivir-fuera-del-caso",
+    "title": "¿Una diferencia real ayuda a decidir?",
+    "section": "El intercepto puede vivir fuera del caso",
+    "text": "El intercepto puede vivir fuera del caso\n\\(\\beta_0\\) responde qué estima el modelo cuando \\(X=0\\).\nAntes de interpretarlo, pregunte si cero es posible y relevante."
+  },
+  {
+    "objectID": "slides/sesion-03.html#r²-habla-de-variación-descrita",
+    "href": "slides/sesion-03.html#r²-habla-de-variación-descrita",
+    "title": "¿Una diferencia real ayuda a decidir?",
+    "section": "R² habla de variación descrita",
+    "text": "R² habla de variación descrita\nUn R² de 0,30 significa que la recta describe 30 % de la variación observada en \\(Y\\).\nNo significa 30 % de exactitud, causalidad ni probabilidad de acierto."
+  },
+  {
+    "objectID": "slides/sesion-03.html#el-p-value-del-coeficiente-prueba-otra-hipótesis",
+    "href": "slides/sesion-03.html#el-p-value-del-coeficiente-prueba-otra-hipótesis",
+    "title": "¿Una diferencia real ayuda a decidir?",
+    "section": "El p-value del coeficiente prueba otra hipótesis",
+    "text": "El p-value del coeficiente prueba otra hipótesis\n\\[H_0:\\beta_1=0\\]\nPregunta si los datos aportan evidencia de una asociación lineal poblacional distinta de cero."
+  },
+  {
+    "objectID": "slides/sesion-03.html#una-relación-significativa-puede-ser-poco-útil",
+    "href": "slides/sesion-03.html#una-relación-significativa-puede-ser-poco-útil",
+    "title": "¿Una diferencia real ayuda a decidir?",
+    "section": "Una relación significativa puede ser poco útil",
+    "text": "Una relación significativa puede ser poco útil\nCon muestras grandes, efectos diminutos pueden producir p-values pequeños.\nLa decisión necesita signo + magnitud + incertidumbre + contexto."
+  },
+  {
+    "objectID": "slides/sesion-03.html#antes-de-pulsar-calcular",
+    "href": "slides/sesion-03.html#antes-de-pulsar-calcular",
+    "title": "¿Una diferencia real ayuda a decidir?",
+    "section": "Antes de pulsar “calcular”",
+    "text": "Antes de pulsar “calcular”\nEscriba:\n\nel signo esperado;\nuna explicación posible;\nuna explicación alternativa;\nqué decisión cambiaría."
+  },
+  {
+    "objectID": "slides/sesion-03.html#lea-la-salida-en-este-orden",
+    "href": "slides/sesion-03.html#lea-la-salida-en-este-orden",
+    "title": "¿Una diferencia real ayuda a decidir?",
+    "section": "Lea la salida en este orden",
+    "text": "Lea la salida en este orden\n\nVariables y filas utilizadas.\nGráfico y posibles datos atípicos.\nSigno y magnitud de la pendiente.\nIntervalo de confianza y p-value.\nR² y limitaciones."
+  },
+  {
+    "objectID": "slides/sesion-03.html#su-turno",
+    "href": "slides/sesion-03.html#su-turno",
+    "title": "¿Una diferencia real ayuda a decidir?",
+    "section": "Su turno",
+    "text": "Su turno\n\nUse puntaje_global como respuesta.\nElija un predictor numérico.\nEscriba una frase sin jerga.\nEstime un valor nuevo.\nDescargue la evidencia."
+  },
+  {
+    "objectID": "slides/sesion-03.html#la-recomendación-completa-tiene-un-freno",
+    "href": "slides/sesion-03.html#la-recomendación-completa-tiene-un-freno",
+    "title": "¿Una diferencia real ayuda a decidir?",
+    "section": "La recomendación completa tiene un freno",
+    "text": "La recomendación completa tiene un freno\n\nObservo → interpreto → recomendaría → vigilaría → no puedo concluir."
+  },
+  {
+    "objectID": "slides/sesion-03.html#cierre",
+    "href": "slides/sesion-03.html#cierre",
+    "title": "¿Una diferencia real ayuda a decidir?",
+    "section": "Cierre",
+    "text": "Cierre\n\nEl p-value ayuda a valorar evidencia. La pendiente ayuda a estimar. El contexto decide."
+  }
+]
