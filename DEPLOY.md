@@ -3,7 +3,7 @@
 El proyecto usa un solo repositorio y dos servicios públicos:
 
 1. **GitHub Pages** publica el portal Quarto.
-2. **Streamlit Community Cloud** ejecuta `app.py`.
+2. **Google Cloud Run** ejecuta `app.py`.
 
 ## Repositorio
 
@@ -14,15 +14,15 @@ que la muestra de 5.000 registros está autorizada para distribución.
 
 ## Aplicación Streamlit
 
-En Community Cloud seleccione:
+La aplicación está desplegada en:
 
-- repositorio: `certificacion-modelos-supervisados`;
-- rama: `main`;
-- archivo de entrada: `app.py`;
-- Python: `3.12`.
+- servicio: `modelos-supervisados`;
+- proyecto: `api-calculadora-502601`;
+- región: `us-central1`;
+- URL: `https://modelos-supervisados-1046402432088.us-central1.run.app`.
 
-No requiere secretos. Una vez asignada la URL, reemplace el enlace local de
-`index.qmd` por la URL `https://…streamlit.app` y vuelva a publicar el portal.
+No requiere secretos. La configuración reproducible y los comandos están en
+`CLOUD_RUN.md`.
 
 ## Portal Quarto
 
