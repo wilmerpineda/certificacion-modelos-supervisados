@@ -19,7 +19,7 @@ La aplicación está desplegada en:
 - servicio: `modelos-supervisados`;
 - proyecto: `api-calculadora-502601`;
 - región: `us-central1`;
-- URL: `https://modelos-supervisados-1046402432088.us-central1.run.app`.
+- URL: `https://modelos-supervisados-brt75qqksa-uc.a.run.app`.
 
 No requiere secretos. La configuración reproducible y los comandos están en
 `CLOUD_RUN.md`.

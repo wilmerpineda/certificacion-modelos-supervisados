@@ -11,7 +11,7 @@ page-layout: full
 
 Este espacio conecta una pregunta organizacional con una salida estadística y termina en una recomendación que reconoce sus límites.
 
-[Abrir el laboratorio interactivo](https://modelos-supervisados-1046402432088.us-central1.run.app){.button-link target="_blank"}
+[Abrir el laboratorio interactivo](https://modelos-supervisados-brt75qqksa-uc.a.run.app){.button-link target="_blank"}
 :::
 
 ## El recorrido
@@ -37,6 +37,8 @@ Este espacio conecta una pregunta organizacional con una salida estadística y t
 - [Ficha de trabajo del estudiante](fichas/ficha-estudiante.qmd)
 - [Diapositivas de la sesión 3](slides/sesion-03.qmd)
 - [Diapositivas de la sesión 4](slides/sesion-04.qmd)
+- [Diapositivas de la sesión 5](slides/sesion-05.qmd)
+- [Diapositivas de la sesión 6](slides/sesion-06.qmd)
 
 ## Antes de cargar datos
 

@@ -14,7 +14,7 @@ portal estático publicado en GitHub Pages.
 
 URL pública:
 
-`https://modelos-supervisados-1046402432088.us-central1.run.app`
+`https://modelos-supervisados-brt75qqksa-uc.a.run.app`
 
 No requiere secretos. El contenedor solo incluye la muestra pública: la carpeta
 `data/private/` está excluida explícitamente.

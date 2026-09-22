@@ -27,6 +27,16 @@ website:
             text: "Sesión 5 · Preparación y clasificación"
           - href: sesiones/sesion-06.qmd
             text: "Sesión 6 · Algoritmos y métricas"
+      - text: Diapositivas
+        menu:
+          - href: slides/sesion-03.qmd
+            text: "Sesión 3 · Regresión simple"
+          - href: slides/sesion-04.qmd
+            text: "Sesión 4 · Regresión múltiple"
+          - href: slides/sesion-05.qmd
+            text: "Sesión 5 · Preparación y clasificación"
+          - href: slides/sesion-06.qmd
+            text: "Sesión 6 · Algoritmos y métricas"
       - text: Fichas
         menu:
           - href: fichas/ficha-estudiante.qmd
