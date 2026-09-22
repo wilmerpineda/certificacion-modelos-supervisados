@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Sesión 4 · Regresión múltiple y variables categóricas – Modelos Supervisados</title>
+<title>Sesión 6 · Algoritmos y métricas – Modelos Supervisados</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -75,35 +75,6 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
 <link rel="stylesheet" href="../assets/styles/course.css">
 </head>
@@ -188,11 +159,17 @@ window.Quarto = {
    
   <ul>
   <li><a href="#resultado-de-aprendizaje" id="toc-resultado-de-aprendizaje" class="nav-link active" data-scroll-target="#resultado-de-aprendizaje">Resultado de aprendizaje</a></li>
-  <li><a href="#por-qué-varias-variables" id="toc-por-qué-varias-variables" class="nav-link" data-scroll-target="#por-qué-varias-variables">¿Por qué varias variables?</a></li>
-  <li><a href="#variables-categóricas" id="toc-variables-categóricas" class="nav-link" data-scroll-target="#variables-categóricas">Variables categóricas</a></li>
-  <li><a href="#leer-la-salida" id="toc-leer-la-salida" class="nav-link" data-scroll-target="#leer-la-salida">Leer la salida</a></li>
-  <li><a href="#multicolinealidad" id="toc-multicolinealidad" class="nav-link" data-scroll-target="#multicolinealidad">Multicolinealidad</a></li>
+  <li><a href="#la-exactitud-puede-celebrar-el-modelo-equivocado" id="toc-la-exactitud-puede-celebrar-el-modelo-equivocado" class="nav-link" data-scroll-target="#la-exactitud-puede-celebrar-el-modelo-equivocado">La exactitud puede celebrar el modelo equivocado</a></li>
+  <li><a href="#la-matriz-de-confusión-cuenta-cuatro-historias" id="toc-la-matriz-de-confusión-cuenta-cuatro-historias" class="nav-link" data-scroll-target="#la-matriz-de-confusión-cuenta-cuatro-historias">La matriz de confusión cuenta cuatro historias</a></li>
+  <li><a href="#una-métrica-responde-una-pregunta" id="toc-una-métrica-responde-una-pregunta" class="nav-link" data-scroll-target="#una-métrica-responde-una-pregunta">Una métrica responde una pregunta</a></li>
+  <li><a href="#auditoría-sencilla-en-excel" id="toc-auditoría-sencilla-en-excel" class="nav-link" data-scroll-target="#auditoría-sencilla-en-excel">Auditoría sencilla en Excel</a></li>
+  <li><a href="#cuatro-algoritmos-cuatro-formas-de-aprender" id="toc-cuatro-algoritmos-cuatro-formas-de-aprender" class="nav-link" data-scroll-target="#cuatro-algoritmos-cuatro-formas-de-aprender">Cuatro algoritmos, cuatro formas de aprender</a></li>
+  <li><a href="#el-árbol-se-interpreta-recorriendo-reglas" id="toc-el-árbol-se-interpreta-recorriendo-reglas" class="nav-link" data-scroll-target="#el-árbol-se-interpreta-recorriendo-reglas">El árbol se interpreta recorriendo reglas</a></li>
+  <li><a href="#importancia-no-significa-efecto" id="toc-importancia-no-significa-efecto" class="nav-link" data-scroll-target="#importancia-no-significa-efecto">Importancia no significa efecto</a></li>
+  <li><a href="#roc-y-auc-no-eligen-la-operación" id="toc-roc-y-auc-no-eligen-la-operación" class="nav-link" data-scroll-target="#roc-y-auc-no-eligen-la-operación">ROC y AUC no eligen la operación</a></li>
+  <li><a href="#dos-escenarios-dos-prioridades" id="toc-dos-escenarios-dos-prioridades" class="nav-link" data-scroll-target="#dos-escenarios-dos-prioridades">Dos escenarios, dos prioridades</a></li>
   <li><a href="#actividad" id="toc-actividad" class="nav-link" data-scroll-target="#actividad">Actividad</a></li>
+  <li><a href="#archivos-para-auditar" id="toc-archivos-para-auditar" class="nav-link" data-scroll-target="#archivos-para-auditar">Archivos para auditar</a></li>
   <li><a href="#cierre" id="toc-cierre" class="nav-link" data-scroll-target="#cierre">Cierre</a></li>
   </ul>
 </nav>
@@ -202,8 +179,8 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Sesión 4 · Regresión múltiple y variables categóricas</h1>
-<p class="subtitle lead">Comparaciones condicionadas y categorías de referencia</p>
+<h1 class="title">Sesión 6 · Algoritmos y métricas</h1>
+<p class="subtitle lead">El costo del error define qué significa mejor</p>
 </div>
 
 
@@ -222,42 +199,42 @@ window.Quarto = {
 
 <section id="resultado-de-aprendizaje" class="level2">
 <h2 class="anchored" data-anchor-id="resultado-de-aprendizaje">Resultado de aprendizaje</h2>
-<p>Construirá un modelo con varias explicaciones, hará visible la codificación de categorías e interpretará coeficientes condicionados para formular una recomendación educativa responsable.</p>
+<p>Comparará cuatro clasificadores con la misma muestra de evaluación y elegirá uno usando la métrica coherente con el costo del error del negocio.</p>
 </section>
-<section id="por-qué-varias-variables" class="level2">
-<h2 class="anchored" data-anchor-id="por-qué-varias-variables">¿Por qué varias variables?</h2>
-<p>Una relación simple puede mezclar historias distintas. La regresión múltiple pregunta por la asociación de una variable con la respuesta <strong>manteniendo constantes las demás variables incluidas</strong>.</p>
-<p><span class="math display">\[\widehat{Y}=\beta_0+\beta_1X_1+\cdots+\beta_pX_p\]</span></p>
-<p>Esto no convierte automáticamente el modelo en causal: solo modifica la comparación estadística.</p>
+<section id="la-exactitud-puede-celebrar-el-modelo-equivocado" class="level2">
+<h2 class="anchored" data-anchor-id="la-exactitud-puede-celebrar-el-modelo-equivocado">La exactitud puede celebrar el modelo equivocado</h2>
+<p>Solo cerca de 11 % de los clientes acepta. Una regla que siempre predice <code>No</code> supera 88 % de exactitud, pero no identifica un solo aceptante.</p>
 </section>
-<section id="variables-categóricas" class="level2">
-<h2 class="anchored" data-anchor-id="variables-categóricas">Variables categóricas</h2>
-<p>Si <code>internet_casa</code> tiene niveles <code>No</code> y <code>Sí</code>, y <code>No</code> es la referencia:</p>
+<section id="la-matriz-de-confusión-cuenta-cuatro-historias" class="level2">
+<h2 class="anchored" data-anchor-id="la-matriz-de-confusión-cuenta-cuatro-historias">La matriz de confusión cuenta cuatro historias</h2>
 <table class="caption-top table">
 <thead>
 <tr class="header">
-<th>internet_casa</th>
-<th style="text-align: right;">Indicador <code>internet_casa = Sí</code></th>
+<th></th>
+<th style="text-align: right;">Predice No</th>
+<th style="text-align: right;">Predice Sí</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>No</td>
-<td style="text-align: right;">0</td>
+<td>Real No</td>
+<td style="text-align: right;">TN</td>
+<td style="text-align: right;">FP</td>
 </tr>
 <tr class="even">
-<td>Sí</td>
-<td style="text-align: right;">1</td>
+<td>Real Sí</td>
+<td style="text-align: right;">FN</td>
+<td style="text-align: right;">TP</td>
 </tr>
 </tbody>
 </table>
-<p>El coeficiente compara <code>Sí</code> con <code>No</code>, manteniendo constantes las demás variables. Con <span class="math inline">\(k\)</span> categorías se crean <span class="math inline">\(k-1\)</span> indicadores cuando el modelo contiene intercepto.</p>
-<div class="warning-box">
-<p>Cambiar la referencia cambia la redacción de la comparación, pero no las predicciones del modelo.</p>
-</div>
+<ul>
+<li><strong>FP:</strong> se contacta a alguien que no aceptará.</li>
+<li><strong>FN:</strong> se omite a alguien que habría aceptado.</li>
+</ul>
 </section>
-<section id="leer-la-salida" class="level2">
-<h2 class="anchored" data-anchor-id="leer-la-salida">Leer la salida</h2>
+<section id="una-métrica-responde-una-pregunta" class="level2">
+<h2 class="anchored" data-anchor-id="una-métrica-responde-una-pregunta">Una métrica responde una pregunta</h2>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 50%">
@@ -265,58 +242,110 @@ window.Quarto = {
 </colgroup>
 <thead>
 <tr class="header">
-<th>Elemento</th>
-<th>Pregunta</th>
+<th>Métrica</th>
+<th>Pregunta de negocio</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>Coeficiente numérico</td>
-<td>¿Cuánto cambia el resultado por una unidad adicional?</td>
+<td>Exactitud</td>
+<td>¿Qué proporción total acertó?</td>
 </tr>
 <tr class="even">
-<td>Coeficiente categórico</td>
-<td>¿Cuánto difiere esta categoría frente a la referencia?</td>
+<td>Precisión</td>
+<td>De los contactados, ¿cuántos aceptarían?</td>
 </tr>
 <tr class="odd">
-<td>p-value</td>
-<td>¿Hay evidencia contra un coeficiente poblacional igual a cero?</td>
+<td>Recall</td>
+<td>De quienes aceptarían, ¿cuántos detectamos?</td>
 </tr>
 <tr class="even">
-<td>R² ajustado</td>
-<td>¿Cuánta variación describe, penalizando variables adicionales?</td>
+<td>Especificidad</td>
+<td>De quienes no aceptarían, ¿cuántos evitamos contactar?</td>
 </tr>
 <tr class="odd">
-<td>Prueba F</td>
-<td>¿El conjunto de predictores aporta evidencia global?</td>
+<td>F1</td>
+<td>¿Qué compromiso logramos entre precisión y recall?</td>
+</tr>
+<tr class="even">
+<td>AUC</td>
+<td>¿Qué tan bien ordena el modelo aceptantes por encima de no aceptantes?</td>
 </tr>
 </tbody>
 </table>
 </section>
-<section id="multicolinealidad" class="level2">
-<h2 class="anchored" data-anchor-id="multicolinealidad">Multicolinealidad</h2>
-<p>Cuando dos predictores cuentan casi la misma historia, sus coeficientes pueden volverse inestables. El VIF es una señal para investigar:</p>
+<section id="auditoría-sencilla-en-excel" class="level2">
+<h2 class="anchored" data-anchor-id="auditoría-sencilla-en-excel">Auditoría sencilla en Excel</h2>
+<p>Con la clase real en la columna <code>B</code> y la predicción en la columna <code>C</code>, la matriz puede reconstruirse sin volver a entrenar:</p>
+<pre class="text"><code>TP = CONTAR.SI.CONJUNTO(B:B;"Sí";C:C;"Sí")
+FP = CONTAR.SI.CONJUNTO(B:B;"No";C:C;"Sí")
+FN = CONTAR.SI.CONJUNTO(B:B;"Sí";C:C;"No")
+TN = CONTAR.SI.CONJUNTO(B:B;"No";C:C;"No")
+
+Precisión = TP/(TP+FP)
+Recall = TP/(TP+FN)
+Especificidad = TN/(TN+FP)</code></pre>
+<p>El objetivo de Excel aquí es auditar los conteos que sostienen una decisión, no reproducir el entrenamiento del algoritmo.</p>
+</section>
+<section id="cuatro-algoritmos-cuatro-formas-de-aprender" class="level2">
+<h2 class="anchored" data-anchor-id="cuatro-algoritmos-cuatro-formas-de-aprender">Cuatro algoritmos, cuatro formas de aprender</h2>
 <ul>
-<li>menor que 5: sin alerta importante bajo la regla práctica del laboratorio;</li>
-<li>entre 5 y 10: revisar redundancia y propósito;</li>
-<li>10 o más: señal fuerte, sin convertirla en eliminación automática.</li>
+<li><strong>Regresión logística:</strong> frontera lineal y probabilidades comparables.</li>
+<li><strong>Árbol:</strong> reglas visibles y relaciones no lineales.</li>
+<li><strong>k vecinos:</strong> decide por similitud con casos cercanos.</li>
+<li><strong>Random forest:</strong> combina muchos árboles y sacrifica lectura directa por estabilidad.</li>
 </ul>
+</section>
+<section id="el-árbol-se-interpreta-recorriendo-reglas" class="level2">
+<h2 class="anchored" data-anchor-id="el-árbol-se-interpreta-recorriendo-reglas">El árbol se interpreta recorriendo reglas</h2>
+<p>Cada cliente sigue un camino desde la raíz hasta una hoja. Una regla predictiva describe cómo clasifica el modelo; no prueba que cambiar esa variable produzca una aceptación.</p>
+</section>
+<section id="importancia-no-significa-efecto" class="level2">
+<h2 class="anchored" data-anchor-id="importancia-no-significa-efecto">Importancia no significa efecto</h2>
+<p>La importancia del árbol resume cuánto ayudó una variable a reducir impureza en sus divisiones.</p>
+<p>No informa:</p>
+<ul>
+<li>si el efecto es positivo o negativo;</li>
+<li>cuánto cambia la probabilidad;</li>
+<li>si la relación es causal;</li>
+<li>si conviene intervenir sobre esa variable.</li>
+</ul>
+</section>
+<section id="roc-y-auc-no-eligen-la-operación" class="level2">
+<h2 class="anchored" data-anchor-id="roc-y-auc-no-eligen-la-operación">ROC y AUC no eligen la operación</h2>
+<p>La curva ROC recorre muchos puntos de corte. El AUC resume capacidad de ordenamiento, pero no incorpora por sí solo presupuesto, capacidad de llamadas ni costo de los errores.</p>
+</section>
+<section id="dos-escenarios-dos-prioridades" class="level2">
+<h2 class="anchored" data-anchor-id="dos-escenarios-dos-prioridades">Dos escenarios, dos prioridades</h2>
+<div class="decision-box">
+<p><strong>Crecimiento:</strong> perder un aceptante potencial es costoso. Priorice recall.</p>
+<p><strong>Capacidad limitada:</strong> una llamada improductiva consume recursos escasos. Priorice precisión.</p>
+</div>
 </section>
 <section id="actividad" class="level2">
 <h2 class="anchored" data-anchor-id="actividad">Actividad</h2>
 <ol type="1">
-<li>Use <code>puntaje_global</code> como respuesta.</li>
-<li>Incluya al menos dos variables numéricas.</li>
-<li>Incluya una variable categórica y elija su referencia.</li>
-<li>Interprete un coeficiente numérico y uno categórico.</li>
-<li>Revise R² ajustado y VIF.</li>
-<li>Prediga un perfil y formule una recomendación de política educativa.</li>
-<li>Declare una limitación causal y descargue la evidencia.</li>
+<li>Elija provisionalmente con exactitud.</li>
+<li>Abra la matriz y revise FP y FN.</li>
+<li>Compare los cuatro modelos con la misma evaluación.</li>
+<li>Lea ROC y AUC sin elegir aún un punto de corte.</li>
+<li>Recorra el árbol y revise su importancia.</li>
+<li>Elija un escenario y justifique un algoritmo con una métrica.</li>
+<li>Declare un error tolerado y una limitación.</li>
 </ol>
+</section>
+<section id="archivos-para-auditar" class="level2">
+<h2 class="anchored" data-anchor-id="archivos-para-auditar">Archivos para auditar</h2>
+<ul>
+<li><a href="../data/public/clasificacion/predicciones_referencia.csv">Predicciones de referencia</a></li>
+<li><a href="../data/public/clasificacion/metricas_referencia.csv">Métricas de referencia</a></li>
+<li><a href="../data/public/clasificacion/importancia_arbol_referencia.csv">Importancia del árbol</a></li>
+<li><a href="../data/public/clasificacion/reglas_arbol_referencia.txt">Reglas del árbol</a></li>
+</ul>
 </section>
 <section id="cierre" class="level2">
 <h2 class="anchored" data-anchor-id="cierre">Cierre</h2>
-<p>Un modelo múltiple no es mejor porque tenga más variables. Es mejor si responde mejor la pregunta, usa comparaciones comprensibles y sostiene una decisión que reconoce sus límites.</p>
+<p>No existe un modelo mejor sin una decisión definida. Existe un modelo más coherente con un costo, una población y una evidencia concreta.</p>
 
 
 </section>

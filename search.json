@@ -1,5 +1,138 @@
 [
   {
+    "objectID": "slides/sesion-06.html#el-88-puede-ser-una-mala-noticia",
+    "href": "slides/sesion-06.html#el-88-puede-ser-una-mala-noticia",
+    "title": "¿Qué error estamos dispuestos a pagar?",
+    "section": "El 88 % puede ser una mala noticia",
+    "text": "El 88 % puede ser una mala noticia\n\nSi casi todos dicen No, acertar No no demuestra que detectemos aceptantes."
+  },
+  {
+    "objectID": "slides/sesion-06.html#la-regla-ingenua-fija-el-punto-de-comparación",
+    "href": "slides/sesion-06.html#la-regla-ingenua-fija-el-punto-de-comparación",
+    "title": "¿Qué error estamos dispuestos a pagar?",
+    "section": "La regla ingenua fija el punto de comparación",
+    "text": "La regla ingenua fija el punto de comparación\nPredecir siempre No logra aproximadamente 88,7 % de exactitud.\nSu recall de aceptantes es 0 %."
+  },
+  {
+    "objectID": "slides/sesion-06.html#la-matriz-obliga-a-nombrar-el-error",
+    "href": "slides/sesion-06.html#la-matriz-obliga-a-nombrar-el-error",
+    "title": "¿Qué error estamos dispuestos a pagar?",
+    "section": "La matriz obliga a nombrar el error",
+    "text": "La matriz obliga a nombrar el error\n\n\n\n\nPredice No\nPredice Sí\n\n\n\n\nReal No\nTN\nFP\n\n\nReal Sí\nFN\nTP"
+  },
+  {
+    "objectID": "slides/sesion-06.html#un-falso-positivo-consume-capacidad",
+    "href": "slides/sesion-06.html#un-falso-positivo-consume-capacidad",
+    "title": "¿Qué error estamos dispuestos a pagar?",
+    "section": "Un falso positivo consume capacidad",
+    "text": "Un falso positivo consume capacidad\nContactamos a una persona que no aceptará.\nEl costo puede ser tiempo, dinero o desgaste comercial."
+  },
+  {
+    "objectID": "slides/sesion-06.html#un-falso-negativo-pierde-oportunidad",
+    "href": "slides/sesion-06.html#un-falso-negativo-pierde-oportunidad",
+    "title": "¿Qué error estamos dispuestos a pagar?",
+    "section": "Un falso negativo pierde oportunidad",
+    "text": "Un falso negativo pierde oportunidad\nNo contactamos a una persona que habría aceptado.\nEl costo es una oportunidad comercial omitida."
+  },
+  {
+    "objectID": "slides/sesion-06.html#exactitud-mira-todos-los-casos",
+    "href": "slides/sesion-06.html#exactitud-mira-todos-los-casos",
+    "title": "¿Qué error estamos dispuestos a pagar?",
+    "section": "Exactitud mira todos los casos",
+    "text": "Exactitud mira todos los casos\n\\[\\frac{TP+TN}{TP+TN+FP+FN}\\]\nPuede quedar dominada por la clase mayoritaria."
+  },
+  {
+    "objectID": "slides/sesion-06.html#precisión-audita-a-quienes-contactamos",
+    "href": "slides/sesion-06.html#precisión-audita-a-quienes-contactamos",
+    "title": "¿Qué error estamos dispuestos a pagar?",
+    "section": "Precisión audita a quienes contactamos",
+    "text": "Precisión audita a quienes contactamos\n\\[\\frac{TP}{TP+FP}\\]\nDe las alertas positivas, ¿cuántas eran aceptantes?"
+  },
+  {
+    "objectID": "slides/sesion-06.html#recall-audita-a-quienes-aceptarían",
+    "href": "slides/sesion-06.html#recall-audita-a-quienes-aceptarían",
+    "title": "¿Qué error estamos dispuestos a pagar?",
+    "section": "Recall audita a quienes aceptarían",
+    "text": "Recall audita a quienes aceptarían\n\\[\\frac{TP}{TP+FN}\\]\nDe los aceptantes reales, ¿cuántos detectamos?"
+  },
+  {
+    "objectID": "slides/sesion-06.html#especificidad-protege-a-la-clase-negativa",
+    "href": "slides/sesion-06.html#especificidad-protege-a-la-clase-negativa",
+    "title": "¿Qué error estamos dispuestos a pagar?",
+    "section": "Especificidad protege a la clase negativa",
+    "text": "Especificidad protege a la clase negativa\n\\[\\frac{TN}{TN+FP}\\]\nDe quienes no aceptarían, ¿cuántos evitamos contactar?"
+  },
+  {
+    "objectID": "slides/sesion-06.html#f1-exige-equilibrio-entre-dos-métricas",
+    "href": "slides/sesion-06.html#f1-exige-equilibrio-entre-dos-métricas",
+    "title": "¿Qué error estamos dispuestos a pagar?",
+    "section": "F1 exige equilibrio entre dos métricas",
+    "text": "F1 exige equilibrio entre dos métricas\nCombina precisión y recall mediante una media armónica.\nNo incorpora por sí solo el costo monetario."
+  },
+  {
+    "objectID": "slides/sesion-06.html#cuatro-algoritmos-observan-el-mismo-problema",
+    "href": "slides/sesion-06.html#cuatro-algoritmos-observan-el-mismo-problema",
+    "title": "¿Qué error estamos dispuestos a pagar?",
+    "section": "Cuatro algoritmos observan el mismo problema",
+    "text": "Cuatro algoritmos observan el mismo problema\n\nlogística: frontera lineal;\nárbol: reglas y umbrales;\nkNN: similitud;\nrandom forest: conjunto de árboles."
+  },
+  {
+    "objectID": "slides/sesion-06.html#la-comparación-debe-compartir-evaluación",
+    "href": "slides/sesion-06.html#la-comparación-debe-compartir-evaluación",
+    "title": "¿Qué error estamos dispuestos a pagar?",
+    "section": "La comparación debe compartir evaluación",
+    "text": "La comparación debe compartir evaluación\nMismas filas de entrenamiento.\nMismas filas de evaluación.\nMisma clase positiva."
+  },
+  {
+    "objectID": "slides/sesion-06.html#auc-resume-ordenamiento",
+    "href": "slides/sesion-06.html#auc-resume-ordenamiento",
+    "title": "¿Qué error estamos dispuestos a pagar?",
+    "section": "AUC resume ordenamiento",
+    "text": "AUC resume ordenamiento\nUn AUC mayor indica que el modelo tiende a ordenar aceptantes por encima de no aceptantes.\nNo fija el punto de corte operativo."
+  },
+  {
+    "objectID": "slides/sesion-06.html#el-árbol-permite-seguir-un-camino",
+    "href": "slides/sesion-06.html#el-árbol-permite-seguir-un-camino",
+    "title": "¿Qué error estamos dispuestos a pagar?",
+    "section": "El árbol permite seguir un camino",
+    "text": "El árbol permite seguir un camino\nRaíz → condición → rama → hoja.\nLa hoja resume una predicción aprendida, no una ley causal."
+  },
+  {
+    "objectID": "slides/sesion-06.html#importante-no-significa-causal",
+    "href": "slides/sesion-06.html#importante-no-significa-causal",
+    "title": "¿Qué error estamos dispuestos a pagar?",
+    "section": "Importante no significa causal",
+    "text": "Importante no significa causal\nLa importancia del árbol no informa:\n\ndirección;\nefecto;\nconveniencia de intervenir."
+  },
+  {
+    "objectID": "slides/sesion-06.html#escenario-de-crecimiento",
+    "href": "slides/sesion-06.html#escenario-de-crecimiento",
+    "title": "¿Qué error estamos dispuestos a pagar?",
+    "section": "Escenario de crecimiento",
+    "text": "Escenario de crecimiento\nOmitir a un aceptante es el error más costoso.\nPrioridad: recall."
+  },
+  {
+    "objectID": "slides/sesion-06.html#escenario-de-capacidad-limitada",
+    "href": "slides/sesion-06.html#escenario-de-capacidad-limitada",
+    "title": "¿Qué error estamos dispuestos a pagar?",
+    "section": "Escenario de capacidad limitada",
+    "text": "Escenario de capacidad limitada\nUna llamada improductiva es el error más costoso.\nPrioridad: precisión."
+  },
+  {
+    "objectID": "slides/sesion-06.html#la-elección-completa-nombra-cuatro-cosas",
+    "href": "slides/sesion-06.html#la-elección-completa-nombra-cuatro-cosas",
+    "title": "¿Qué error estamos dispuestos a pagar?",
+    "section": "La elección completa nombra cuatro cosas",
+    "text": "La elección completa nombra cuatro cosas\n\nModelo → métrica → error tolerado → limitación."
+  },
+  {
+    "objectID": "slides/sesion-06.html#cierre",
+    "href": "slides/sesion-06.html#cierre",
+    "title": "¿Qué error estamos dispuestos a pagar?",
+    "section": "Cierre",
+    "text": "Cierre\n\nEl mejor modelo depende de la decisión que debe sostener."
+  },
+  {
     "objectID": "slides/sesion-04.html#la-relación-simple-puede-mezclar-explicaciones",
     "href": "slides/sesion-04.html#la-relación-simple-puede-mezclar-explicaciones",
     "title": "Una variable rara vez cuenta toda la historia",
@@ -182,95 +315,102 @@
     "text": "Entrega\nAdjunte el HTML descargado desde la aplicación y responda:\n\n¿Qué decisión mantendría después de ver el modelo y cuál cambiaría? Justifique con una magnitud y una limitación."
   },
   {
-    "objectID": "sesiones/sesion-03.html",
-    "href": "sesiones/sesion-03.html",
-    "title": "Sesión 3 · Regresión lineal simple",
+    "objectID": "sesiones/sesion-06.html",
+    "href": "sesiones/sesion-06.html",
+    "title": "Sesión 6 · Algoritmos y métricas",
     "section": "",
-    "text": "Al finalizar, podrá interpretar una prueba t y una regresión simple para formular una recomendación en lenguaje de negocio, distinguiendo evidencia estadística, magnitud y causalidad."
+    "text": "Comparará cuatro clasificadores con la misma muestra de evaluación y elegirá uno usando la métrica coherente con el costo del error del negocio."
   },
   {
-    "objectID": "sesiones/sesion-03.html#resultado-de-aprendizaje",
-    "href": "sesiones/sesion-03.html#resultado-de-aprendizaje",
-    "title": "Sesión 3 · Regresión lineal simple",
+    "objectID": "sesiones/sesion-06.html#resultado-de-aprendizaje",
+    "href": "sesiones/sesion-06.html#resultado-de-aprendizaje",
+    "title": "Sesión 6 · Algoritmos y métricas",
     "section": "",
-    "text": "Al finalizar, podrá interpretar una prueba t y una regresión simple para formular una recomendación en lenguaje de negocio, distinguiendo evidencia estadística, magnitud y causalidad."
+    "text": "Comparará cuatro clasificadores con la misma muestra de evaluación y elegirá uno usando la métrica coherente con el costo del error del negocio."
   },
   {
-    "objectID": "sesiones/sesion-03.html#pregunta-de-apertura",
-    "href": "sesiones/sesion-03.html#pregunta-de-apertura",
-    "title": "Sesión 3 · Regresión lineal simple",
-    "section": "Pregunta de apertura",
-    "text": "Pregunta de apertura\nEn la muestra ICFES, dos grupos obtienen promedios diferentes. Antes de decidir:\n\n¿La diferencia podría ser variación de la muestra?\n¿Cuántos puntos los separan?\n¿La diferencia es importante para la decisión?\n¿Qué información faltaría para hablar de causas?"
+    "objectID": "sesiones/sesion-06.html#la-exactitud-puede-celebrar-el-modelo-equivocado",
+    "href": "sesiones/sesion-06.html#la-exactitud-puede-celebrar-el-modelo-equivocado",
+    "title": "Sesión 6 · Algoritmos y métricas",
+    "section": "La exactitud puede celebrar el modelo equivocado",
+    "text": "La exactitud puede celebrar el modelo equivocado\nSolo cerca de 11 % de los clientes acepta. Una regla que siempre predice No supera 88 % de exactitud, pero no identifica un solo aceptante."
   },
   {
-    "objectID": "sesiones/sesion-03.html#el-p-value-en-una-frase",
-    "href": "sesiones/sesion-03.html#el-p-value-en-una-frase",
-    "title": "Sesión 3 · Regresión lineal simple",
-    "section": "El p-value en una frase",
-    "text": "El p-value en una frase\nEl p-value responde: si la hipótesis nula fuera cierta, qué tan compatibles serían estos datos —o unos más extremos— con esa hipótesis.\n\n\n\n\n\n\n\nLectura\nFormulación responsable\n\n\n\n\np &lt; α\nLos datos aportan evidencia contra la hipótesis nula.\n\n\np ≥ α\nLos datos no aportan evidencia suficiente para rechazarla.\n\n\nCualquier p-value\nNo entrega la probabilidad de que la hipótesis sea verdadera.\n\n\n\n\nUn p-value pequeño no dice que la diferencia sea grande, importante ni causada por la variable de agrupación."
+    "objectID": "sesiones/sesion-06.html#la-matriz-de-confusión-cuenta-cuatro-historias",
+    "href": "sesiones/sesion-06.html#la-matriz-de-confusión-cuenta-cuatro-historias",
+    "title": "Sesión 6 · Algoritmos y métricas",
+    "section": "La matriz de confusión cuenta cuatro historias",
+    "text": "La matriz de confusión cuenta cuatro historias\n\n\n\n\nPredice No\nPredice Sí\n\n\n\n\nReal No\nTN\nFP\n\n\nReal Sí\nFN\nTP\n\n\n\n\nFP: se contacta a alguien que no aceptará.\nFN: se omite a alguien que habría aceptado."
   },
   {
-    "objectID": "sesiones/sesion-03.html#de-correlación-a-regresión",
-    "href": "sesiones/sesion-03.html#de-correlación-a-regresión",
-    "title": "Sesión 3 · Regresión lineal simple",
-    "section": "De correlación a regresión",
-    "text": "De correlación a regresión\nLa correlación resume fuerza y dirección. La regresión agrega una unidad de interpretación:\n\\[\\widehat{Y}=\\beta_0+\\beta_1X\\]\n\n\\(\\beta_0\\): valor esperado de \\(Y\\) cuando \\(X=0\\); puede no tener sentido práctico.\n\\(\\beta_1\\): cambio esperado en \\(Y\\) por una unidad adicional de \\(X\\).\n\\(R^2\\): proporción de variación observada descrita por el modelo lineal.\np-value de \\(\\beta_1\\): evidencia contra la hipótesis \\(H_0:\\beta_1=0\\)."
+    "objectID": "sesiones/sesion-06.html#una-métrica-responde-una-pregunta",
+    "href": "sesiones/sesion-06.html#una-métrica-responde-una-pregunta",
+    "title": "Sesión 6 · Algoritmos y métricas",
+    "section": "Una métrica responde una pregunta",
+    "text": "Una métrica responde una pregunta\n\n\n\n\n\n\n\nMétrica\nPregunta de negocio\n\n\n\n\nExactitud\n¿Qué proporción total acertó?\n\n\nPrecisión\nDe los contactados, ¿cuántos aceptarían?\n\n\nRecall\nDe quienes aceptarían, ¿cuántos detectamos?\n\n\nEspecificidad\nDe quienes no aceptarían, ¿cuántos evitamos contactar?\n\n\nF1\n¿Qué compromiso logramos entre precisión y recall?\n\n\nAUC\n¿Qué tan bien ordena el modelo aceptantes por encima de no aceptantes?"
   },
   {
-    "objectID": "sesiones/sesion-03.html#plantilla-de-interpretación",
-    "href": "sesiones/sesion-03.html#plantilla-de-interpretación",
-    "title": "Sesión 3 · Regresión lineal simple",
-    "section": "Plantilla de interpretación",
-    "text": "Plantilla de interpretación\n\nPor cada [unidad] adicional de X, el valor esperado de Y aumenta/disminuye en [coeficiente] [unidades de Y]. La evidencia estadística es [suficiente/no suficiente] al nivel elegido. Esto describe una asociación y no demuestra causalidad."
+    "objectID": "sesiones/sesion-06.html#auditoría-sencilla-en-excel",
+    "href": "sesiones/sesion-06.html#auditoría-sencilla-en-excel",
+    "title": "Sesión 6 · Algoritmos y métricas",
+    "section": "Auditoría sencilla en Excel",
+    "text": "Auditoría sencilla en Excel\nCon la clase real en la columna B y la predicción en la columna C, la matriz puede reconstruirse sin volver a entrenar:\nTP = CONTAR.SI.CONJUNTO(B:B;\"Sí\";C:C;\"Sí\")\nFP = CONTAR.SI.CONJUNTO(B:B;\"No\";C:C;\"Sí\")\nFN = CONTAR.SI.CONJUNTO(B:B;\"Sí\";C:C;\"No\")\nTN = CONTAR.SI.CONJUNTO(B:B;\"No\";C:C;\"No\")\n\nPrecisión = TP/(TP+FP)\nRecall = TP/(TP+FN)\nEspecificidad = TN/(TN+FP)\nEl objetivo de Excel aquí es auditar los conteos que sostienen una decisión, no reproducir el entrenamiento del algoritmo."
   },
   {
-    "objectID": "sesiones/sesion-03.html#actividad",
-    "href": "sesiones/sesion-03.html#actividad",
-    "title": "Sesión 3 · Regresión lineal simple",
+    "objectID": "sesiones/sesion-06.html#cuatro-algoritmos-cuatro-formas-de-aprender",
+    "href": "sesiones/sesion-06.html#cuatro-algoritmos-cuatro-formas-de-aprender",
+    "title": "Sesión 6 · Algoritmos y métricas",
+    "section": "Cuatro algoritmos, cuatro formas de aprender",
+    "text": "Cuatro algoritmos, cuatro formas de aprender\n\nRegresión logística: frontera lineal y probabilidades comparables.\nÁrbol: reglas visibles y relaciones no lineales.\nk vecinos: decide por similitud con casos cercanos.\nRandom forest: combina muchos árboles y sacrifica lectura directa por estabilidad."
+  },
+  {
+    "objectID": "sesiones/sesion-06.html#el-árbol-se-interpreta-recorriendo-reglas",
+    "href": "sesiones/sesion-06.html#el-árbol-se-interpreta-recorriendo-reglas",
+    "title": "Sesión 6 · Algoritmos y métricas",
+    "section": "El árbol se interpreta recorriendo reglas",
+    "text": "El árbol se interpreta recorriendo reglas\nCada cliente sigue un camino desde la raíz hasta una hoja. Una regla predictiva describe cómo clasifica el modelo; no prueba que cambiar esa variable produzca una aceptación."
+  },
+  {
+    "objectID": "sesiones/sesion-06.html#importancia-no-significa-efecto",
+    "href": "sesiones/sesion-06.html#importancia-no-significa-efecto",
+    "title": "Sesión 6 · Algoritmos y métricas",
+    "section": "Importancia no significa efecto",
+    "text": "Importancia no significa efecto\nLa importancia del árbol resume cuánto ayudó una variable a reducir impureza en sus divisiones.\nNo informa:\n\nsi el efecto es positivo o negativo;\ncuánto cambia la probabilidad;\nsi la relación es causal;\nsi conviene intervenir sobre esa variable."
+  },
+  {
+    "objectID": "sesiones/sesion-06.html#roc-y-auc-no-eligen-la-operación",
+    "href": "sesiones/sesion-06.html#roc-y-auc-no-eligen-la-operación",
+    "title": "Sesión 6 · Algoritmos y métricas",
+    "section": "ROC y AUC no eligen la operación",
+    "text": "ROC y AUC no eligen la operación\nLa curva ROC recorre muchos puntos de corte. El AUC resume capacidad de ordenamiento, pero no incorpora por sí solo presupuesto, capacidad de llamadas ni costo de los errores."
+  },
+  {
+    "objectID": "sesiones/sesion-06.html#dos-escenarios-dos-prioridades",
+    "href": "sesiones/sesion-06.html#dos-escenarios-dos-prioridades",
+    "title": "Sesión 6 · Algoritmos y métricas",
+    "section": "Dos escenarios, dos prioridades",
+    "text": "Dos escenarios, dos prioridades\n\nCrecimiento: perder un aceptante potencial es costoso. Priorice recall.\nCapacidad limitada: una llamada improductiva consume recursos escasos. Priorice precisión."
+  },
+  {
+    "objectID": "sesiones/sesion-06.html#actividad",
+    "href": "sesiones/sesion-06.html#actividad",
+    "title": "Sesión 6 · Algoritmos y métricas",
     "section": "Actividad",
-    "text": "Actividad\n\nAbra el laboratorio y use la muestra ICFES.\nCompare dos grupos mediante prueba t.\nAjuste una regresión simple con puntaje_global como respuesta.\nEscriba una frase sin jerga técnica.\nDescargue su evidencia HTML."
+    "text": "Actividad\n\nElija provisionalmente con exactitud.\nAbra la matriz y revise FP y FN.\nCompare los cuatro modelos con la misma evaluación.\nLea ROC y AUC sin elegir aún un punto de corte.\nRecorra el árbol y revise su importancia.\nElija un escenario y justifique un algoritmo con una métrica.\nDeclare un error tolerado y una limitación."
   },
   {
-    "objectID": "sesiones/sesion-03.html#cierre",
-    "href": "sesiones/sesion-03.html#cierre",
-    "title": "Sesión 3 · Regresión lineal simple",
+    "objectID": "sesiones/sesion-06.html#archivos-para-auditar",
+    "href": "sesiones/sesion-06.html#archivos-para-auditar",
+    "title": "Sesión 6 · Algoritmos y métricas",
+    "section": "Archivos para auditar",
+    "text": "Archivos para auditar\n\nPredicciones de referencia\nMétricas de referencia\nImportancia del árbol\nReglas del árbol"
+  },
+  {
+    "objectID": "sesiones/sesion-06.html#cierre",
+    "href": "sesiones/sesion-06.html#cierre",
+    "title": "Sesión 6 · Algoritmos y métricas",
     "section": "Cierre",
-    "text": "Cierre\nUna decisión defendible necesita tres cosas diferentes: evidencia, magnitud y contexto. Ninguna reemplaza a las demás."
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Modelos Supervisados",
-    "section": "",
-    "text": "Certificación en Ciencia de Datos\n\n\n\nEste espacio conecta una pregunta organizacional con una salida estadística y termina en una recomendación que reconoce sus límites.\nAbrir el laboratorio interactivo"
-  },
-  {
-    "objectID": "index.html#el-recorrido",
-    "href": "index.html#el-recorrido",
-    "title": "Modelos Supervisados",
-    "section": "El recorrido",
-    "text": "El recorrido\n\n\n\n\n\n\n\n\n\nMomento\nPregunta que guía\nEvidencia principal\nEntregable\n\n\n\n\nRepaso\n¿La diferencia podría explicarse por azar?\nPrueba t y p-value\nConcluyo / no puedo concluir\n\n\nSesión 3\n¿Cuánto cambia el resultado esperado?\nPendiente, R² y significancia\nFrase de negocio\n\n\nSesión 4\n¿Qué cambia al considerar varias explicaciones?\nCoeficientes, referencias y VIF\nRecomendación educativa\n\n\n\n\nRegla transversal: observe → interprete → recomiende → declare lo que no puede concluir."
-  },
-  {
-    "objectID": "index.html#materiales",
-    "href": "index.html#materiales",
-    "title": "Modelos Supervisados",
-    "section": "Materiales",
-    "text": "Materiales\n\nSesión 3 · Regresión simple\nSesión 4 · Regresión múltiple y variables categóricas\nFicha de trabajo del estudiante\nDiapositivas de la sesión 3\nDiapositivas de la sesión 4"
-  },
-  {
-    "objectID": "index.html#antes-de-cargar-datos",
-    "href": "index.html#antes-de-cargar-datos",
-    "title": "Modelos Supervisados",
-    "section": "Antes de cargar datos",
-    "text": "Antes de cargar datos\n\nLa aplicación pública procesa archivos durante la sesión, pero no debe recibir nombres, documentos de identidad ni información confidencial. Use únicamente datos anonimizados."
-  },
-  {
-    "objectID": "index.html#para-profundizar",
-    "href": "index.html#para-profundizar",
-    "title": "Modelos Supervisados",
-    "section": "Para profundizar",
-    "text": "Para profundizar\nCada resultado de la aplicación incluye un panel con el código Python que lo reproduce. Consultar el código es opcional: la actividad se evalúa por la calidad de la interpretación y la decisión, no por programar el modelo."
+    "text": "Cierre\nNo existe un modelo mejor sin una decisión definida. Existe un modelo más coherente con un costo, una población y una evidencia concreta."
   },
   {
     "objectID": "sesiones/sesion-04.html",
@@ -327,6 +467,230 @@
     "title": "Sesión 4 · Regresión múltiple y variables categóricas",
     "section": "Cierre",
     "text": "Cierre\nUn modelo múltiple no es mejor porque tenga más variables. Es mejor si responde mejor la pregunta, usa comparaciones comprensibles y sostiene una decisión que reconoce sus límites."
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Modelos Supervisados",
+    "section": "",
+    "text": "Certificación en Ciencia de Datos\n\n\n\nEste espacio conecta una pregunta organizacional con una salida estadística y termina en una recomendación que reconoce sus límites.\nAbrir el laboratorio interactivo"
+  },
+  {
+    "objectID": "index.html#el-recorrido",
+    "href": "index.html#el-recorrido",
+    "title": "Modelos Supervisados",
+    "section": "El recorrido",
+    "text": "El recorrido\n\n\n\n\n\n\n\n\n\nMomento\nPregunta que guía\nEvidencia principal\nEntregable\n\n\n\n\nRepaso\n¿La diferencia podría explicarse por azar?\nPrueba t y p-value\nConcluyo / no puedo concluir\n\n\nSesión 3\n¿Cuánto cambia el resultado esperado?\nPendiente, R² y significancia\nFrase de negocio\n\n\nSesión 4\n¿Qué cambia al considerar varias explicaciones?\nCoeficientes, referencias y VIF\nRecomendación educativa\n\n\nSesión 5\n¿Qué podrá aprender el modelo?\nCruce, faltantes y codificación\nBase preparada y bitácora\n\n\nSesión 6\n¿Qué error estamos dispuestos a pagar?\nMatriz, métricas, ROC y árbol\nElección justificada\n\n\n\n\nRegla transversal: observe → interprete → recomiende → declare lo que no puede concluir."
+  },
+  {
+    "objectID": "index.html#materiales",
+    "href": "index.html#materiales",
+    "title": "Modelos Supervisados",
+    "section": "Materiales",
+    "text": "Materiales\n\nSesión 3 · Regresión simple\nSesión 4 · Regresión múltiple y variables categóricas\nSesión 5 · Preparar la base y primer clasificador\nSesión 6 · Algoritmos y métricas\nFicha de trabajo del estudiante\nDiapositivas de la sesión 3\nDiapositivas de la sesión 4"
+  },
+  {
+    "objectID": "index.html#antes-de-cargar-datos",
+    "href": "index.html#antes-de-cargar-datos",
+    "title": "Modelos Supervisados",
+    "section": "Antes de cargar datos",
+    "text": "Antes de cargar datos\n\nLa aplicación pública procesa archivos durante la sesión, pero no debe recibir nombres, documentos de identidad ni información confidencial. Use únicamente datos anonimizados."
+  },
+  {
+    "objectID": "index.html#para-profundizar",
+    "href": "index.html#para-profundizar",
+    "title": "Modelos Supervisados",
+    "section": "Para profundizar",
+    "text": "Para profundizar\nCada resultado de la aplicación incluye un panel con el código Python que lo reproduce. Consultar el código es opcional: la actividad se evalúa por la calidad de la interpretación y la decisión, no por programar el modelo."
+  },
+  {
+    "objectID": "sesiones/sesion-03.html",
+    "href": "sesiones/sesion-03.html",
+    "title": "Sesión 3 · Regresión lineal simple",
+    "section": "",
+    "text": "Al finalizar, podrá interpretar una prueba t y una regresión simple para formular una recomendación en lenguaje de negocio, distinguiendo evidencia estadística, magnitud y causalidad."
+  },
+  {
+    "objectID": "sesiones/sesion-03.html#resultado-de-aprendizaje",
+    "href": "sesiones/sesion-03.html#resultado-de-aprendizaje",
+    "title": "Sesión 3 · Regresión lineal simple",
+    "section": "",
+    "text": "Al finalizar, podrá interpretar una prueba t y una regresión simple para formular una recomendación en lenguaje de negocio, distinguiendo evidencia estadística, magnitud y causalidad."
+  },
+  {
+    "objectID": "sesiones/sesion-03.html#pregunta-de-apertura",
+    "href": "sesiones/sesion-03.html#pregunta-de-apertura",
+    "title": "Sesión 3 · Regresión lineal simple",
+    "section": "Pregunta de apertura",
+    "text": "Pregunta de apertura\nEn la muestra ICFES, dos grupos obtienen promedios diferentes. Antes de decidir:\n\n¿La diferencia podría ser variación de la muestra?\n¿Cuántos puntos los separan?\n¿La diferencia es importante para la decisión?\n¿Qué información faltaría para hablar de causas?"
+  },
+  {
+    "objectID": "sesiones/sesion-03.html#el-p-value-en-una-frase",
+    "href": "sesiones/sesion-03.html#el-p-value-en-una-frase",
+    "title": "Sesión 3 · Regresión lineal simple",
+    "section": "El p-value en una frase",
+    "text": "El p-value en una frase\nEl p-value responde: si la hipótesis nula fuera cierta, qué tan compatibles serían estos datos —o unos más extremos— con esa hipótesis.\n\n\n\n\n\n\n\nLectura\nFormulación responsable\n\n\n\n\np &lt; α\nLos datos aportan evidencia contra la hipótesis nula.\n\n\np ≥ α\nLos datos no aportan evidencia suficiente para rechazarla.\n\n\nCualquier p-value\nNo entrega la probabilidad de que la hipótesis sea verdadera.\n\n\n\n\nUn p-value pequeño no dice que la diferencia sea grande, importante ni causada por la variable de agrupación."
+  },
+  {
+    "objectID": "sesiones/sesion-03.html#de-correlación-a-regresión",
+    "href": "sesiones/sesion-03.html#de-correlación-a-regresión",
+    "title": "Sesión 3 · Regresión lineal simple",
+    "section": "De correlación a regresión",
+    "text": "De correlación a regresión\nLa correlación resume fuerza y dirección. La regresión agrega una unidad de interpretación:\n\\[\\widehat{Y}=\\beta_0+\\beta_1X\\]\n\n\\(\\beta_0\\): valor esperado de \\(Y\\) cuando \\(X=0\\); puede no tener sentido práctico.\n\\(\\beta_1\\): cambio esperado en \\(Y\\) por una unidad adicional de \\(X\\).\n\\(R^2\\): proporción de variación observada descrita por el modelo lineal.\np-value de \\(\\beta_1\\): evidencia contra la hipótesis \\(H_0:\\beta_1=0\\)."
+  },
+  {
+    "objectID": "sesiones/sesion-03.html#plantilla-de-interpretación",
+    "href": "sesiones/sesion-03.html#plantilla-de-interpretación",
+    "title": "Sesión 3 · Regresión lineal simple",
+    "section": "Plantilla de interpretación",
+    "text": "Plantilla de interpretación\n\nPor cada [unidad] adicional de X, el valor esperado de Y aumenta/disminuye en [coeficiente] [unidades de Y]. La evidencia estadística es [suficiente/no suficiente] al nivel elegido. Esto describe una asociación y no demuestra causalidad."
+  },
+  {
+    "objectID": "sesiones/sesion-03.html#actividad",
+    "href": "sesiones/sesion-03.html#actividad",
+    "title": "Sesión 3 · Regresión lineal simple",
+    "section": "Actividad",
+    "text": "Actividad\n\nAbra el laboratorio y use la muestra ICFES.\nCompare dos grupos mediante prueba t.\nAjuste una regresión simple con puntaje_global como respuesta.\nEscriba una frase sin jerga técnica.\nDescargue su evidencia HTML."
+  },
+  {
+    "objectID": "sesiones/sesion-03.html#cierre",
+    "href": "sesiones/sesion-03.html#cierre",
+    "title": "Sesión 3 · Regresión lineal simple",
+    "section": "Cierre",
+    "text": "Cierre\nUna decisión defendible necesita tres cosas diferentes: evidencia, magnitud y contexto. Ninguna reemplaza a las demás."
+  },
+  {
+    "objectID": "sesiones/sesion-05.html",
+    "href": "sesiones/sesion-05.html",
+    "title": "Sesión 5 · Preparar la base y primer clasificador",
+    "section": "",
+    "text": "Al finalizar, podrá cruzar dos tablas, distinguir tipos de ausencia, definir qué variables están disponibles antes de decidir y documentar una base preparada para clasificación."
+  },
+  {
+    "objectID": "sesiones/sesion-05.html#resultado-de-aprendizaje",
+    "href": "sesiones/sesion-05.html#resultado-de-aprendizaje",
+    "title": "Sesión 5 · Preparar la base y primer clasificador",
+    "section": "",
+    "text": "Al finalizar, podrá cruzar dos tablas, distinguir tipos de ausencia, definir qué variables están disponibles antes de decidir y documentar una base preparada para clasificación."
+  },
+  {
+    "objectID": "sesiones/sesion-05.html#la-pregunta-precede-a-la-limpieza",
+    "href": "sesiones/sesion-05.html#la-pregunta-precede-a-la-limpieza",
+    "title": "Sesión 5 · Preparar la base y primer clasificador",
+    "section": "La pregunta precede a la limpieza",
+    "text": "La pregunta precede a la limpieza\nEl banco quiere priorizar clientes para ofrecerles un depósito a plazo. La unidad de análisis es una campaña dirigida a un cliente y la respuesta es acepta_deposito.\nAntes de transformar datos, pregunte:\n\n¿qué representa una fila?;\n¿cuándo debe producirse la predicción?;\n¿qué información existe en ese momento?;\n¿qué error afectaría la decisión?;"
+  },
+  {
+    "objectID": "sesiones/sesion-05.html#cruzar-cambia-la-población",
+    "href": "sesiones/sesion-05.html#cruzar-cambia-la-población",
+    "title": "Sesión 5 · Preparar la base y primer clasificador",
+    "section": "Cruzar cambia la población",
+    "text": "Cruzar cambia la población\nLas tablas clientes y campanas comparten id_cliente.\n\n\n\n\n\n\n\n\nCruce\nConserva\nPregunta que obliga a responder\n\n\n\n\nInterno\nSolo llaves presentes en ambas tablas\n¿Acepto excluir los registros sin pareja?\n\n\nIzquierdo desde campañas\nTodas las campañas\n¿Cómo trataré los perfiles ausentes?\n\n\n\nEl número de filas antes y después del cruce es una evidencia, no un detalle técnico."
+  },
+  {
+    "objectID": "sesiones/sesion-05.html#no-toda-ausencia-significa-lo-mismo",
+    "href": "sesiones/sesion-05.html#no-toda-ausencia-significa-lo-mismo",
+    "title": "Sesión 5 · Preparar la base y primer clasificador",
+    "section": "No toda ausencia significa lo mismo",
+    "text": "No toda ausencia significa lo mismo\n\nBlanco: el valor no fue registrado.\nDesconocido: existe una respuesta explícita de desconocimiento.\nNo aplica: el atributo no tiene sentido para ese caso.\nCero: es un valor observado; no equivale automáticamente a ausencia.\n\n\nImputar permite que el algoritmo procese la fila. No recupera el dato verdadero ni elimina el sesgo que pudo producir la ausencia."
+  },
+  {
+    "objectID": "sesiones/sesion-05.html#las-palabras-necesitan-representación",
+    "href": "sesiones/sesion-05.html#las-palabras-necesitan-representación",
+    "title": "Sesión 5 · Preparar la base y primer clasificador",
+    "section": "Las palabras necesitan representación",
+    "text": "Las palabras necesitan representación\nUna variable como tipo_contacto se convierte en indicadores 0/1 dentro del modelo. El identificador no debe usarse como predictor: distingue registros, pero no describe un mecanismo generalizable."
+  },
+  {
+    "objectID": "sesiones/sesion-05.html#la-variable-disponible-después-no-puede-decidir-antes",
+    "href": "sesiones/sesion-05.html#la-variable-disponible-después-no-puede-decidir-antes",
+    "title": "Sesión 5 · Preparar la base y primer clasificador",
+    "section": "La variable disponible después no puede decidir antes",
+    "text": "La variable disponible después no puede decidir antes\nLa duración de una llamada solo se conoce cuando termina. Si la pregunta es a quién contactar, usarla para predecir sería permitir que el modelo vea el futuro. Esta variable se reserva para la sesión de fuga de datos."
+  },
+  {
+    "objectID": "sesiones/sesion-05.html#primer-clasificador",
+    "href": "sesiones/sesion-05.html#primer-clasificador",
+    "title": "Sesión 5 · Preparar la base y primer clasificador",
+    "section": "Primer clasificador",
+    "text": "Primer clasificador\nLa regresión logística devuelve una probabilidad estimada de aceptación. Con el punto de corte inicial de 0,5, esa probabilidad se convierte en Sí o No.\nEn esta sesión la exactitud abre una pregunta; todavía no decide cuál modelo es mejor."
+  },
+  {
+    "objectID": "sesiones/sesion-05.html#actividad",
+    "href": "sesiones/sesion-05.html#actividad",
+    "title": "Sesión 5 · Preparar la base y primer clasificador",
+    "section": "Actividad",
+    "text": "Actividad\n\nCruce clientes y campanas.\nCompare cruce interno e izquierdo.\nDeclare cómo tratará blancos y Desconocido.\nExcluya la llave y cualquier variable posterior a la decisión.\nAnticipe un perfil con mayor probabilidad de aceptar.\nAjuste el primer clasificador.\nDescargue la base y la bitácora."
+  },
+  {
+    "objectID": "sesiones/sesion-05.html#archivos-para-el-ejercicio",
+    "href": "sesiones/sesion-05.html#archivos-para-el-ejercicio",
+    "title": "Sesión 5 · Preparar la base y primer clasificador",
+    "section": "Archivos para el ejercicio",
+    "text": "Archivos para el ejercicio\n\nTabla de clientes\nTabla de campañas\nDiccionario de variables\nBase modelable de referencia\n\nLas dos primeras tablas contienen faltantes y llaves sin pareja de forma intencional. La base de referencia sirve para comparar decisiones, no para reemplazar la discusión del grupo."
+  },
+  {
+    "objectID": "sesiones/sesion-05.html#cierre",
+    "href": "sesiones/sesion-05.html#cierre",
+    "title": "Sesión 5 · Preparar la base y primer clasificador",
+    "section": "Cierre",
+    "text": "Cierre\nUna base no queda lista porque ya no tenga errores visibles. Queda lista cuando representa la población, el momento y la decisión que el modelo debe apoyar."
+  },
+  {
+    "objectID": "fichas/ficha-clasificacion.html",
+    "href": "fichas/ficha-clasificacion.html",
+    "title": "Ficha de trabajo · Preparar, comparar y decidir",
+    "section": "",
+    "text": "Pregunta de negocio:\nUnidad de análisis:\nVariable respuesta:\nClase positiva:\nMomento en que debe producirse la predicción:"
+  },
+  {
+    "objectID": "fichas/ficha-clasificacion.html#identificación-del-caso",
+    "href": "fichas/ficha-clasificacion.html#identificación-del-caso",
+    "title": "Ficha de trabajo · Preparar, comparar y decidir",
+    "section": "",
+    "text": "Pregunta de negocio:\nUnidad de análisis:\nVariable respuesta:\nClase positiva:\nMomento en que debe producirse la predicción:"
+  },
+  {
+    "objectID": "fichas/ficha-clasificacion.html#ronda-1-cruce",
+    "href": "fichas/ficha-clasificacion.html#ronda-1-cruce",
+    "title": "Ficha de trabajo · Preparar, comparar y decidir",
+    "section": "Ronda 1 · Cruce",
+    "text": "Ronda 1 · Cruce\n\n\n\nCampo\nRespuesta\n\n\n\n\nLlave\n\n\n\nFilas de clientes\n\n\n\nFilas de campañas\n\n\n\nCoincidencias\n\n\n\nPerfiles sin campaña\n\n\n\nCampañas sin perfil\n\n\n\nTipo de cruce elegido\n\n\n\nPoblación que quedó excluida"
+  },
+  {
+    "objectID": "fichas/ficha-clasificacion.html#ronda-2-preparación",
+    "href": "fichas/ficha-clasificacion.html#ronda-2-preparación",
+    "title": "Ficha de trabajo · Preparar, comparar y decidir",
+    "section": "Ronda 2 · Preparación",
+    "text": "Ronda 2 · Preparación\n\n\n\nVariable o problema\nDecisión\nRazón\n¿Discutible?\n\n\n\n\nBlancos numéricos\n\n\n\n\n\nBlancos categóricos\n\n\n\n\n\nDesconocido\n\n\n\n\n\nIdentificador\n\n\n\n\n\nCategorías de texto\n\n\n\n\n\nVariable no disponible al decidir\n\n\n\n\n\n\n\nPredicción previa\n¿Qué perfil espera que tenga mayor probabilidad de aceptar? Explique sin afirmar causalidad."
+  },
+  {
+    "objectID": "fichas/ficha-clasificacion.html#ronda-3-primera-mirada",
+    "href": "fichas/ficha-clasificacion.html#ronda-3-primera-mirada",
+    "title": "Ficha de trabajo · Preparar, comparar y decidir",
+    "section": "Ronda 3 · Primera mirada",
+    "text": "Ronda 3 · Primera mirada\n\n\n\nModelo\nExactitud\nElección provisional\n\n\n\n\nRegla ingenua\n\n\n\n\nRegresión logística\n\n\n\n\nÁrbol\n\n\n\n\nk vecinos\n\n\n\n\nRandom forest"
+  },
+  {
+    "objectID": "fichas/ficha-clasificacion.html#ronda-4-auditar-errores",
+    "href": "fichas/ficha-clasificacion.html#ronda-4-auditar-errores",
+    "title": "Ficha de trabajo · Preparar, comparar y decidir",
+    "section": "Ronda 4 · Auditar errores",
+    "text": "Ronda 4 · Auditar errores\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nModelo\nTN\nFP\nFN\nTP\nPrecisión\nRecall\nF1\nEspecificidad\nAUC\n\n\n\n\nRegresión logística\n\n\n\n\n\n\n\n\n\n\n\nÁrbol\n\n\n\n\n\n\n\n\n\n\n\nk vecinos\n\n\n\n\n\n\n\n\n\n\n\nRandom forest"
+  },
+  {
+    "objectID": "fichas/ficha-clasificacion.html#ronda-5-árbol-e-importancia",
+    "href": "fichas/ficha-clasificacion.html#ronda-5-árbol-e-importancia",
+    "title": "Ficha de trabajo · Preparar, comparar y decidir",
+    "section": "Ronda 5 · Árbol e importancia",
+    "text": "Ronda 5 · Árbol e importancia\n\nPrimera regla del árbol:\nUna hoja que pueda explicar en lenguaje de negocio:\nVariable más importante:\nLo que esa importancia sí dice:\nLo que no permite concluir:"
+  },
+  {
+    "objectID": "fichas/ficha-clasificacion.html#decisión-final",
+    "href": "fichas/ficha-clasificacion.html#decisión-final",
+    "title": "Ficha de trabajo · Preparar, comparar y decidir",
+    "section": "Decisión final",
+    "text": "Decisión final\n\nEscenario: crecimiento / capacidad limitada.\nAlgoritmo elegido:\nMétrica prioritaria:\nError que acepta tolerar:\nAcción recomendada:\nLimitación:\n\n\nElegimos [modelo] porque en el escenario [escenario] importa priorizar [métrica]. El modelo obtuvo [valor] y cometió [número] [tipo de error]. Esta evidencia apoya [acción], pero no permite concluir [límite]."
   },
   {
     "objectID": "slides/sesion-03.html#la-pregunta-de-hoy-no-termina-en-el-cálculo",
@@ -467,5 +831,117 @@
     "title": "¿Una diferencia real ayuda a decidir?",
     "section": "Cierre",
     "text": "Cierre\n\nEl p-value ayuda a valorar evidencia. La pendiente ayuda a estimar. El contexto decide."
+  },
+  {
+    "objectID": "slides/sesion-05.html#la-base-se-prepara-para-una-decisión",
+    "href": "slides/sesion-05.html#la-base-se-prepara-para-una-decisión",
+    "title": "¿Qué podrá aprender el modelo?",
+    "section": "La base se prepara para una decisión",
+    "text": "La base se prepara para una decisión\n\n¿A quién contactaríamos antes de saber cómo termina la llamada?"
+  },
+  {
+    "objectID": "slides/sesion-05.html#una-fila-necesita-significado",
+    "href": "slides/sesion-05.html#una-fila-necesita-significado",
+    "title": "¿Qué podrá aprender el modelo?",
+    "section": "Una fila necesita significado",
+    "text": "Una fila necesita significado\n\nactor: equipo de campaña;\nunidad: contacto asociado a un cliente;\nrespuesta: aceptación del depósito;\nmomento: antes de realizar la llamada."
+  },
+  {
+    "objectID": "slides/sesion-05.html#dos-tablas-cuentan-partes-de-la-historia",
+    "href": "slides/sesion-05.html#dos-tablas-cuentan-partes-de-la-historia",
+    "title": "¿Qué podrá aprender el modelo?",
+    "section": "Dos tablas cuentan partes de la historia",
+    "text": "Dos tablas cuentan partes de la historia\nclientes describe el perfil.\ncampanas describe el contexto y la respuesta.\nLa llave id_cliente permite relacionarlas."
+  },
+  {
+    "objectID": "slides/sesion-05.html#cruzar-no-es-un-gesto-neutro",
+    "href": "slides/sesion-05.html#cruzar-no-es-un-gesto-neutro",
+    "title": "¿Qué podrá aprender el modelo?",
+    "section": "Cruzar no es un gesto neutro",
+    "text": "Cruzar no es un gesto neutro\n\n\n\nInterno\nIzquierdo desde campañas\n\n\n\n\nConserva coincidencias\nConserva todas las campañas\n\n\nExcluye casos sin pareja\nProduce perfiles faltantes"
+  },
+  {
+    "objectID": "slides/sesion-05.html#el-control-comienza-contando-filas",
+    "href": "slides/sesion-05.html#el-control-comienza-contando-filas",
+    "title": "¿Qué podrá aprender el modelo?",
+    "section": "El control comienza contando filas",
+    "text": "El control comienza contando filas\nAntes y después del cruce registre:\n\nfilas;\nllaves únicas;\ncoincidencias;\ncasos sin pareja."
+  },
+  {
+    "objectID": "slides/sesion-05.html#un-duplicado-puede-multiplicar-personas",
+    "href": "slides/sesion-05.html#un-duplicado-puede-multiplicar-personas",
+    "title": "¿Qué podrá aprender el modelo?",
+    "section": "Un duplicado puede multiplicar personas",
+    "text": "Un duplicado puede multiplicar personas\nSi una llave aparece dos veces en cada tabla, el cruce puede crear cuatro combinaciones.\nDetenerse es mejor que fabricar observaciones."
+  },
+  {
+    "objectID": "slides/sesion-05.html#blanco-no-significa-cero",
+    "href": "slides/sesion-05.html#blanco-no-significa-cero",
+    "title": "¿Qué podrá aprender el modelo?",
+    "section": "Blanco no significa cero",
+    "text": "Blanco no significa cero\n\n\n\nValor\nLectura\n\n\n\n\nBlanco\nNo registrado\n\n\nDesconocido\nRespuesta explícita\n\n\nNo aplica\nAtributo sin sentido\n\n\n0\nValor observado"
+  },
+  {
+    "objectID": "slides/sesion-05.html#imputar-resuelve-una-entrada-no-su-historia",
+    "href": "slides/sesion-05.html#imputar-resuelve-una-entrada-no-su-historia",
+    "title": "¿Qué podrá aprender el modelo?",
+    "section": "Imputar resuelve una entrada, no su historia",
+    "text": "Imputar resuelve una entrada, no su historia\nLa mediana o la moda permiten procesar una fila.\nNo recuperan el dato verdadero ni eliminan sesgos."
+  },
+  {
+    "objectID": "slides/sesion-05.html#una-palabra-se-transforma-en-columnas",
+    "href": "slides/sesion-05.html#una-palabra-se-transforma-en-columnas",
+    "title": "¿Qué podrá aprender el modelo?",
+    "section": "Una palabra se transforma en columnas",
+    "text": "Una palabra se transforma en columnas\ntipo_contacto = Celular puede representarse como 1 o 0.\nLa codificación hace computable la categoría; no la convierte en cantidad."
+  },
+  {
+    "objectID": "slides/sesion-05.html#el-identificador-no-es-una-explicación",
+    "href": "slides/sesion-05.html#el-identificador-no-es-una-explicación",
+    "title": "¿Qué podrá aprender el modelo?",
+    "section": "El identificador no es una explicación",
+    "text": "El identificador no es una explicación\nid_cliente distingue filas.\nSi el modelo lo memoriza, no aprende una regla transferible."
+  },
+  {
+    "objectID": "slides/sesion-05.html#el-futuro-no-puede-decidir-el-pasado",
+    "href": "slides/sesion-05.html#el-futuro-no-puede-decidir-el-pasado",
+    "title": "¿Qué podrá aprender el modelo?",
+    "section": "El futuro no puede decidir el pasado",
+    "text": "El futuro no puede decidir el pasado\nLa duración de la llamada solo existe al terminar.\nNo puede usarse para decidir a quién llamar."
+  },
+  {
+    "objectID": "slides/sesion-05.html#antes-de-ajustar-anticipe",
+    "href": "slides/sesion-05.html#antes-de-ajustar-anticipe",
+    "title": "¿Qué podrá aprender el modelo?",
+    "section": "Antes de ajustar, anticipe",
+    "text": "Antes de ajustar, anticipe\n\nun perfil con mayor probabilidad;\nuna explicación posible;\nuna explicación alternativa;\nuna variable que excluiría."
+  },
+  {
+    "objectID": "slides/sesion-05.html#la-regresión-logística-produce-una-probabilidad",
+    "href": "slides/sesion-05.html#la-regresión-logística-produce-una-probabilidad",
+    "title": "¿Qué podrá aprender el modelo?",
+    "section": "La regresión logística produce una probabilidad",
+    "text": "La regresión logística produce una probabilidad\nEl resultado puede ser 0,08, 0,37 o 0,74.\nEl punto de corte inicial la convierte en una clase."
+  },
+  {
+    "objectID": "slides/sesion-05.html#una-exactitud-alta-todavía-no-decide",
+    "href": "slides/sesion-05.html#una-exactitud-alta-todavía-no-decide",
+    "title": "¿Qué podrá aprender el modelo?",
+    "section": "Una exactitud alta todavía no decide",
+    "text": "Una exactitud alta todavía no decide\nCompare el modelo con una regla simple:\n\npredecir siempre la clase más frecuente."
+  },
+  {
+    "objectID": "slides/sesion-05.html#su-entrega-es-también-una-bitácora",
+    "href": "slides/sesion-05.html#su-entrega-es-también-una-bitácora",
+    "title": "¿Qué podrá aprender el modelo?",
+    "section": "Su entrega es también una bitácora",
+    "text": "Su entrega es también una bitácora\n\nbase preparada;\nfilas conservadas;\nfaltantes tratados;\nvariables excluidas;\ndecisiones discutibles."
+  },
+  {
+    "objectID": "slides/sesion-05.html#cierre",
+    "href": "slides/sesion-05.html#cierre",
+    "title": "¿Qué podrá aprender el modelo?",
+    "section": "Cierre",
+    "text": "Cierre\n\nPreparar datos es definir qué mundo verá el modelo."
   }
 ]
