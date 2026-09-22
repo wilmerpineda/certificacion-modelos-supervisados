@@ -487,7 +487,7 @@
     "href": "index.html#materiales",
     "title": "Modelos Supervisados",
     "section": "Materiales",
-    "text": "Materiales\n\nSesión 3 · Regresión simple\nSesión 4 · Regresión múltiple y variables categóricas\nSesión 5 · Preparar la base y primer clasificador\nSesión 6 · Algoritmos y métricas\nFicha de trabajo del estudiante\nDiapositivas de la sesión 3\nDiapositivas de la sesión 4\nDiapositivas de la sesión 5\nDiapositivas de la sesión 6"
+    "text": "Materiales\n\nSesión 3 · Regresión simple\nSesión 4 · Regresión múltiple y variables categóricas\nSesión 5 · Preparar la base y primer clasificador\nSesión 6 · Algoritmos y métricas\nFicha de trabajo del estudiante\nDiapositivas de la sesión 3\nDiapositivas de la sesión 4\nDiapositivas de la sesión 5\nDiapositivas de la sesión 6\nGuía PDF · Primer clasificador en Excel"
   },
   {
     "objectID": "index.html#antes-de-cargar-datos",
@@ -627,7 +627,7 @@
     "href": "sesiones/sesion-05.html#archivos-para-el-ejercicio",
     "title": "Sesión 5 · Preparar la base y primer clasificador",
     "section": "Archivos para el ejercicio",
-    "text": "Archivos para el ejercicio\n\nTabla de clientes\nTabla de campañas\nDiccionario de variables\nBase modelable de referencia\n\nLas dos primeras tablas contienen faltantes y llaves sin pareja de forma intencional. La base de referencia sirve para comparar decisiones, no para reemplazar la discusión del grupo."
+    "text": "Archivos para el ejercicio\n\nGuía paso a paso: primer clasificador en Excel (PDF)\nTabla de clientes\nTabla de campañas\nDiccionario de variables\nBase modelable de referencia\n\nLas dos primeras tablas contienen faltantes y llaves sin pareja de forma intencional. La base de referencia sirve para comparar decisiones, no para reemplazar la discusión del grupo."
   },
   {
     "objectID": "sesiones/sesion-05.html#cierre",
