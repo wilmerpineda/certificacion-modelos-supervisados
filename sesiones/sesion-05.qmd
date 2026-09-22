@@ -66,6 +66,7 @@ En esta sesión la exactitud abre una pregunta; todavía no decide cuál modelo 
 
 ## Archivos para el ejercicio
 
+- [Guía paso a paso: primer clasificador en Excel (PDF)](../output/pdf/guia-primer-clasificador-en-excel.pdf)
 - [Tabla de clientes](../data/public/clasificacion/clientes.csv)
 - [Tabla de campañas](../data/public/clasificacion/campanas.csv)
 - [Diccionario de variables](../data/public/clasificacion/diccionario_clasificacion.csv)
