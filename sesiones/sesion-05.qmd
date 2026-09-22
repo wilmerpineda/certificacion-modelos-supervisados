@@ -1,0 +1,78 @@
+---
+title: "Sesión 5 · Preparar la base y primer clasificador"
+subtitle: "Cada transformación responde a una decisión"
+---
+
+## Resultado de aprendizaje
+
+Al finalizar, podrá cruzar dos tablas, distinguir tipos de ausencia, definir qué variables están disponibles antes de decidir y documentar una base preparada para clasificación.
+
+## La pregunta precede a la limpieza
+
+El banco quiere priorizar clientes para ofrecerles un depósito a plazo. La unidad de análisis es una campaña dirigida a un cliente y la respuesta es `acepta_deposito`.
+
+Antes de transformar datos, pregunte:
+
+1. ¿qué representa una fila?;
+2. ¿cuándo debe producirse la predicción?;
+3. ¿qué información existe en ese momento?;
+4. ¿qué error afectaría la decisión?;
+
+## Cruzar cambia la población
+
+Las tablas `clientes` y `campanas` comparten `id_cliente`.
+
+| Cruce | Conserva | Pregunta que obliga a responder |
+|---|---|---|
+| Interno | Solo llaves presentes en ambas tablas | ¿Acepto excluir los registros sin pareja? |
+| Izquierdo desde campañas | Todas las campañas | ¿Cómo trataré los perfiles ausentes? |
+
+El número de filas antes y después del cruce es una evidencia, no un detalle técnico.
+
+## No toda ausencia significa lo mismo
+
+- **Blanco:** el valor no fue registrado.
+- **Desconocido:** existe una respuesta explícita de desconocimiento.
+- **No aplica:** el atributo no tiene sentido para ese caso.
+- **Cero:** es un valor observado; no equivale automáticamente a ausencia.
+
+::: {.warning-box}
+Imputar permite que el algoritmo procese la fila. No recupera el dato verdadero ni elimina el sesgo que pudo producir la ausencia.
+:::
+
+## Las palabras necesitan representación
+
+Una variable como `tipo_contacto` se convierte en indicadores 0/1 dentro del modelo. El identificador no debe usarse como predictor: distingue registros, pero no describe un mecanismo generalizable.
+
+## La variable disponible después no puede decidir antes
+
+La duración de una llamada solo se conoce cuando termina. Si la pregunta es a quién contactar, usarla para predecir sería permitir que el modelo vea el futuro. Esta variable se reserva para la sesión de fuga de datos.
+
+## Primer clasificador
+
+La regresión logística devuelve una probabilidad estimada de aceptación. Con el punto de corte inicial de 0,5, esa probabilidad se convierte en `Sí` o `No`.
+
+En esta sesión la exactitud abre una pregunta; todavía no decide cuál modelo es mejor.
+
+## Actividad
+
+1. Cruce `clientes` y `campanas`.
+2. Compare cruce interno e izquierdo.
+3. Declare cómo tratará blancos y `Desconocido`.
+4. Excluya la llave y cualquier variable posterior a la decisión.
+5. Anticipe un perfil con mayor probabilidad de aceptar.
+6. Ajuste el primer clasificador.
+7. Descargue la base y la bitácora.
+
+## Archivos para el ejercicio
+
+- [Tabla de clientes](../data/public/clasificacion/clientes.csv)
+- [Tabla de campañas](../data/public/clasificacion/campanas.csv)
+- [Diccionario de variables](../data/public/clasificacion/diccionario_clasificacion.csv)
+- [Base modelable de referencia](../data/public/clasificacion/base_modelable_referencia.csv)
+
+Las dos primeras tablas contienen faltantes y llaves sin pareja de forma intencional. La base de referencia sirve para comparar decisiones, no para reemplazar la discusión del grupo.
+
+## Cierre
+
+Una base no queda lista porque ya no tenga errores visibles. Queda lista cuando representa la población, el momento y la decisión que el modelo debe apoyar.

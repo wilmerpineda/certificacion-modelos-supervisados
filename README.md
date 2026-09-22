@@ -1,8 +1,7 @@
 # Certificación en Ciencia de Datos · Modelos Supervisados
 
-Paquete reproducible para las sesiones 3 y 4 del módulo: p-value, prueba t,
-regresión lineal simple, regresión múltiple, variables categóricas y
-multicolinealidad.
+Paquete reproducible para las sesiones 3 a 6 del módulo: p-value, regresión
+lineal, preparación de datos, clasificación y métricas orientadas a decisiones.
 
 ## Componentes
 
@@ -13,6 +12,8 @@ multicolinealidad.
 - `guias/`: planeación y respuestas esperadas para el docente.
 - `fichas/`: hoja de trabajo del estudiante.
 - `data/public/`: muestra ICFES autorizada para clase.
+- `data/public/clasificacion/`: caso bancario pedagógico, diccionario y base de referencia.
+- `pages/2_Clasificacion.py`: laboratorio de preparación y comparación de clasificadores.
 - `tests/`: verificación de cálculos estadísticos.
 
 ## Ejecutar la aplicación

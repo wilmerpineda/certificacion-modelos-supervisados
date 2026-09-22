@@ -1,0 +1,82 @@
+---
+title: "Ficha de trabajo · Preparar, comparar y decidir"
+subtitle: "Sesiones 5 y 6"
+format:
+  html:
+    toc: true
+    css: ../assets/styles/course.css
+---
+
+## Identificación del caso
+
+- Pregunta de negocio:
+- Unidad de análisis:
+- Variable respuesta:
+- Clase positiva:
+- Momento en que debe producirse la predicción:
+
+## Ronda 1 · Cruce
+
+| Campo | Respuesta |
+|---|---|
+| Llave | |
+| Filas de clientes | |
+| Filas de campañas | |
+| Coincidencias | |
+| Perfiles sin campaña | |
+| Campañas sin perfil | |
+| Tipo de cruce elegido | |
+| Población que quedó excluida | |
+
+## Ronda 2 · Preparación
+
+| Variable o problema | Decisión | Razón | ¿Discutible? |
+|---|---|---|---|
+| Blancos numéricos | | | |
+| Blancos categóricos | | | |
+| `Desconocido` | | | |
+| Identificador | | | |
+| Categorías de texto | | | |
+| Variable no disponible al decidir | | | |
+
+### Predicción previa
+
+¿Qué perfil espera que tenga mayor probabilidad de aceptar? Explique sin afirmar causalidad.
+
+## Ronda 3 · Primera mirada
+
+| Modelo | Exactitud | Elección provisional |
+|---|---:|---|
+| Regla ingenua | | |
+| Regresión logística | | |
+| Árbol | | |
+| k vecinos | | |
+| Random forest | | |
+
+## Ronda 4 · Auditar errores
+
+| Modelo | TN | FP | FN | TP | Precisión | Recall | F1 | Especificidad | AUC |
+|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|
+| Regresión logística | | | | | | | | | |
+| Árbol | | | | | | | | | |
+| k vecinos | | | | | | | | | |
+| Random forest | | | | | | | | | |
+
+## Ronda 5 · Árbol e importancia
+
+- Primera regla del árbol:
+- Una hoja que pueda explicar en lenguaje de negocio:
+- Variable más importante:
+- Lo que esa importancia sí dice:
+- Lo que no permite concluir:
+
+## Decisión final
+
+- Escenario: crecimiento / capacidad limitada.
+- Algoritmo elegido:
+- Métrica prioritaria:
+- Error que acepta tolerar:
+- Acción recomendada:
+- Limitación:
+
+> Elegimos **[modelo]** porque en el escenario **[escenario]** importa priorizar **[métrica]**. El modelo obtuvo **[valor]** y cometió **[número] [tipo de error]**. Esta evidencia apoya **[acción]**, pero no permite concluir **[límite]**.

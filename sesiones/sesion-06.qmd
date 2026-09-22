@@ -1,0 +1,105 @@
+---
+title: "Sesión 6 · Algoritmos y métricas"
+subtitle: "El costo del error define qué significa mejor"
+---
+
+## Resultado de aprendizaje
+
+Comparará cuatro clasificadores con la misma muestra de evaluación y elegirá uno usando la métrica coherente con el costo del error del negocio.
+
+## La exactitud puede celebrar el modelo equivocado
+
+Solo cerca de 11 % de los clientes acepta. Una regla que siempre predice `No` supera 88 % de exactitud, pero no identifica un solo aceptante.
+
+## La matriz de confusión cuenta cuatro historias
+
+| | Predice No | Predice Sí |
+|---|---:|---:|
+| Real No | TN | FP |
+| Real Sí | FN | TP |
+
+- **FP:** se contacta a alguien que no aceptará.
+- **FN:** se omite a alguien que habría aceptado.
+
+## Una métrica responde una pregunta
+
+| Métrica | Pregunta de negocio |
+|---|---|
+| Exactitud | ¿Qué proporción total acertó? |
+| Precisión | De los contactados, ¿cuántos aceptarían? |
+| Recall | De quienes aceptarían, ¿cuántos detectamos? |
+| Especificidad | De quienes no aceptarían, ¿cuántos evitamos contactar? |
+| F1 | ¿Qué compromiso logramos entre precisión y recall? |
+| AUC | ¿Qué tan bien ordena el modelo aceptantes por encima de no aceptantes? |
+
+## Auditoría sencilla en Excel
+
+Con la clase real en la columna `B` y la predicción en la columna `C`, la matriz puede reconstruirse sin volver a entrenar:
+
+```text
+TP = CONTAR.SI.CONJUNTO(B:B;"Sí";C:C;"Sí")
+FP = CONTAR.SI.CONJUNTO(B:B;"No";C:C;"Sí")
+FN = CONTAR.SI.CONJUNTO(B:B;"Sí";C:C;"No")
+TN = CONTAR.SI.CONJUNTO(B:B;"No";C:C;"No")
+
+Precisión = TP/(TP+FP)
+Recall = TP/(TP+FN)
+Especificidad = TN/(TN+FP)
+```
+
+El objetivo de Excel aquí es auditar los conteos que sostienen una decisión, no reproducir el entrenamiento del algoritmo.
+
+## Cuatro algoritmos, cuatro formas de aprender
+
+- **Regresión logística:** frontera lineal y probabilidades comparables.
+- **Árbol:** reglas visibles y relaciones no lineales.
+- **k vecinos:** decide por similitud con casos cercanos.
+- **Random forest:** combina muchos árboles y sacrifica lectura directa por estabilidad.
+
+## El árbol se interpreta recorriendo reglas
+
+Cada cliente sigue un camino desde la raíz hasta una hoja. Una regla predictiva describe cómo clasifica el modelo; no prueba que cambiar esa variable produzca una aceptación.
+
+## Importancia no significa efecto
+
+La importancia del árbol resume cuánto ayudó una variable a reducir impureza en sus divisiones.
+
+No informa:
+
+- si el efecto es positivo o negativo;
+- cuánto cambia la probabilidad;
+- si la relación es causal;
+- si conviene intervenir sobre esa variable.
+
+## ROC y AUC no eligen la operación
+
+La curva ROC recorre muchos puntos de corte. El AUC resume capacidad de ordenamiento, pero no incorpora por sí solo presupuesto, capacidad de llamadas ni costo de los errores.
+
+## Dos escenarios, dos prioridades
+
+::: {.decision-box}
+**Crecimiento:** perder un aceptante potencial es costoso. Priorice recall.
+
+**Capacidad limitada:** una llamada improductiva consume recursos escasos. Priorice precisión.
+:::
+
+## Actividad
+
+1. Elija provisionalmente con exactitud.
+2. Abra la matriz y revise FP y FN.
+3. Compare los cuatro modelos con la misma evaluación.
+4. Lea ROC y AUC sin elegir aún un punto de corte.
+5. Recorra el árbol y revise su importancia.
+6. Elija un escenario y justifique un algoritmo con una métrica.
+7. Declare un error tolerado y una limitación.
+
+## Archivos para auditar
+
+- [Predicciones de referencia](../data/public/clasificacion/predicciones_referencia.csv)
+- [Métricas de referencia](../data/public/clasificacion/metricas_referencia.csv)
+- [Importancia del árbol](../data/public/clasificacion/importancia_arbol_referencia.csv)
+- [Reglas del árbol](../data/public/clasificacion/reglas_arbol_referencia.txt)
+
+## Cierre
+
+No existe un modelo mejor sin una decisión definida. Existe un modelo más coherente con un costo, una población y una evidencia concreta.

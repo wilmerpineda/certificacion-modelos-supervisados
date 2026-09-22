@@ -1,0 +1,131 @@
+---
+title: "¿Qué error estamos dispuestos a pagar?"
+subtitle: "Algoritmos, métricas y decisiones"
+author: "Certificación en Ciencia de Datos"
+format:
+  revealjs:
+    theme: dark
+    css: ../assets/styles/course.css
+    slide-number: true
+    transition: fade
+    incremental: false
+    footer: "Universidad Externado de Colombia"
+---
+
+## El 88 % puede ser una mala noticia
+
+::: {.r-fit-text}
+Si casi todos dicen No, acertar No no demuestra que detectemos aceptantes.
+:::
+
+## La regla ingenua fija el punto de comparación
+
+Predecir siempre `No` logra aproximadamente 88,7 % de exactitud.
+
+Su recall de aceptantes es 0 %.
+
+## La matriz obliga a nombrar el error
+
+| | Predice No | Predice Sí |
+|---|---:|---:|
+| Real No | TN | FP |
+| Real Sí | FN | TP |
+
+## Un falso positivo consume capacidad
+
+Contactamos a una persona que no aceptará.
+
+El costo puede ser tiempo, dinero o desgaste comercial.
+
+## Un falso negativo pierde oportunidad
+
+No contactamos a una persona que habría aceptado.
+
+El costo es una oportunidad comercial omitida.
+
+## Exactitud mira todos los casos
+
+$$\frac{TP+TN}{TP+TN+FP+FN}$$
+
+Puede quedar dominada por la clase mayoritaria.
+
+## Precisión audita a quienes contactamos
+
+$$\frac{TP}{TP+FP}$$
+
+De las alertas positivas, ¿cuántas eran aceptantes?
+
+## Recall audita a quienes aceptarían
+
+$$\frac{TP}{TP+FN}$$
+
+De los aceptantes reales, ¿cuántos detectamos?
+
+## Especificidad protege a la clase negativa
+
+$$\frac{TN}{TN+FP}$$
+
+De quienes no aceptarían, ¿cuántos evitamos contactar?
+
+## F1 exige equilibrio entre dos métricas
+
+Combina precisión y recall mediante una media armónica.
+
+No incorpora por sí solo el costo monetario.
+
+## Cuatro algoritmos observan el mismo problema
+
+- logística: frontera lineal;
+- árbol: reglas y umbrales;
+- kNN: similitud;
+- random forest: conjunto de árboles.
+
+## La comparación debe compartir evaluación
+
+Mismas filas de entrenamiento.
+
+Mismas filas de evaluación.
+
+Misma clase positiva.
+
+## AUC resume ordenamiento
+
+Un AUC mayor indica que el modelo tiende a ordenar aceptantes por encima de no aceptantes.
+
+No fija el punto de corte operativo.
+
+## El árbol permite seguir un camino
+
+Raíz → condición → rama → hoja.
+
+La hoja resume una predicción aprendida, no una ley causal.
+
+## Importante no significa causal
+
+La importancia del árbol no informa:
+
+- dirección;
+- efecto;
+- conveniencia de intervenir.
+
+## Escenario de crecimiento
+
+Omitir a un aceptante es el error más costoso.
+
+Prioridad: **recall**.
+
+## Escenario de capacidad limitada
+
+Una llamada improductiva es el error más costoso.
+
+Prioridad: **precisión**.
+
+## La elección completa nombra cuatro cosas
+
+> Modelo → métrica → error tolerado → limitación.
+
+## Cierre
+
+::: {.r-fit-text}
+El mejor modelo depende de la decisión que debe sostener.
+:::

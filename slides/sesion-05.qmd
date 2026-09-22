@@ -1,0 +1,122 @@
+---
+title: "¿Qué podrá aprender el modelo?"
+subtitle: "Preparación de datos y primer clasificador"
+author: "Certificación en Ciencia de Datos"
+format:
+  revealjs:
+    theme: dark
+    css: ../assets/styles/course.css
+    slide-number: true
+    transition: fade
+    incremental: false
+    footer: "Universidad Externado de Colombia"
+---
+
+## La base se prepara para una decisión
+
+::: {.r-fit-text}
+¿A quién contactaríamos antes de saber cómo termina la llamada?
+:::
+
+## Una fila necesita significado
+
+- actor: equipo de campaña;
+- unidad: contacto asociado a un cliente;
+- respuesta: aceptación del depósito;
+- momento: antes de realizar la llamada.
+
+## Dos tablas cuentan partes de la historia
+
+`clientes` describe el perfil.
+
+`campanas` describe el contexto y la respuesta.
+
+La llave `id_cliente` permite relacionarlas.
+
+## Cruzar no es un gesto neutro
+
+| Interno | Izquierdo desde campañas |
+|---|---|
+| Conserva coincidencias | Conserva todas las campañas |
+| Excluye casos sin pareja | Produce perfiles faltantes |
+
+## El control comienza contando filas
+
+Antes y después del cruce registre:
+
+- filas;
+- llaves únicas;
+- coincidencias;
+- casos sin pareja.
+
+## Un duplicado puede multiplicar personas
+
+Si una llave aparece dos veces en cada tabla, el cruce puede crear cuatro combinaciones.
+
+Detenerse es mejor que fabricar observaciones.
+
+## Blanco no significa cero
+
+| Valor | Lectura |
+|---|---|
+| Blanco | No registrado |
+| Desconocido | Respuesta explícita |
+| No aplica | Atributo sin sentido |
+| 0 | Valor observado |
+
+## Imputar resuelve una entrada, no su historia
+
+La mediana o la moda permiten procesar una fila.
+
+No recuperan el dato verdadero ni eliminan sesgos.
+
+## Una palabra se transforma en columnas
+
+`tipo_contacto = Celular` puede representarse como 1 o 0.
+
+La codificación hace computable la categoría; no la convierte en cantidad.
+
+## El identificador no es una explicación
+
+`id_cliente` distingue filas.
+
+Si el modelo lo memoriza, no aprende una regla transferible.
+
+## El futuro no puede decidir el pasado
+
+La duración de la llamada solo existe al terminar.
+
+No puede usarse para decidir a quién llamar.
+
+## Antes de ajustar, anticipe
+
+- un perfil con mayor probabilidad;
+- una explicación posible;
+- una explicación alternativa;
+- una variable que excluiría.
+
+## La regresión logística produce una probabilidad
+
+El resultado puede ser 0,08, 0,37 o 0,74.
+
+El punto de corte inicial la convierte en una clase.
+
+## Una exactitud alta todavía no decide
+
+Compare el modelo con una regla simple:
+
+> predecir siempre la clase más frecuente.
+
+## Su entrega es también una bitácora
+
+- base preparada;
+- filas conservadas;
+- faltantes tratados;
+- variables excluidas;
+- decisiones discutibles.
+
+## Cierre
+
+::: {.r-fit-text}
+Preparar datos es definir qué mundo verá el modelo.
+:::

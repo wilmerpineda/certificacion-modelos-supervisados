@@ -1,0 +1,40 @@
+|--- numeric__numero_empleados <= 5087.65
+|   |--- categorical__resultado_previo_success <= 0.50
+|   |   |--- categorical__tipo_contacto_cellular <= 0.50
+|   |   |   |--- numeric__indice_precios <= 93.81
+|   |   |   |   |--- class: 0
+|   |   |   |--- numeric__indice_precios >  93.81
+|   |   |   |   |--- class: 0
+|   |   |--- categorical__tipo_contacto_cellular >  0.50
+|   |   |   |--- numeric__numero_empleados <= 5013.10
+|   |   |   |   |--- class: 0
+|   |   |   |--- numeric__numero_empleados >  5013.10
+|   |   |   |   |--- class: 0
+|   |--- categorical__resultado_previo_success >  0.50
+|   |   |--- categorical__estado_civil_married <= 0.50
+|   |   |   |--- class: 1
+|   |   |--- categorical__estado_civil_married >  0.50
+|   |   |   |--- numeric__dias_desde_contacto_previo <= 4.50
+|   |   |   |   |--- class: 1
+|   |   |   |--- numeric__dias_desde_contacto_previo >  4.50
+|   |   |   |   |--- class: 1
+|--- numeric__numero_empleados >  5087.65
+|   |--- numeric__confianza_consumidor <= -46.65
+|   |   |--- numeric__euribor_3m <= 1.38
+|   |   |   |--- class: 0
+|   |   |--- numeric__euribor_3m >  1.38
+|   |   |   |--- categorical__dia_semana_wed <= 0.50
+|   |   |   |   |--- class: 0
+|   |   |   |--- categorical__dia_semana_wed >  0.50
+|   |   |   |   |--- class: 0
+|   |--- numeric__confianza_consumidor >  -46.65
+|   |   |--- numeric__euribor_3m <= 1.29
+|   |   |   |--- numeric__contactos_campana <= 3.50
+|   |   |   |   |--- class: 0
+|   |   |   |--- numeric__contactos_campana >  3.50
+|   |   |   |   |--- class: 0
+|   |   |--- numeric__euribor_3m >  1.29
+|   |   |   |--- numeric__indice_precios <= 93.96
+|   |   |   |   |--- class: 0
+|   |   |   |--- numeric__indice_precios >  93.96
+|   |   |   |   |--- class: 0

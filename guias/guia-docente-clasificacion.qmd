@@ -1,0 +1,89 @@
+---
+title: "Guía docente · Sesiones 5 y 6"
+subtitle: "Preparación, clasificación y métricas orientadas a decisiones"
+format:
+  html:
+    toc: false
+    css:
+      - ../assets/styles/course.css
+      - ../assets/styles/print-guide.css
+---
+
+## Propósito
+
+Al terminar las dos sesiones, los participantes deben poder justificar cómo prepararon una base y elegir un clasificador según el costo del error, sin confundir desempeño predictivo, importancia y causalidad.
+
+## Sesión 5 · 240 minutos
+
+| Minutos | Actividad | Evidencia observable |
+|---:|---|---|
+| 0-15 | Pregunta bancaria | Definen decisión y unidad de análisis |
+| 15-40 | Objetivo y momento de predicción | Separan información disponible y futura |
+| 40-75 | Cruce de tablas | Auditan coincidencias y exclusiones |
+| 75-105 | Tipos de ausencia | Distinguen blanco, desconocido, cero y no aplica |
+| 105-120 | Codificación | Excluyen ID y anticipan indicadores |
+| 120-135 | Pausa | - |
+| 135-165 | Base modelable | Registran decisiones y controversias |
+| 165-195 | Regresión logística | Obtienen probabilidades y clases |
+| 195-220 | Exactitud inicial | Comparan con la regla mayoritaria |
+| 220-240 | Entrega y defensa | Descargan base y bitácora |
+
+### Preguntas para intervenir
+
+1. ¿La fila representa cliente, hogar o contacto?
+2. ¿Qué población desaparece con el cruce interno?
+3. ¿Por qué `Desconocido` no equivale a blanco?
+4. ¿La imputación recupera el dato real?
+5. ¿La variable existía antes de decidir a quién llamar?
+
+### Respuesta esperada
+
+El grupo debe conservar un registro explícito de filas, llaves, faltantes, codificación y exclusiones. No hay una única política correcta, pero la elección debe ser coherente con la pregunta y aplicarse dentro del proceso de modelado.
+
+## Sesión 6 · 240 minutos
+
+| Minutos | Actividad | Evidencia observable |
+|---:|---|---|
+| 0-15 | Recuperación | Explican el primer clasificador |
+| 15-35 | Trampa de exactitud | Detectan el clasificador mayoritario |
+| 35-65 | Matriz de confusión | Traducen FP y FN al negocio |
+| 65-100 | Métricas | Relacionan cada métrica con una pregunta |
+| 100-120 | Auditoría en Excel | Reconstruyen matriz y fórmulas |
+| 120-135 | Pausa | - |
+| 135-165 | Cuatro algoritmos | Comparan bajo la misma evaluación |
+| 165-190 | ROC y AUC | Distinguen ordenamiento de decisión |
+| 190-215 | Árbol e importancia | Leen reglas y evitan causalidad |
+| 215-235 | Dos escenarios | Eligen métrica según costo |
+| 235-240 | Salida | Declaran modelo, error y límite |
+
+### Revelación del desbalance
+
+No anuncie inicialmente la tasa de aceptación. Muestre primero exactitud y solicite una elección. Después revele que la regla `siempre No` supera 88 % y abra la matriz. La corrección no es “la exactitud es mala”, sino “la exactitud sola responde una pregunta insuficiente”.
+
+### Lecturas esperadas
+
+- **Precisión alta:** una mayor proporción de los contactados aceptaría.
+- **Recall alto:** se detecta una mayor proporción de quienes aceptarían.
+- **Especificidad alta:** se evita contactar a una mayor proporción de quienes no aceptarían.
+- **F1:** resume precisión y recall, pero no incorpora costos explícitos.
+- **AUC:** resume ordenamiento a través de umbrales; no fija una operación.
+
+### Árbol e importancia
+
+Pida leer un camino completo y terminar con una probabilidad o clase de hoja. Corrija frases como “la variable más importante causa la aceptación”. La formulación responsable es: “el árbol usó esta variable con mayor contribución a la reducción de impureza en estos datos”.
+
+## Criterio de logro
+
+Una respuesta satisfactoria contiene:
+
+1. población y momento de predicción;
+2. decisiones de preparación auditables;
+3. métrica vinculada a un costo;
+4. conteo concreto de errores;
+5. recomendación y límite explícitos.
+
+El código no forma parte del criterio principal.
+
+## Plan de contingencia
+
+Si falla internet, use las capturas de resultados y el libro Excel. La base de referencia permite trabajar la matriz y las métricas sin volver a entrenar. Si el ajuste tarda, ejecute una vez desde el equipo docente y distribuya `predicciones_clasificacion.csv`.

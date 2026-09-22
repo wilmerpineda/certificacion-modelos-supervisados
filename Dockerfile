@@ -10,6 +10,7 @@ COPY requirements.txt .
 RUN pip install --upgrade pip && pip install -r requirements.txt
 
 COPY app.py .
+COPY pages ./pages
 COPY src ./src
 COPY assets ./assets
 COPY data/public ./data/public

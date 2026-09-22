@@ -2,6 +2,7 @@
 .quarto-cache/
 _site/
 material-docente/
+tmp/
 __pycache__/
 .pytest_cache/
 .venv/

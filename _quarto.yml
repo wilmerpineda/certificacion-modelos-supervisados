@@ -1,6 +1,8 @@
 project:
   type: website
   output-dir: _site
+  resources:
+    - data/public/clasificacion/*
   render:
     - index.qmd
     - sesiones/*.qmd
@@ -21,8 +23,16 @@ website:
             text: "Sesión 3 · Regresión simple"
           - href: sesiones/sesion-04.qmd
             text: "Sesión 4 · Regresión múltiple"
-      - href: fichas/ficha-estudiante.qmd
-        text: Ficha del estudiante
+          - href: sesiones/sesion-05.qmd
+            text: "Sesión 5 · Preparación y clasificación"
+          - href: sesiones/sesion-06.qmd
+            text: "Sesión 6 · Algoritmos y métricas"
+      - text: Fichas
+        menu:
+          - href: fichas/ficha-estudiante.qmd
+            text: "Sesiones 3 y 4"
+          - href: fichas/ficha-clasificacion.qmd
+            text: "Sesiones 5 y 6"
   page-footer:
     left: "Universidad Externado de Colombia · Certificación en Ciencia de Datos"
     right: "Evidencia → interpretación → decisión"

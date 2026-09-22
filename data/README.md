@@ -20,3 +20,14 @@ publicarse hasta verificar su autorización de distribución.
 | `genero` | Categórica | Comparación e indicadores |
 | `departamento`, `municipio` | Categóricas | Contexto; pueden tener alta cardinalidad |
 
+## Clasificación bancaria
+
+`public/clasificacion/` contiene una versión pedagógica derivada de UCI Bank
+Marketing. La muestra conserva el desbalance original, usa un `id_cliente`
+sintético, introduce blancos controlados y separa perfiles y campañas para el
+ejercicio de cruce. `duration` se excluye porque solo se conoce después de la
+llamada y se reserva para estudiar fuga de datos.
+
+Los archivos de referencia con métricas y predicciones permiten continuar la
+actividad si no se puede entrenar en línea. El diccionario registra las
+modificaciones y la correspondencia con las variables UCI.
