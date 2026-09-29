@@ -1,0 +1,18 @@
+# Archivos que no necesita el contenedor de Streamlit.
+.gcloudignore
+.git
+.github
+.gitignore
+#!include:.gitignore
+
+# Materiales fuente y entregables descargables se publican con GitHub Pages.
+sesiones/
+slides/
+fichas/
+guias/
+proyecto/
+output/
+tests/
+scripts/
+*.qmd
+/*.xlsx
