@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Sesión 5 · Preparar la base y primer clasificador – Modelos Supervisados</title>
+<title>Sesión 8 · Del modelo a la decisión – Modelos Supervisados</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -75,6 +75,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../assets/styles/course.css">
 </head>
@@ -206,14 +235,13 @@ ul.task-list li input[type="checkbox"] {
    
   <ul>
   <li><a href="#resultado-de-aprendizaje" id="toc-resultado-de-aprendizaje" class="nav-link active" data-scroll-target="#resultado-de-aprendizaje">Resultado de aprendizaje</a></li>
-  <li><a href="#la-pregunta-precede-a-la-limpieza" id="toc-la-pregunta-precede-a-la-limpieza" class="nav-link" data-scroll-target="#la-pregunta-precede-a-la-limpieza">La pregunta precede a la limpieza</a></li>
-  <li><a href="#cruzar-cambia-la-población" id="toc-cruzar-cambia-la-población" class="nav-link" data-scroll-target="#cruzar-cambia-la-población">Cruzar cambia la población</a></li>
-  <li><a href="#no-toda-ausencia-significa-lo-mismo" id="toc-no-toda-ausencia-significa-lo-mismo" class="nav-link" data-scroll-target="#no-toda-ausencia-significa-lo-mismo">No toda ausencia significa lo mismo</a></li>
-  <li><a href="#las-palabras-necesitan-representación" id="toc-las-palabras-necesitan-representación" class="nav-link" data-scroll-target="#las-palabras-necesitan-representación">Las palabras necesitan representación</a></li>
-  <li><a href="#la-variable-disponible-después-no-puede-decidir-antes" id="toc-la-variable-disponible-después-no-puede-decidir-antes" class="nav-link" data-scroll-target="#la-variable-disponible-después-no-puede-decidir-antes">La variable disponible después no puede decidir antes</a></li>
-  <li><a href="#primer-clasificador" id="toc-primer-clasificador" class="nav-link" data-scroll-target="#primer-clasificador">Primer clasificador</a></li>
+  <li><a href="#el-escenario-económico" id="toc-el-escenario-económico" class="nav-link" data-scroll-target="#el-escenario-económico">El escenario económico</a></li>
+  <li><a href="#el-corte-se-elige-en-validación" id="toc-el-corte-se-elige-en-validación" class="nav-link" data-scroll-target="#el-corte-se-elige-en-validación">El corte se elige en validación</a></li>
+  <li><a href="#prueba-es-una-auditoría-no-otra-ronda-de-ajuste" id="toc-prueba-es-una-auditoría-no-otra-ronda-de-ajuste" class="nav-link" data-scroll-target="#prueba-es-una-auditoría-no-otra-ronda-de-ajuste">Prueba es una auditoría, no otra ronda de ajuste</a></li>
+  <li><a href="#del-histórico-a-la-cartera" id="toc-del-histórico-a-la-cartera" class="nav-link" data-scroll-target="#del-histórico-a-la-cartera">Del histórico a la cartera</a></li>
+  <li><a href="#excel-como-auditor" id="toc-excel-como-auditor" class="nav-link" data-scroll-target="#excel-como-auditor">Excel como auditor</a></li>
   <li><a href="#actividad" id="toc-actividad" class="nav-link" data-scroll-target="#actividad">Actividad</a></li>
-  <li><a href="#archivos-para-el-ejercicio" id="toc-archivos-para-el-ejercicio" class="nav-link" data-scroll-target="#archivos-para-el-ejercicio">Archivos para el ejercicio</a></li>
+  <li><a href="#entrega" id="toc-entrega" class="nav-link" data-scroll-target="#entrega">Entrega</a></li>
   <li><a href="#cierre" id="toc-cierre" class="nav-link" data-scroll-target="#cierre">Cierre</a></li>
   </ul>
 </nav>
@@ -223,8 +251,8 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Sesión 5 · Preparar la base y primer clasificador</h1>
-<p class="subtitle lead">Cada transformación responde a una decisión</p>
+<h1 class="title">Sesión 8 · Del modelo a la decisión</h1>
+<p class="subtitle lead">El punto de corte convierte probabilidades en una operación</p>
 </div>
 
 
@@ -243,101 +271,85 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="resultado-de-aprendizaje" class="level2">
 <h2 class="anchored" data-anchor-id="resultado-de-aprendizaje">Resultado de aprendizaje</h2>
-<p>Al finalizar, podrá cruzar dos tablas, distinguir tipos de ausencia, definir qué variables están disponibles antes de decidir y documentar una base preparada para clasificación.</p>
+<p>Al finalizar, podrá elegir un punto de corte con validación, auditarlo una sola vez en prueba y producir una lista priorizada de clientes.</p>
 </section>
-<section id="la-pregunta-precede-a-la-limpieza" class="level2">
-<h2 class="anchored" data-anchor-id="la-pregunta-precede-a-la-limpieza">La pregunta precede a la limpieza</h2>
-<p>El banco quiere priorizar clientes para ofrecerles un depósito a plazo. La unidad de análisis es una campaña dirigida a un cliente y la respuesta es <code>acepta_deposito</code>.</p>
-<p>Antes de transformar datos, pregunte:</p>
-<ol type="1">
-<li>¿qué representa una fila?;</li>
-<li>¿cuándo debe producirse la predicción?;</li>
-<li>¿qué información existe en ese momento?;</li>
-<li>¿qué error afectaría la decisión?;</li>
-</ol>
-</section>
-<section id="cruzar-cambia-la-población" class="level2">
-<h2 class="anchored" data-anchor-id="cruzar-cambia-la-población">Cruzar cambia la población</h2>
-<p>Las tablas <code>clientes</code> y <code>campanas</code> comparten <code>id_cliente</code>.</p>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 33%">
-<col style="width: 33%">
-<col style="width: 33%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Cruce</th>
-<th>Conserva</th>
-<th>Pregunta que obliga a responder</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Interno</td>
-<td>Solo llaves presentes en ambas tablas</td>
-<td>¿Acepto excluir los registros sin pareja?</td>
-</tr>
-<tr class="even">
-<td>Izquierdo desde campañas</td>
-<td>Todas las campañas</td>
-<td>¿Cómo trataré los perfiles ausentes?</td>
-</tr>
-</tbody>
-</table>
-<p>El número de filas antes y después del cruce es una evidencia, no un detalle técnico.</p>
-</section>
-<section id="no-toda-ausencia-significa-lo-mismo" class="level2">
-<h2 class="anchored" data-anchor-id="no-toda-ausencia-significa-lo-mismo">No toda ausencia significa lo mismo</h2>
+<section id="el-escenario-económico" class="level2">
+<h2 class="anchored" data-anchor-id="el-escenario-económico">El escenario económico</h2>
+<p>Usaremos dos supuestos pedagógicos editables:</p>
 <ul>
-<li><strong>Blanco:</strong> el valor no fue registrado.</li>
-<li><strong>Desconocido:</strong> existe una respuesta explícita de desconocimiento.</li>
-<li><strong>No aplica:</strong> el atributo no tiene sentido para ese caso.</li>
-<li><strong>Cero:</strong> es un valor observado; no equivale automáticamente a ausencia.</li>
+<li>contribución por aceptación: <strong>COP 100.000</strong>;</li>
+<li>costo por contacto: <strong>COP 20.000</strong>.</li>
 </ul>
-<div class="warning-box">
-<p>Imputar permite que el algoritmo procese la fila. No recupera el dato verdadero ni elimina el sesgo que pudo producir la ausencia.</p>
-</div>
+<p>Para cada corte:</p>
+<p><span class="math display">\[
+\text{valor}=100.000\times TP-20.000\times(TP+FP)
+\]</span></p>
+<p>No son estimaciones reales del banco. Sirven para hacer explícito el criterio de decisión.</p>
 </section>
-<section id="las-palabras-necesitan-representación" class="level2">
-<h2 class="anchored" data-anchor-id="las-palabras-necesitan-representación">Las palabras necesitan representación</h2>
-<p>Una variable como <code>tipo_contacto</code> se convierte en indicadores 0/1 dentro del modelo. El identificador no debe usarse como predictor: distingue registros, pero no describe un mecanismo generalizable.</p>
+<section id="el-corte-se-elige-en-validación" class="level2">
+<h2 class="anchored" data-anchor-id="el-corte-se-elige-en-validación">El corte se elige en validación</h2>
+<p>Cada corte cambia simultáneamente:</p>
+<ul>
+<li>cantidad de clientes contactados;</li>
+<li>verdaderos y falsos positivos;</li>
+<li>precisión y recall;</li>
+<li>valor estimado de la campaña.</li>
+</ul>
+<p>Se elige el corte con mayor valor en validación. Si dos cortes empatan, se conserva el mayor para contactar menos clientes.</p>
 </section>
-<section id="la-variable-disponible-después-no-puede-decidir-antes" class="level2">
-<h2 class="anchored" data-anchor-id="la-variable-disponible-después-no-puede-decidir-antes">La variable disponible después no puede decidir antes</h2>
-<p>La duración de una llamada solo se conoce cuando termina. Si la pregunta es a quién contactar, usarla para predecir sería permitir que el modelo vea el futuro. Esta variable se reserva para la sesión de fuga de datos.</p>
+<section id="prueba-es-una-auditoría-no-otra-ronda-de-ajuste" class="level2">
+<h2 class="anchored" data-anchor-id="prueba-es-una-auditoría-no-otra-ronda-de-ajuste">Prueba es una auditoría, no otra ronda de ajuste</h2>
+<p>Después de bloquear algoritmo, predictores y corte, la muestra de prueba estima cómo funcionaría la política fuera de los datos usados para diseñarla.</p>
+<p>Si el resultado decepciona, se documenta. No se regresa silenciosamente a escoger otro corte con la misma prueba.</p>
 </section>
-<section id="primer-clasificador" class="level2">
-<h2 class="anchored" data-anchor-id="primer-clasificador">Primer clasificador</h2>
-<p>La regresión logística devuelve una probabilidad estimada de aceptación. Con el punto de corte inicial de 0,5, esa probabilidad se convierte en <code>Sí</code> o <code>No</code>.</p>
-<p>En esta sesión la exactitud abre una pregunta; todavía no decide cuál modelo es mejor.</p>
+<section id="del-histórico-a-la-cartera" class="level2">
+<h2 class="anchored" data-anchor-id="del-histórico-a-la-cartera">Del histórico a la cartera</h2>
+<p>Una vez aceptado el modelo:</p>
+<ol type="1">
+<li>se reajusta con todo el histórico permitido;</li>
+<li>se calcula una probabilidad para cada cliente de la cartera;</li>
+<li>se estima <code>probabilidad × contribución - costo</code>;</li>
+<li>se aplica el corte bloqueado;</li>
+<li>se ordena la lista de mayor a menor probabilidad.</li>
+</ol>
+<p>La cartera no contiene <code>acepta_deposito</code> ni <code>duracion_llamada</code>.</p>
+</section>
+<section id="excel-como-auditor" class="level2">
+<h2 class="anchored" data-anchor-id="excel-como-auditor">Excel como auditor</h2>
+<p>Excel recibe probabilidades, no vuelve a entrenar el random forest. Permite verificar:</p>
+<ul>
+<li>clasificación según el corte;</li>
+<li>valor esperado por cliente;</li>
+<li>número de contactos;</li>
+<li>orden de prioridad;</li>
+<li>efecto de cambiar los supuestos económicos.</li>
+</ul>
 </section>
 <section id="actividad" class="level2">
 <h2 class="anchored" data-anchor-id="actividad">Actividad</h2>
 <ol type="1">
-<li>Cruce <code>clientes</code> y <code>campanas</code>.</li>
-<li>Compare cruce interno e izquierdo.</li>
-<li>Declare cómo tratará blancos y <code>Desconocido</code>.</li>
-<li>Excluya la llave y cualquier variable posterior a la decisión.</li>
-<li>Anticipe un perfil con mayor probabilidad de aceptar.</li>
-<li>Ajuste el primer clasificador.</li>
-<li>Descargue la base y la bitácora.</li>
+<li>Declare el costo y la contribución.</li>
+<li>Compare la tabla de cortes en validación.</li>
+<li>Bloquee el corte de mayor valor.</li>
+<li>Audite TP, FP, FN, precisión, recall y valor en prueba.</li>
+<li>Puntúe la cartera sin etiqueta.</li>
+<li>Descargue la lista completa y filtre <code>contactar = Sí</code>.</li>
+<li>Redacte una recomendación con cifra, acción y límite.</li>
 </ol>
 </section>
-<section id="archivos-para-el-ejercicio" class="level2">
-<h2 class="anchored" data-anchor-id="archivos-para-el-ejercicio">Archivos para el ejercicio</h2>
+<section id="entrega" class="level2">
+<h2 class="anchored" data-anchor-id="entrega">Entrega</h2>
 <ul>
-<li><a href="../output/pdf/guia-primer-clasificador-en-excel.pdf">Guía paso a paso: primer clasificador en Excel (PDF)</a></li>
-<li><a href="../data/public/clasificacion/clientes.csv">Tabla de clientes</a></li>
-<li><a href="../data/public/clasificacion/campanas.csv">Tabla de campañas</a></li>
-<li><a href="../data/public/clasificacion/diccionario_clasificacion.csv">Diccionario de variables</a></li>
-<li><a href="../data/public/clasificacion/base_modelable_referencia.csv">Base modelable de referencia</a></li>
+<li>CSV con la lista de clientes;</li>
+<li>punto de corte utilizado;</li>
+<li>precisión y recall en prueba;</li>
+<li>valor estimado bajo los supuestos dados;</li>
+<li>una limitación y un supuesto que debería validarse con el negocio.</li>
 </ul>
-<p>Las dos primeras tablas contienen faltantes y llaves sin pareja de forma intencional. La base de referencia sirve para comparar decisiones, no para reemplazar la discusión del grupo.</p>
 </section>
 <section id="cierre" class="level2">
 <h2 class="anchored" data-anchor-id="cierre">Cierre</h2>
-<p>Una base no queda lista porque ya no tenga errores visibles. Queda lista cuando representa la población, el momento y la decisión que el modelo debe apoyar.</p>
+<p>El modelo ordena posibilidades. La organización decide cuánto cuesta actuar, qué capacidad tiene y qué evidencia necesita antes de escalar.</p>
 
 
 </section>

@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Sesión 5 · Preparar la base y primer clasificador – Modelos Supervisados</title>
+<title>Ficha de trabajo · Validar y decidir – Modelos Supervisados</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -205,16 +205,10 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">En esta página</h2>
    
   <ul>
-  <li><a href="#resultado-de-aprendizaje" id="toc-resultado-de-aprendizaje" class="nav-link active" data-scroll-target="#resultado-de-aprendizaje">Resultado de aprendizaje</a></li>
-  <li><a href="#la-pregunta-precede-a-la-limpieza" id="toc-la-pregunta-precede-a-la-limpieza" class="nav-link" data-scroll-target="#la-pregunta-precede-a-la-limpieza">La pregunta precede a la limpieza</a></li>
-  <li><a href="#cruzar-cambia-la-población" id="toc-cruzar-cambia-la-población" class="nav-link" data-scroll-target="#cruzar-cambia-la-población">Cruzar cambia la población</a></li>
-  <li><a href="#no-toda-ausencia-significa-lo-mismo" id="toc-no-toda-ausencia-significa-lo-mismo" class="nav-link" data-scroll-target="#no-toda-ausencia-significa-lo-mismo">No toda ausencia significa lo mismo</a></li>
-  <li><a href="#las-palabras-necesitan-representación" id="toc-las-palabras-necesitan-representación" class="nav-link" data-scroll-target="#las-palabras-necesitan-representación">Las palabras necesitan representación</a></li>
-  <li><a href="#la-variable-disponible-después-no-puede-decidir-antes" id="toc-la-variable-disponible-después-no-puede-decidir-antes" class="nav-link" data-scroll-target="#la-variable-disponible-después-no-puede-decidir-antes">La variable disponible después no puede decidir antes</a></li>
-  <li><a href="#primer-clasificador" id="toc-primer-clasificador" class="nav-link" data-scroll-target="#primer-clasificador">Primer clasificador</a></li>
-  <li><a href="#actividad" id="toc-actividad" class="nav-link" data-scroll-target="#actividad">Actividad</a></li>
-  <li><a href="#archivos-para-el-ejercicio" id="toc-archivos-para-el-ejercicio" class="nav-link" data-scroll-target="#archivos-para-el-ejercicio">Archivos para el ejercicio</a></li>
-  <li><a href="#cierre" id="toc-cierre" class="nav-link" data-scroll-target="#cierre">Cierre</a></li>
+  <li><a href="#sesión-7-auditoría" id="toc-sesión-7-auditoría" class="nav-link active" data-scroll-target="#sesión-7-auditoría">Sesión 7 · Auditoría</a></li>
+  <li><a href="#bosque-auditable" id="toc-bosque-auditable" class="nav-link" data-scroll-target="#bosque-auditable">Bosque auditable</a></li>
+  <li><a href="#sesión-8-punto-de-corte" id="toc-sesión-8-punto-de-corte" class="nav-link" data-scroll-target="#sesión-8-punto-de-corte">Sesión 8 · Punto de corte</a></li>
+  <li><a href="#lista-operativa" id="toc-lista-operativa" class="nav-link" data-scroll-target="#lista-operativa">Lista operativa</a></li>
   </ul>
 </nav>
     </div>
@@ -223,8 +217,8 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Sesión 5 · Preparar la base y primer clasificador</h1>
-<p class="subtitle lead">Cada transformación responde a una decisión</p>
+<h1 class="title">Ficha de trabajo · Validar y decidir</h1>
+<p class="subtitle lead">Sesiones 7 y 8</p>
 </div>
 
 
@@ -241,103 +235,154 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="resultado-de-aprendizaje" class="level2">
-<h2 class="anchored" data-anchor-id="resultado-de-aprendizaje">Resultado de aprendizaje</h2>
-<p>Al finalizar, podrá cruzar dos tablas, distinguir tipos de ausencia, definir qué variables están disponibles antes de decidir y documentar una base preparada para clasificación.</p>
-</section>
-<section id="la-pregunta-precede-a-la-limpieza" class="level2">
-<h2 class="anchored" data-anchor-id="la-pregunta-precede-a-la-limpieza">La pregunta precede a la limpieza</h2>
-<p>El banco quiere priorizar clientes para ofrecerles un depósito a plazo. La unidad de análisis es una campaña dirigida a un cliente y la respuesta es <code>acepta_deposito</code>.</p>
-<p>Antes de transformar datos, pregunte:</p>
-<ol type="1">
-<li>¿qué representa una fila?;</li>
-<li>¿cuándo debe producirse la predicción?;</li>
-<li>¿qué información existe en ese momento?;</li>
-<li>¿qué error afectaría la decisión?;</li>
-</ol>
-</section>
-<section id="cruzar-cambia-la-población" class="level2">
-<h2 class="anchored" data-anchor-id="cruzar-cambia-la-población">Cruzar cambia la población</h2>
-<p>Las tablas <code>clientes</code> y <code>campanas</code> comparten <code>id_cliente</code>.</p>
+<section id="sesión-7-auditoría" class="level2">
+<h2 class="anchored" data-anchor-id="sesión-7-auditoría">Sesión 7 · Auditoría</h2>
 <table class="caption-top table">
-<colgroup>
-<col style="width: 33%">
-<col style="width: 33%">
-<col style="width: 33%">
-</colgroup>
 <thead>
 <tr class="header">
-<th>Cruce</th>
-<th>Conserva</th>
-<th>Pregunta que obliga a responder</th>
+<th>Evidencia</th>
+<th style="text-align: right;">Con fuga</th>
+<th style="text-align: right;">Sin fuga</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>Interno</td>
-<td>Solo llaves presentes en ambas tablas</td>
-<td>¿Acepto excluir los registros sin pareja?</td>
+<td>Exactitud de entrenamiento</td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
 </tr>
 <tr class="even">
-<td>Izquierdo desde campañas</td>
-<td>Todas las campañas</td>
-<td>¿Cómo trataré los perfiles ausentes?</td>
+<td>Exactitud de validación</td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+</tr>
+<tr class="odd">
+<td>Exactitud de prueba</td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+</tr>
+<tr class="even">
+<td>Brecha entrenamiento-prueba</td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+</tr>
+<tr class="odd">
+<td>AUC media en validación cruzada</td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
+</tr>
+<tr class="even">
+<td>Desviación del AUC</td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;"></td>
 </tr>
 </tbody>
 </table>
-<p>El número de filas antes y después del cruce es una evidencia, no un detalle técnico.</p>
-</section>
-<section id="no-toda-ausencia-significa-lo-mismo" class="level2">
-<h2 class="anchored" data-anchor-id="no-toda-ausencia-significa-lo-mismo">No toda ausencia significa lo mismo</h2>
 <ul>
-<li><strong>Blanco:</strong> el valor no fue registrado.</li>
-<li><strong>Desconocido:</strong> existe una respuesta explícita de desconocimiento.</li>
-<li><strong>No aplica:</strong> el atributo no tiene sentido para ese caso.</li>
-<li><strong>Cero:</strong> es un valor observado; no equivale automáticamente a ausencia.</li>
+<li>Variable sospechosa:</li>
+<li>¿Cuándo se conoce?:</li>
+<li>¿Por qué no puede usarse?:</li>
+<li>Variable más importante después de corregir:</li>
+<li>Lo que la importancia Gini sí dice:</li>
+<li>Lo que no permite concluir:</li>
 </ul>
-<div class="warning-box">
-<p>Imputar permite que el algoritmo procese la fila. No recupera el dato verdadero ni elimina el sesgo que pudo producir la ausencia.</p>
-</div>
+<blockquote class="blockquote">
+<p>El modelo parecía perfecto porque <strong>[razón]</strong>. La validación correcta mostró <strong>[evidencia]</strong> y excluimos <strong>[variable]</strong> porque <strong>[momento de disponibilidad]</strong>.</p>
+</blockquote>
 </section>
-<section id="las-palabras-necesitan-representación" class="level2">
-<h2 class="anchored" data-anchor-id="las-palabras-necesitan-representación">Las palabras necesitan representación</h2>
-<p>Una variable como <code>tipo_contacto</code> se convierte en indicadores 0/1 dentro del modelo. El identificador no debe usarse como predictor: distingue registros, pero no describe un mecanismo generalizable.</p>
+<section id="bosque-auditable" class="level2">
+<h2 class="anchored" data-anchor-id="bosque-auditable">Bosque auditable</h2>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Elemento</th>
+<th>Respuesta</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Árbol seguido</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Primera regla</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Hoja alcanzada</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Probabilidad de la hoja</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Probabilidad promedio del bosque</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Variable con mayor reducción Gini</td>
+<td></td>
+</tr>
+</tbody>
+</table>
 </section>
-<section id="la-variable-disponible-después-no-puede-decidir-antes" class="level2">
-<h2 class="anchored" data-anchor-id="la-variable-disponible-después-no-puede-decidir-antes">La variable disponible después no puede decidir antes</h2>
-<p>La duración de una llamada solo se conoce cuando termina. Si la pregunta es a quién contactar, usarla para predecir sería permitir que el modelo vea el futuro. Esta variable se reserva para la sesión de fuga de datos.</p>
-</section>
-<section id="primer-clasificador" class="level2">
-<h2 class="anchored" data-anchor-id="primer-clasificador">Primer clasificador</h2>
-<p>La regresión logística devuelve una probabilidad estimada de aceptación. Con el punto de corte inicial de 0,5, esa probabilidad se convierte en <code>Sí</code> o <code>No</code>.</p>
-<p>En esta sesión la exactitud abre una pregunta; todavía no decide cuál modelo es mejor.</p>
-</section>
-<section id="actividad" class="level2">
-<h2 class="anchored" data-anchor-id="actividad">Actividad</h2>
-<ol type="1">
-<li>Cruce <code>clientes</code> y <code>campanas</code>.</li>
-<li>Compare cruce interno e izquierdo.</li>
-<li>Declare cómo tratará blancos y <code>Desconocido</code>.</li>
-<li>Excluya la llave y cualquier variable posterior a la decisión.</li>
-<li>Anticipe un perfil con mayor probabilidad de aceptar.</li>
-<li>Ajuste el primer clasificador.</li>
-<li>Descargue la base y la bitácora.</li>
-</ol>
-</section>
-<section id="archivos-para-el-ejercicio" class="level2">
-<h2 class="anchored" data-anchor-id="archivos-para-el-ejercicio">Archivos para el ejercicio</h2>
+<section id="sesión-8-punto-de-corte" class="level2">
+<h2 class="anchored" data-anchor-id="sesión-8-punto-de-corte">Sesión 8 · Punto de corte</h2>
 <ul>
-<li><a href="../output/pdf/guia-primer-clasificador-en-excel.pdf">Guía paso a paso: primer clasificador en Excel (PDF)</a></li>
-<li><a href="../data/public/clasificacion/clientes.csv">Tabla de clientes</a></li>
-<li><a href="../data/public/clasificacion/campanas.csv">Tabla de campañas</a></li>
-<li><a href="../data/public/clasificacion/diccionario_clasificacion.csv">Diccionario de variables</a></li>
-<li><a href="../data/public/clasificacion/base_modelable_referencia.csv">Base modelable de referencia</a></li>
+<li>Contribución por aceptación:</li>
+<li>Costo por contacto:</li>
+<li>Corte elegido en validación:</li>
+<li>Contactos en validación:</li>
+<li>Valor en validación:</li>
 </ul>
-<p>Las dos primeras tablas contienen faltantes y llaves sin pareja de forma intencional. La base de referencia sirve para comparar decisiones, no para reemplazar la discusión del grupo.</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Auditoría en prueba</th>
+<th style="text-align: right;">Resultado</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>TP</td>
+<td style="text-align: right;"></td>
+</tr>
+<tr class="even">
+<td>FP</td>
+<td style="text-align: right;"></td>
+</tr>
+<tr class="odd">
+<td>FN</td>
+<td style="text-align: right;"></td>
+</tr>
+<tr class="even">
+<td>Precisión</td>
+<td style="text-align: right;"></td>
+</tr>
+<tr class="odd">
+<td>Recall</td>
+<td style="text-align: right;"></td>
+</tr>
+<tr class="even">
+<td>Valor</td>
+<td style="text-align: right;"></td>
+</tr>
+</tbody>
+</table>
 </section>
-<section id="cierre" class="level2">
-<h2 class="anchored" data-anchor-id="cierre">Cierre</h2>
-<p>Una base no queda lista porque ya no tenga errores visibles. Queda lista cuando representa la población, el momento y la decisión que el modelo debe apoyar.</p>
+<section id="lista-operativa" class="level2">
+<h2 class="anchored" data-anchor-id="lista-operativa">Lista operativa</h2>
+<ul>
+<li>Clientes en la cartera:</li>
+<li>Clientes recomendados para contactar:</li>
+<li>Primer cliente priorizado:</li>
+<li>Regla aplicada:</li>
+<li>Supuesto económico más discutible:</li>
+</ul>
+<blockquote class="blockquote">
+<p>Recomendamos contactar <strong>[cantidad]</strong> clientes con probabilidad mínima de <strong>[corte]</strong>. En prueba, la política obtuvo <strong>[precisión]</strong>, <strong>[recall]</strong> y un valor de <strong>[COP]</strong> bajo los supuestos definidos. Antes de escalar, validaríamos <strong>[supuesto]</strong>.</p>
+</blockquote>
 
 
 </section>
