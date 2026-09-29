@@ -1,0 +1,77 @@
+---
+title: "Sesión 7 · Validación y fuga de datos"
+subtitle: "Un resultado perfecto exige una auditoría"
+---
+
+## Resultado de aprendizaje
+
+Al finalizar, podrá separar entrenamiento, validación y prueba, medir la brecha de generalización, resumir una validación cruzada y excluir información que no existiría al tomar la decisión.
+
+## Tres muestras, tres funciones
+
+| Partición | Para qué se usa | Qué no debe hacerse |
+|---|---|---|
+| Entrenamiento | Estimar el modelo | Presentar su desempeño como resultado final |
+| Validación | Comparar alternativas y elegir el corte | Consultarla indefinidamente hasta obtener el número deseado |
+| Prueba | Auditar una decisión ya bloqueada | Usarla para ajustar variables, algoritmo o corte |
+
+Las filas deben ser distintas y la proporción de clases debe conservarse cuando sea posible.
+
+## La brecha detecta sobreajuste
+
+Definimos la brecha como:
+
+$$
+\text{brecha}=\text{desempeño en entrenamiento}-\text{desempeño fuera de muestra}
+$$
+
+Una brecha grande indica que el modelo aprendió reglas demasiado particulares. Una brecha pequeña no garantiza que el diseño sea válido: todavía puede existir fuga de datos.
+
+## Validación cruzada
+
+La validación cruzada divide repetidamente entrenamiento en varios pliegues. Cada fila sirve para validar una vez y para entrenar las demás veces.
+
+Reporte siempre:
+
+- número de pliegues;
+- métrica media;
+- desviación entre pliegues;
+- pipeline completo aplicado dentro de cada pliegue.
+
+Imputar o codificar antes de crear los pliegues también puede filtrar información.
+
+## La fuga plantada
+
+`duracion_llamada` se conoce cuando la llamada ya terminó. Puede explicar muy bien la aceptación histórica, pero no puede decidir a quién llamar.
+
+::: {.warning-box}
+Una variable no es válida porque esté en el archivo. Debe existir en el momento exacto en que se tomará la decisión.
+:::
+
+## Mini random forest auditable
+
+El bosque pedagógico usa siete árboles de profundidad máxima dos. Python aprende las divisiones; Excel permite seguir cada regla, promediar las siete probabilidades y reconstruir la reducción de Gini.
+
+La importancia Gini resume cuánto redujeron impureza las divisiones asociadas a una variable. No indica dirección, causalidad ni conveniencia de intervenir.
+
+## Actividad
+
+1. Ajuste el modelo permitiendo todas las variables.
+2. Compare entrenamiento, validación y prueba.
+3. Revise los cinco pliegues de validación cruzada.
+4. Identifique la variable dominante.
+5. Pregunte cuándo se conoce esa variable.
+6. Retírela y repita la evaluación.
+7. Abra la tabla compacta del bosque y siga un cliente por un árbol.
+8. Explique por qué el primer resultado era engañoso.
+
+## Archivos
+
+- [Histórico con fuga plantada](../data/public/clasificacion/historial_validacion_con_fuga.csv)
+- [Cartera sin respuesta](../data/public/clasificacion/cartera_clientes.csv)
+- [Libro Excel · Random forest auditable](../output/excel/random-forest-auditable.xlsx)
+- Los archivos de nodos, importancia y predicciones del bosque también se descargan desde el laboratorio.
+
+## Cierre
+
+El desempeño no valida el momento de la información. Antes de celebrar un modelo, audite qué vio, cuándo lo vio y sobre qué filas fue evaluado.

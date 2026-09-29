@@ -4,11 +4,15 @@ project:
   resources:
     - data/public/clasificacion/*
     - output/pdf/guia-primer-clasificador-en-excel.pdf
+    - output/pdf/guia-random-forest-en-excel.pdf
+    - output/pdf/proyecto-final-instrucciones.pdf
+    - output/excel/random-forest-auditable.xlsx
   render:
     - index.qmd
     - sesiones/*.qmd
     - fichas/*.qmd
     - slides/*.qmd
+    - proyecto/*.qmd
 
 website:
   title: "Modelos Supervisados"
@@ -28,6 +32,10 @@ website:
             text: "Sesión 5 · Preparación y clasificación"
           - href: sesiones/sesion-06.qmd
             text: "Sesión 6 · Algoritmos y métricas"
+          - href: sesiones/sesion-07.qmd
+            text: "Sesión 7 · Validación y fuga"
+          - href: sesiones/sesion-08.qmd
+            text: "Sesión 8 · Del modelo a la decisión"
       - text: Diapositivas
         menu:
           - href: slides/sesion-03.qmd
@@ -38,12 +46,20 @@ website:
             text: "Sesión 5 · Preparación y clasificación"
           - href: slides/sesion-06.qmd
             text: "Sesión 6 · Algoritmos y métricas"
+          - href: slides/sesion-07.qmd
+            text: "Sesión 7 · Validación y fuga"
+          - href: slides/sesion-08.qmd
+            text: "Sesión 8 · Del modelo a la decisión"
       - text: Fichas
         menu:
           - href: fichas/ficha-estudiante.qmd
             text: "Sesiones 3 y 4"
           - href: fichas/ficha-clasificacion.qmd
             text: "Sesiones 5 y 6"
+          - href: fichas/ficha-validacion-decision.qmd
+            text: "Sesiones 7 y 8"
+      - href: proyecto/proyecto-final.qmd
+        text: "Proyecto final"
   page-footer:
     left: "Universidad Externado de Colombia · Certificación en Ciencia de Datos"
     right: "Evidencia → interpretación → decisión"

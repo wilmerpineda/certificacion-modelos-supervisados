@@ -1,0 +1,66 @@
+---
+title: "Ficha de trabajo · Validar y decidir"
+subtitle: "Sesiones 7 y 8"
+format:
+  html:
+    toc: true
+    css: ../assets/styles/course.css
+---
+
+## Sesión 7 · Auditoría
+
+| Evidencia | Con fuga | Sin fuga |
+|---|---:|---:|
+| Exactitud de entrenamiento | | |
+| Exactitud de validación | | |
+| Exactitud de prueba | | |
+| Brecha entrenamiento-prueba | | |
+| AUC media en validación cruzada | | |
+| Desviación del AUC | | |
+
+- Variable sospechosa:
+- ¿Cuándo se conoce?:
+- ¿Por qué no puede usarse?:
+- Variable más importante después de corregir:
+- Lo que la importancia Gini sí dice:
+- Lo que no permite concluir:
+
+> El modelo parecía perfecto porque **[razón]**. La validación correcta mostró **[evidencia]** y excluimos **[variable]** porque **[momento de disponibilidad]**.
+
+## Bosque auditable
+
+| Elemento | Respuesta |
+|---|---|
+| Árbol seguido | |
+| Primera regla | |
+| Hoja alcanzada | |
+| Probabilidad de la hoja | |
+| Probabilidad promedio del bosque | |
+| Variable con mayor reducción Gini | |
+
+## Sesión 8 · Punto de corte
+
+- Contribución por aceptación:
+- Costo por contacto:
+- Corte elegido en validación:
+- Contactos en validación:
+- Valor en validación:
+
+| Auditoría en prueba | Resultado |
+|---|---:|
+| TP | |
+| FP | |
+| FN | |
+| Precisión | |
+| Recall | |
+| Valor | |
+
+## Lista operativa
+
+- Clientes en la cartera:
+- Clientes recomendados para contactar:
+- Primer cliente priorizado:
+- Regla aplicada:
+- Supuesto económico más discutible:
+
+> Recomendamos contactar **[cantidad]** clientes con probabilidad mínima de **[corte]**. En prueba, la política obtuvo **[precisión]**, **[recall]** y un valor de **[COP]** bajo los supuestos definidos. Antes de escalar, validaríamos **[supuesto]**.

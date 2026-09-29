@@ -1,0 +1,94 @@
+---
+title: "Guía docente · Sesiones 7 y 8"
+subtitle: "Validación, fuga de datos y decisiones económicas"
+format:
+  html:
+    toc: false
+    css:
+      - ../assets/styles/course.css
+      - ../assets/styles/print-guide.css
+---
+
+## Propósito
+
+Al terminar las dos sesiones, los participantes deben poder desconfiar de un resultado perfecto, validar sin compartir información entre muestras y convertir probabilidades en una lista operativa mediante supuestos explícitos.
+
+## Sesión 7 · 240 minutos
+
+| Minutos | Actividad | Evidencia observable |
+|---:|---|---|
+| 0–20 | Resultado perfecto | Formulan hipótesis de auditoría |
+| 20–50 | Tres particiones | Asignan una función a cada muestra |
+| 50–80 | Brecha | Distinguen ajuste y generalización |
+| 80–110 | Evaluación incorrecta | Detectan reutilización de filas |
+| 110–125 | Fuga plantada | Cuestionan disponibilidad temporal |
+| 125–140 | Pausa | — |
+| 140–170 | Validación cruzada | Reportan media y variabilidad |
+| 170–200 | Repetición sin fuga | Comparan evidencia antes y después |
+| 200–225 | Mini bosque en Excel | Siguen reglas y reconstruyen Gini |
+| 225–240 | Explicación final | Justifican por qué parecía perfecto |
+
+### Revelación recomendada
+
+No anuncie `duracion_llamada` al comienzo. Pida ordenar importancias y preguntar cuándo existe cada variable. La fuga no desaparece por usar una partición correcta: la variable seguirá asociada con el resultado en datos históricos.
+
+### Random forest en Excel
+
+El bosque tiene siete árboles de profundidad máxima dos. Python exporta una tabla de nodos; Excel reconstruye cada recorrido y promedia probabilidades. Esto conserva trazabilidad sin simular que Solver puede crecer eficientemente un bosque completo.
+
+La reducción por nodo es:
+
+$$N_pG_p-N_iG_i-N_dG_d$$
+
+La importancia final suma reducciones por variable, normaliza dentro de cada árbol y promedia los siete árboles.
+
+### Respuesta esperada
+
+El modelo parecía extraordinario porque utilizaba información posterior al contacto y porque el desempeño de entrenamiento puede confundirse con generalización. La corrección exige muestras separadas, pipeline dentro de cada pliegue y variables disponibles antes de actuar.
+
+## Sesión 8 · 240 minutos
+
+| Minutos | Actividad | Evidencia observable |
+|---:|---|---|
+| 0–20 | Pregunta bancaria | Recuperan decisión y población |
+| 20–45 | Costos y contribución | Traducen errores a valor |
+| 45–80 | Tabla de cortes | Comparan volumen, métricas y valor |
+| 80–110 | Corte económico | Eligen únicamente con validación |
+| 110–125 | Bloqueo | Registran algoritmo, variables y corte |
+| 125–140 | Pausa | — |
+| 140–170 | Prueba | Auditan una vez la política completa |
+| 170–195 | Cartera | Puntúan observaciones sin etiqueta |
+| 195–225 | Excel | Verifican valor, filtro y prioridad |
+| 225–240 | Entrega | Defienden lista, cifra y límite |
+
+### Supuestos pedagógicos
+
+- contribución por aceptación: COP 100.000;
+- costo por contacto: COP 20.000;
+- valor: `100.000 × TP − 20.000 × (TP + FP)`;
+- empate: conservar el mayor corte.
+
+No presente estas cifras como información real del sector financiero. Pregunte qué áreas deberían validarlas y cómo cambiaría la recomendación si fueran distintas.
+
+### Errores que requieren intervención
+
+- elegir el corte con prueba;
+- usar el resultado real de la cartera;
+- reintroducir duración durante el despliegue;
+- reportar AUC sin regla de contacto;
+- presentar importancia como causalidad;
+- vender valor esperado como ingreso garantizado.
+
+## Criterio de logro
+
+Una respuesta satisfactoria contiene:
+
+1. particiones y momento de información correctos;
+2. evidencia de brecha o variabilidad;
+3. punto de corte elegido en validación;
+4. auditoría en prueba con conteos;
+5. lista operativa y límite explícito.
+
+## Plan de contingencia
+
+Si falla la aplicación, distribuya el histórico, la tabla de nodos y las predicciones exportadas. Excel permite reconstruir el bosque y la decisión sin volver a entrenar. Si el tiempo es limitado, use el corte de referencia y concentre la discusión en por qué fue elegido antes de abrir prueba.

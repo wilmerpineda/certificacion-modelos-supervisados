@@ -23,6 +23,8 @@ Este espacio conecta una pregunta organizacional con una salida estadística y t
 | Sesión 4 | ¿Qué cambia al considerar varias explicaciones? | Coeficientes, referencias y VIF | Recomendación educativa |
 | Sesión 5 | ¿Qué podrá aprender el modelo? | Cruce, faltantes y codificación | Base preparada y bitácora |
 | Sesión 6 | ¿Qué error estamos dispuestos a pagar? | Matriz, métricas, ROC y árbol | Elección justificada |
+| Sesión 7 | ¿Por qué el modelo se ve perfecto? | Particiones, brecha, CV y fuga | Auditoría de validación |
+| Sesión 8 | ¿A quién contactamos? | Corte, valor y prueba | Lista priorizada de clientes |
 
 ::: {.decision-box}
 **Regla transversal:** observe → interprete → recomiende → declare lo que no puede concluir.
@@ -34,12 +36,19 @@ Este espacio conecta una pregunta organizacional con una salida estadística y t
 - [Sesión 4 · Regresión múltiple y variables categóricas](sesiones/sesion-04.qmd)
 - [Sesión 5 · Preparar la base y primer clasificador](sesiones/sesion-05.qmd)
 - [Sesión 6 · Algoritmos y métricas](sesiones/sesion-06.qmd)
+- [Sesión 7 · Validación y fuga de datos](sesiones/sesion-07.qmd)
+- [Sesión 8 · Del modelo a la decisión](sesiones/sesion-08.qmd)
 - [Ficha de trabajo del estudiante](fichas/ficha-estudiante.qmd)
+- [Ficha de validación y decisión](fichas/ficha-validacion-decision.qmd)
+- [Proyecto final · Instrucciones](proyecto/proyecto-final.qmd)
 - [Diapositivas de la sesión 3](slides/sesion-03.qmd)
 - [Diapositivas de la sesión 4](slides/sesion-04.qmd)
 - [Diapositivas de la sesión 5](slides/sesion-05.qmd)
 - [Diapositivas de la sesión 6](slides/sesion-06.qmd)
 - [Guía PDF · Primer clasificador en Excel](output/pdf/guia-primer-clasificador-en-excel.pdf)
+- [Guía PDF · Random forest auditable en Excel](output/pdf/guia-random-forest-en-excel.pdf)
+- [Libro Excel · Random forest auditable](output/excel/random-forest-auditable.xlsx)
+- [Proyecto final · Instrucciones en PDF](output/pdf/proyecto-final-instrucciones.pdf)
 
 ## Antes de cargar datos
 

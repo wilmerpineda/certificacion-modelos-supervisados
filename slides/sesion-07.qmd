@@ -1,0 +1,106 @@
+---
+title: "¿Por qué se ve perfecto?"
+subtitle: "Validación y fuga de datos"
+author: "Certificación en Ciencia de Datos"
+format:
+  revealjs:
+    theme: dark
+    css: ../assets/styles/course.css
+    slide-number: true
+    transition: fade
+    footer: "Universidad Externado de Colombia"
+---
+
+## Un resultado perfecto es una alerta
+
+::: {.r-fit-text}
+Antes de celebrarlo, pregunte qué vio el modelo y sobre qué filas fue evaluado.
+:::
+
+## Entrenamiento aprende
+
+Se usa para estimar reglas y parámetros.
+
+Su desempeño describe memoria y ajuste, no generalización.
+
+## Validación elige
+
+Compara variables, algoritmos, hiperparámetros y puntos de corte.
+
+Cada consulta también puede sobreajustar decisiones.
+
+## Prueba audita
+
+Se consulta cuando la configuración ya quedó bloqueada.
+
+No es una segunda validación.
+
+## Una fila no puede estar en dos papeles
+
+- entrenamiento;
+- validación;
+- prueba.
+
+Las intersecciones deben ser vacías.
+
+## La brecha cuantifica una sospecha
+
+$$\text{entrenamiento}-\text{fuera de muestra}$$
+
+Grande: el modelo aprendió particularidades.
+
+## Brecha pequeña no garantiza validez
+
+Una variable futura puede funcionar bien en todas las particiones históricas.
+
+El error está en el momento de disponibilidad.
+
+## Validación cruzada repite la pregunta
+
+Cada pliegue valida una vez y entrena las demás.
+
+Reporte media y variabilidad.
+
+## El pipeline también debe quedar dentro
+
+Imputar, escalar o codificar antes de separar puede filtrar información.
+
+## La variable plantada
+
+`duracion_llamada`
+
+¿Existe antes de decidir a quién llamar?
+
+## Disponible en el archivo no significa disponible al decidir
+
+La semántica del proceso es parte de la validación.
+
+## Random forest
+
+Cada árbol observa:
+
+- una muestra bootstrap;
+- un subconjunto aleatorio de variables;
+- reglas y umbrales propios.
+
+## El bosque promedia probabilidades
+
+Siete árboles producen siete probabilidades.
+
+La probabilidad final es su promedio.
+
+## Gini mide pureza
+
+$$1-p_0^2-p_1^2$$
+
+Una buena división reduce la impureza ponderada.
+
+## Importancia no significa efecto
+
+No informa dirección, causalidad ni conveniencia de intervenir.
+
+## La auditoría responsable
+
+::: {.r-fit-text}
+Partición correcta + momento correcto + métrica correcta.
+:::

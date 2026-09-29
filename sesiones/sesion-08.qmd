@@ -1,0 +1,84 @@
+---
+title: "Sesión 8 · Del modelo a la decisión"
+subtitle: "El punto de corte convierte probabilidades en una operación"
+---
+
+## Resultado de aprendizaje
+
+Al finalizar, podrá elegir un punto de corte con validación, auditarlo una sola vez en prueba y producir una lista priorizada de clientes.
+
+## El escenario económico
+
+Usaremos dos supuestos pedagógicos editables:
+
+- contribución por aceptación: **COP 100.000**;
+- costo por contacto: **COP 20.000**.
+
+Para cada corte:
+
+$$
+\text{valor}=100.000\times TP-20.000\times(TP+FP)
+$$
+
+No son estimaciones reales del banco. Sirven para hacer explícito el criterio de decisión.
+
+## El corte se elige en validación
+
+Cada corte cambia simultáneamente:
+
+- cantidad de clientes contactados;
+- verdaderos y falsos positivos;
+- precisión y recall;
+- valor estimado de la campaña.
+
+Se elige el corte con mayor valor en validación. Si dos cortes empatan, se conserva el mayor para contactar menos clientes.
+
+## Prueba es una auditoría, no otra ronda de ajuste
+
+Después de bloquear algoritmo, predictores y corte, la muestra de prueba estima cómo funcionaría la política fuera de los datos usados para diseñarla.
+
+Si el resultado decepciona, se documenta. No se regresa silenciosamente a escoger otro corte con la misma prueba.
+
+## Del histórico a la cartera
+
+Una vez aceptado el modelo:
+
+1. se reajusta con todo el histórico permitido;
+2. se calcula una probabilidad para cada cliente de la cartera;
+3. se estima `probabilidad × contribución - costo`;
+4. se aplica el corte bloqueado;
+5. se ordena la lista de mayor a menor probabilidad.
+
+La cartera no contiene `acepta_deposito` ni `duracion_llamada`.
+
+## Excel como auditor
+
+Excel recibe probabilidades, no vuelve a entrenar el random forest. Permite verificar:
+
+- clasificación según el corte;
+- valor esperado por cliente;
+- número de contactos;
+- orden de prioridad;
+- efecto de cambiar los supuestos económicos.
+
+## Actividad
+
+1. Declare el costo y la contribución.
+2. Compare la tabla de cortes en validación.
+3. Bloquee el corte de mayor valor.
+4. Audite TP, FP, FN, precisión, recall y valor en prueba.
+5. Puntúe la cartera sin etiqueta.
+6. Descargue la lista completa y filtre `contactar = Sí`.
+7. Redacte una recomendación con cifra, acción y límite.
+
+## Entrega
+
+- CSV con la lista de clientes;
+- punto de corte utilizado;
+- precisión y recall en prueba;
+- valor estimado bajo los supuestos dados;
+- una limitación y un supuesto que debería validarse con el negocio.
+
+## Cierre
+
+El modelo ordena posibilidades. La organización decide cuánto cuesta actuar, qué capacidad tiene y qué evidencia necesita antes de escalar.

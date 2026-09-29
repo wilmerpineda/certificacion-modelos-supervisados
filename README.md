@@ -1,7 +1,7 @@
 # Certificación en Ciencia de Datos · Modelos Supervisados
 
-Paquete reproducible para las sesiones 3 a 6 del módulo: p-value, regresión
-lineal, preparación de datos, clasificación y métricas orientadas a decisiones.
+Paquete reproducible para las sesiones 3 a 8 del módulo: p-value, regresión
+lineal, preparación de datos, clasificación, validación y decisiones operativas.
 
 ## Componentes
 
@@ -14,6 +14,10 @@ lineal, preparación de datos, clasificación y métricas orientadas a decisione
 - `data/public/`: muestra ICFES autorizada para clase.
 - `data/public/clasificacion/`: caso bancario pedagógico, diccionario y base de referencia.
 - `pages/2_Clasificacion.py`: laboratorio de preparación y comparación de clasificadores.
+- `data/public/clasificacion/historial_validacion_con_fuga.csv`: caso para auditar fuga temporal.
+- `data/public/clasificacion/cartera_clientes.csv`: cartera sin etiqueta para la decisión final.
+- `proyecto/proyecto-final.qmd`: instrucciones y rúbrica del proyecto final.
+- `output/excel/random-forest-auditable.xlsx`: bosque de siete árboles reconstruido con fórmulas en tres hojas.
 - `tests/`: verificación de cálculos estadísticos.
 
 ## Ejecutar la aplicación

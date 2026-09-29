@@ -1,0 +1,109 @@
+---
+title: "¿A quién contactamos?"
+subtitle: "Del modelo a la decisión"
+author: "Certificación en Ciencia de Datos"
+format:
+  revealjs:
+    theme: dark
+    css: ../assets/styles/course.css
+    slide-number: true
+    transition: fade
+    footer: "Universidad Externado de Colombia"
+---
+
+## El modelo todavía no tomó una decisión
+
+::: {.r-fit-text}
+Una probabilidad necesita una regla de acción.
+:::
+
+## El corte define la operación
+
+- por encima: contactar;
+- por debajo: no contactar.
+
+No existe un corte universal.
+
+## Dos supuestos visibles
+
+- aceptación: COP 100.000;
+- contacto: COP 20.000.
+
+Son supuestos pedagógicos, no cifras reales del banco.
+
+## El valor depende de los aciertos y del volumen
+
+$$100.000\times TP-20.000\times(TP+FP)$$
+
+## Bajar el corte
+
+- aumenta contactos;
+- suele aumentar recall;
+- puede reducir precisión;
+- puede aumentar o destruir valor.
+
+## Subir el corte
+
+- concentra la lista;
+- suele aumentar precisión;
+- puede omitir aceptantes;
+- protege capacidad.
+
+## Validación elige el corte
+
+Compare una cuadrícula de cortes con el mismo escenario económico.
+
+## Regla de desempate
+
+Si el valor empata, use el corte mayor.
+
+La misma utilidad con menos contactos consume menos capacidad.
+
+## Bloquear significa dejar de explorar
+
+Antes de abrir prueba:
+
+- algoritmo;
+- predictores;
+- corte;
+- métrica;
+- supuestos.
+
+## Prueba estima la política completa
+
+No solo evalúa el modelo: evalúa modelo + corte + escenario.
+
+## Después de aceptar
+
+Reentrene con el histórico permitido y puntúe la cartera.
+
+## La cartera no conoce el futuro
+
+No contiene respuesta ni duración de llamada.
+
+## Valor esperado individual
+
+$$p\times100.000-20.000$$
+
+Positivo no significa certeza; significa expectativa bajo los supuestos.
+
+## La lista debe ser operativa
+
+- ID;
+- probabilidad;
+- valor esperado;
+- corte;
+- contactar;
+- prioridad.
+
+## Excel audita la regla
+
+Recibe probabilidades y permite comprobar corte, valor y ordenamiento.
+
+No vuelve a entrenar el bosque.
+
+## Una recomendación completa
+
+::: {.r-fit-text}
+Cantidad + corte + evidencia + valor + límite.
+:::

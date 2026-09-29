@@ -9,10 +9,20 @@ import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 import streamlit as st
+from sklearn.base import clone
 from sklearn.tree import plot_tree
 
 from src.analysis import AnalysisError
-from src.classification import evaluate_classifiers, merge_client_campaign, tree_explanation
+from src.classification import (
+    choose_economic_threshold,
+    contact_list,
+    evaluate_classifiers,
+    evaluate_validation,
+    fit_mini_forest,
+    merge_client_campaign,
+    threshold_analysis,
+    tree_explanation,
+)
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -54,6 +64,14 @@ def load_bank_tables() -> tuple[pd.DataFrame, pd.DataFrame]:
 @st.cache_data(show_spinner=False)
 def load_prepared_bank() -> pd.DataFrame:
     return pd.read_csv(BANK_DIR / "base_modelable_referencia.csv")
+
+
+@st.cache_data(show_spinner=False)
+def load_validation_case() -> tuple[pd.DataFrame, pd.DataFrame]:
+    return (
+        pd.read_csv(BANK_DIR / "historial_validacion_con_fuga.csv"),
+        pd.read_csv(BANK_DIR / "cartera_clientes.csv"),
+    )
 
 
 def read_uploaded(uploaded, key: str) -> tuple[pd.DataFrame | None, str]:
@@ -109,13 +127,18 @@ modelo.fit(X_entrenamiento, y_entrenamiento)"""
 
 
 st.markdown(
-    """<div class="hero"><p><strong>Sesiones 5 y 6</strong></p><h1>Preparar y comparar clasificadores</h1>
-    <p>Cada transformación responde a una decisión. Cada métrica representa un tipo de error.</p></div>""",
+    """<div class="hero"><p><strong>Sesiones 5 a 8</strong></p><h1>Del dato a la decisión</h1>
+    <p>Preparar, validar, comparar y convertir probabilidades en una acción auditable.</p></div>""",
     unsafe_allow_html=True,
 )
 
 with st.sidebar:
-    activity = st.radio("Actividad", ["Sesión 5 · Preparar y primer modelo", "Sesión 6 · Algoritmos y métricas"])
+    activity = st.radio("Actividad", [
+        "Sesión 5 · Preparar y primer modelo",
+        "Sesión 6 · Algoritmos y métricas",
+        "Sesión 7 · Validación y fuga de datos",
+        "Sesión 8 · Del modelo a la decisión",
+    ])
     st.markdown('<div class="privacy"><strong>Privacidad</strong><br>No cargues nombres, documentos ni información confidencial.</div>', unsafe_allow_html=True)
 
 
@@ -224,7 +247,7 @@ if activity.startswith("Sesión 5"):
             st.download_button("Descargar bitácora", report_html("Preparación y primer clasificador", source_name, expectation, interpretation, evidence), "bitacora_preparacion.html", "text/html")
 
 
-else:
+elif activity.startswith("Sesión 6"):
     st.header("La mejor métrica depende del error que más cuesta")
     source_choice = st.radio("Fuente", ["Base bancaria preparada", "Cargar base preparada"], horizontal=True)
     if source_choice == "Base bancaria preparada":
@@ -339,6 +362,181 @@ else:
                     f"recall: {chosen['Recall']:.1%}; F1: {chosen['F1']:.1%}; especificidad: {chosen['Especificidad']:.1%}; AUC: {chosen['AUC']:.3f}."
                 )
                 st.download_button("Descargar evidencia", report_html("Comparación de clasificadores", source_name, scenario, final_reason, evidence), "evidencia_clasificacion.html", "text/html")
+
+
+elif activity.startswith("Sesión 7"):
+    st.header("Un resultado perfecto exige una auditoría")
+    data, _ = load_validation_case()
+    target = "acepta_deposito"
+    identifier = "id_cliente"
+    leak = "duracion_llamada"
+    base_features = [column for column in data.columns if column not in {identifier, target, leak}]
+
+    st.markdown(
+        "La base contiene una variable plantada que el modelo no debería conocer al decidir a quién llamar. "
+        "Compara ambos recorridos antes de abrir la explicación."
+    )
+    use_leak = st.toggle("Permitir todas las variables disponibles en el archivo", value=True)
+    selected_features = base_features + ([leak] if use_leak else [])
+    model_name = st.selectbox("Modelo para auditar", ["Random forest", "Árbol", "Regresión logística"])
+    validation_config = (model_name, use_leak)
+    if st.button("Ejecutar validación completa", type="primary"):
+        try:
+            with st.spinner("Separando 60/20/20 y ejecutando validación cruzada..."):
+                result = evaluate_validation(data, target, "Sí", selected_features, model_name=model_name)
+            st.session_state.validation_result = result
+            st.session_state.validation_config = validation_config
+        except AnalysisError as exc:
+            st.error(str(exc))
+
+    result = st.session_state.get("validation_result") if st.session_state.get("validation_config") == validation_config else None
+    if result:
+        st.subheader("Tres muestras, tres funciones")
+        formatted = result.metrics[[
+            "Partición", "Filas", "Exactitud", "Precisión", "Recall", "AUC", "Brecha exactitud"
+        ]].style.format({
+            "Exactitud": "{:.1%}", "Precisión": "{:.1%}", "Recall": "{:.1%}",
+            "AUC": "{:.3f}", "Brecha exactitud": "{:.1%}",
+        })
+        st.dataframe(formatted, width="stretch", hide_index=True)
+
+        st.subheader("Validación cruzada dentro de entrenamiento")
+        st.dataframe(
+            result.cross_validation.style.format({"Exactitud": "{:.1%}", "Recall": "{:.1%}", "AUC": "{:.3f}"}),
+            width="stretch", hide_index=True,
+        )
+        st.caption(
+            f"AUC media: {result.cross_validation['AUC'].mean():.3f} · "
+            f"desviación: {result.cross_validation['AUC'].std(ddof=1):.3f}."
+        )
+
+        if not result.importance.empty:
+            st.subheader("¿Qué variable sostuvo el resultado?")
+            importance_chart = alt.Chart(result.importance.head(12)).mark_bar(color="#FBBF24").encode(
+                x=alt.X("Importancia:Q", title="Importancia Gini"),
+                y=alt.Y("Variable:N", sort="-x", title=None),
+                tooltip=["Variable", alt.Tooltip("Importancia:Q", format=".3f")],
+            ).properties(height=330)
+            st.altair_chart(importance_chart, width="stretch")
+        if use_leak:
+            st.warning(
+                "Pista: la duración solo se conoce cuando termina la llamada. Aunque valide bien en datos históricos, "
+                "no puede usarse para decidir a quién llamar. Desactívala y repite."
+            )
+        else:
+            st.success("La variable posterior al contacto quedó fuera del modelo operativo.")
+
+        st.download_button(
+            "Descargar evidencia de particiones",
+            result.predictions.to_csv(index=False).encode("utf-8-sig"),
+            "evidencia_validacion.csv",
+            "text/csv",
+        )
+
+    st.subheader("Mini random forest auditable en Excel")
+    mini = data[[target, "edad", "contactos_campana", "contactos_previos", "tipo_contacto", "resultado_previo"]].copy()
+    mini["contacto_celular"] = mini["tipo_contacto"].eq("cellular").astype(int)
+    mini["resultado_previo_exitoso"] = mini["resultado_previo"].eq("success").astype(int)
+    mini_features = ["edad", "contactos_campana", "contactos_previos", "contacto_celular", "resultado_previo_exitoso"]
+    forest = fit_mini_forest(mini, target, "Sí", mini_features)
+    c1, c2, c3 = st.columns(3)
+    c1.metric("Árboles", 7)
+    c2.metric("Profundidad máxima", 2)
+    c3.metric("Nodos exportados", len(forest.nodes))
+    st.dataframe(forest.importance.style.format({"Importancia": "{:.1%}"}), width="stretch", hide_index=True)
+    st.caption("Excel puede seguir cada árbol, promediar probabilidades y reconstruir la reducción Gini sin entrenar nodo por nodo.")
+    d1, d2, d3 = st.columns(3)
+    d1.download_button("Nodos del bosque", forest.nodes.to_csv(index=False).encode("utf-8-sig"), "bosque_nodos.csv", "text/csv")
+    d2.download_button("Importancia Gini", forest.importance.to_csv(index=False).encode("utf-8-sig"), "bosque_importancia.csv", "text/csv")
+    d3.download_button("Predicciones por árbol", forest.predictions.to_csv(index=False).encode("utf-8-sig"), "bosque_predicciones.csv", "text/csv")
+
+
+else:
+    st.header("El punto de corte es una decisión económica")
+    history, portfolio = load_validation_case()
+    target = "acepta_deposito"
+    features = [column for column in history.columns if column not in {"id_cliente", target, "duracion_llamada"}]
+    contribution = st.number_input("Contribución por aceptación (COP)", min_value=1_000, value=100_000, step=5_000)
+    contact_cost = st.number_input("Costo por contacto (COP)", min_value=0, value=20_000, step=1_000)
+    decision_config = (contribution, contact_cost)
+    if st.button("Elegir corte con validación", type="primary"):
+        try:
+            with st.spinner("Ajustando el modelo y reservando la prueba..."):
+                result = evaluate_validation(history, target, "Sí", features, model_name="Random forest")
+                validation = result.predictions.loc[result.predictions["particion"] == "Validación"].copy()
+                validation_actual = validation["clase_real"].eq("Sí").astype(int)
+                table = threshold_analysis(
+                    validation_actual,
+                    validation["probabilidad"],
+                    contribution=float(contribution),
+                    contact_cost=float(contact_cost),
+                )
+                chosen = choose_economic_threshold(table)
+            st.session_state.decision_result = (result, table, chosen)
+            st.session_state.decision_config = decision_config
+        except AnalysisError as exc:
+            st.error(str(exc))
+
+    saved = st.session_state.get("decision_result") if st.session_state.get("decision_config") == decision_config else None
+    if saved:
+        result, table, chosen = saved
+        st.subheader("Corte elegido únicamente con validación")
+        k1, k2, k3, k4 = st.columns(4)
+        k1.metric("Punto de corte", f"{chosen['Corte']:.2f}")
+        k2.metric("Contactos", f"{int(chosen['Contactos']):,}")
+        k3.metric("Precisión", f"{chosen['Precisión']:.1%}")
+        k4.metric("Valor en validación", f"$ {chosen['Valor']:,.0f}")
+        value_chart = alt.Chart(table).mark_line(color="#2DD4BF", strokeWidth=3).encode(
+            x=alt.X("Corte:Q", title="Punto de corte"),
+            y=alt.Y("Valor:Q", title="Valor en validación (COP)"),
+            tooltip=[alt.Tooltip("Corte:Q", format=".2f"), alt.Tooltip("Valor:Q", format=",.0f"), "Contactos:Q"],
+        ).properties(height=330)
+        st.altair_chart(value_chart, width="stretch")
+
+        test = result.predictions.loc[result.predictions["particion"] == "Prueba"].copy()
+        test_table = threshold_analysis(
+            test["clase_real"].eq("Sí").astype(int),
+            test["probabilidad"],
+            contribution=float(contribution),
+            contact_cost=float(contact_cost),
+            thresholds=np.array([float(chosen["Corte"])]),
+        )
+        test_row = test_table.iloc[0]
+        st.subheader("Auditoría única en prueba")
+        st.dataframe(
+            test_table[["Corte", "Contactos", "TP", "FP", "FN", "Precisión", "Recall", "Valor"]].style.format({
+                "Corte": "{:.2f}", "Precisión": "{:.1%}", "Recall": "{:.1%}", "Valor": "$ {:,.0f}"
+            }), width="stretch", hide_index=True,
+        )
+
+        final_model = clone(result.model)
+        y_all = history[target].eq("Sí").astype(int)
+        final_model.fit(history[features], y_all)
+        portfolio_probability = final_model.predict_proba(portfolio[features])[:, 1]
+        contacts = contact_list(
+            portfolio["id_cliente"], portfolio_probability, float(chosen["Corte"]),
+            float(contribution), float(contact_cost),
+        )
+        selected = contacts.loc[contacts["contactar"] == "Sí"]
+        st.markdown(
+            f'<div class="decision"><strong>Recomendación</strong><br>Contactar <strong>{len(selected):,}</strong> '
+            f'de {len(contacts):,} clientes. En prueba, el corte produjo {int(test_row["TP"])} aceptaciones '
+            f'y {int(test_row["FP"])} contactos sin aceptación.</div>',
+            unsafe_allow_html=True,
+        )
+        st.dataframe(selected.head(50).style.format({"probabilidad": "{:.1%}", "valor_esperado": "$ {:,.0f}", "punto_corte": "{:.2f}"}), width="stretch", hide_index=True)
+        st.download_button(
+            "Descargar lista completa de clientes",
+            contacts.to_csv(index=False).encode("utf-8-sig"),
+            "lista_clientes_contactar.csv",
+            "text/csv",
+        )
+        st.download_button(
+            "Descargar tabla de puntos de corte",
+            table.to_csv(index=False).encode("utf-8-sig"),
+            "auditoria_puntos_corte.csv",
+            "text/csv",
+        )
 
 st.divider()
 st.caption("Universidad Externado de Colombia · Preparar datos y elegir métricas son decisiones de negocio.")

@@ -28,6 +28,16 @@ sintético, introduce blancos controlados y separa perfiles y campañas para el
 ejercicio de cruce. `duration` se excluye porque solo se conoce después de la
 llamada y se reserva para estudiar fuga de datos.
 
-Los archivos de referencia con métricas y predicciones permiten continuar la
-actividad si no se puede entrenar en línea. El diccionario registra las
-modificaciones y la correspondencia con las variables UCI.
+Para las sesiones 7 y 8 se agregan:
+
+- `historial_validacion_con_fuga.csv`: histórico etiquetado con
+  `duracion_llamada` plantada como fuga temporal;
+- `cartera_clientes.csv`: 1.000 clientes sin respuesta ni duración;
+- `bosque_datos_referencia.csv`: cinco predictores trazables y partición;
+- `bosque_nodos_referencia.csv`: estructura larga de siete árboles;
+- `bosque_importancia_referencia.csv`: importancia Gini agregada;
+- `bosque_predicciones_referencia.csv`: probabilidades por árbol y promedio.
+
+La clave real de la cartera se genera únicamente en `private/`, carpeta
+ignorada por Git y excluida del contenedor público. Los archivos de referencia
+permiten continuar la actividad si no se puede entrenar en línea.

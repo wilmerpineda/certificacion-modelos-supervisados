@@ -1,0 +1,99 @@
+---
+title: "Proyecto final · Vender una solución con evidencia"
+subtitle: "Instrucciones para grupos de 3 a 4 personas"
+format:
+  html:
+    toc: true
+    css: ../assets/styles/course.css
+---
+
+## El reto
+
+Elijan un problema realista que pueda abordarse con aprendizaje supervisado. Su entrega debe convencer a una persona que toma decisiones de que la propuesta merece una prueba piloto, sin ocultar los límites de los datos.
+
+Pueden trabajar con regresión o clasificación. No se evalúa usar el algoritmo más complejo: se evalúa conectar una pregunta, evidencia válida y una acción posible.
+
+## Entregables
+
+### 1. Documento ejecutivo
+
+- PDF de máximo **cuatro páginas**, incluida la bibliografía breve;
+- lenguaje comprensible para un decisor no técnico;
+- máximo dos visualizaciones principales;
+- cifras consistentes con el anexo;
+- nombres de los integrantes y enlace al anexo.
+
+### 2. Anexo reproducible
+
+- datos o enlace autorizado;
+- diccionario de variables;
+- código Python o libro Excel;
+- archivo con resultados o predicciones;
+- README con instrucciones de reproducción.
+
+El anexo no cuenta dentro de las cuatro páginas, pero tampoco reemplaza una explicación incompleta.
+
+## Estructura obligatoria
+
+### Página 1 · Problema y decisión
+
+- organización o usuario de la solución;
+- decisión que se quiere apoyar;
+- unidad de análisis y variable respuesta;
+- momento exacto de la predicción;
+- costo o consecuencia de equivocarse.
+
+### Página 2 · Datos y evidencia
+
+- fuente, tamaño y población;
+- preparación y variables excluidas;
+- partición o validación utilizada;
+- línea base y modelo elegido;
+- tabla o visualización con la evidencia principal.
+
+### Página 3 · Propuesta accionable
+
+Para clasificación: métrica, punto de corte, volumen de casos y regla operativa.
+
+Para regresión: magnitud predicha, escenario de uso y regla que convierte la predicción en acción.
+
+Incluyan recursos necesarios, beneficio posible y responsable de ejecutar la acción.
+
+### Página 4 · Riesgos y siguiente paso
+
+- fuga de datos descartada;
+- sesgos o población no representada;
+- afirmaciones que el análisis no permite;
+- supuesto más sensible;
+- diseño de una prueba piloto o dato adicional necesario.
+
+## Rúbrica · 100 puntos
+
+| Criterio | Puntos | Evidencia esperada |
+|---|---:|---|
+| Problema, usuario y decisión | 15 | La acción y su responsable son explícitos |
+| Calidad y trazabilidad de datos | 15 | Fuente, unidad, preparación y exclusiones auditables |
+| Validación, línea base, modelo y métricas | 25 | Evaluación fuera de muestra coherente con el problema |
+| Recomendación y sustento numérico | 25 | Cifras, regla de acción y recursos conectados |
+| Límites, riesgos y siguiente paso | 10 | No confunde predicción con causalidad |
+| Claridad y cumplimiento | 10 | Documento ejecutivo de máximo cuatro páginas |
+
+## Lista de comprobación
+
+- [ ] La respuesta puede observarse y existen suficientes casos.
+- [ ] La variable respuesta no aparece disfrazada entre los predictores.
+- [ ] Las variables existirían al momento de decidir.
+- [ ] La línea base usa la misma muestra de evaluación.
+- [ ] La métrica responde al costo del error.
+- [ ] Las cifras del documento coinciden con el anexo.
+- [ ] La recomendación identifica quién hace qué y sobre quién.
+- [ ] El documento declara al menos una limitación material.
+- [ ] No se cargaron datos personales o confidenciales sin autorización.
+
+## Plantilla de conclusión
+
+> Recomendamos **[acción]** para **[población]** mediante **[modelo o regla]**. En una evaluación fuera de muestra obtuvimos **[métrica y valor]**, lo que implica **[conteo, magnitud o beneficio]** bajo **[supuesto]**. Antes de escalar, proponemos **[prueba piloto]** porque el análisis no permite concluir **[límite]**.
+
+## Criterio final
+
+Una buena entrega no vende certeza. Vende una decisión comprobable, sustentada por números reproducibles y acompañada de una forma responsable de aprender qué ocurre después.
